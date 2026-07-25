@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 4,
+  "application": {
+    "name": "Visular AI Terms / Concepts",
+    "shortName": "VisularAITerms",
+    "version": "0.4.0"
+  },
+  "browseStatuses": [
+    "active",
+    "emerging",
+    "updated"
+  ],
+  "generatedAt": "2026-07-24T19:01:15.845Z",
+  "categories": [
+    {
+      "id": "generative-ai",
+      "label": "Generative AI",
+      "order": 10,
+      "count": 0
+    },
+    {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "order": 20,
+      "count": 1
+    },
+    {
+      "id": "models-architecture",
+      "label": "Models & Architecture",
+      "order": 30,
+      "count": 0
+    },
+    {
+      "id": "data-rag",
+      "label": "Data & RAG",
+      "order": 40,
+      "count": 0
+    },
+    {
+      "id": "ai-governance-risk",
+      "label": "AI Governance & Risk",
+      "order": 50,
+      "count": 1
+    },
+    {
+      "id": "responsible-ai",
+      "label": "Responsible AI",
+      "order": 60,
+      "count": 0
+    },
+    {
+      "id": "security",
+      "label": "Security",
+      "order": 70,
+      "count": 0
+    },
+    {
+      "id": "ai-infrastructure",
+      "label": "AI Infrastructure",
+      "order": 80,
+      "count": 0
+    },
+    {
+      "id": "prompt-engineering",
+      "label": "Prompt Engineering",
+      "order": 90,
+      "count": 0
+    },
+    {
+      "id": "business-strategy",
+      "label": "Business & Strategy",
+      "order": 100,
+      "count": 2
+    }
+  ],
+  "concepts": [
+    {
+      "id": "ai-agents-agentic-workflows",
+      "title": "AI Agents and Agentic Workflows",
+      "shortTitle": "AI Agents",
+      "summary": "AI systems that pursue goals through multiple steps, use tools or data, evaluate intermediate results, and continue until a task or stopping condition is reached.",
+      "definition": "AI agents are systems that pursue a goal through multiple steps, select or call tools, interact with software or data, evaluate intermediate results, and continue until they complete a task or reach a stopping condition. Agentic workflows range from tightly scripted sequences to more autonomous systems.",
+      "simpleExplanation": "An AI agent is software that can take a goal, decide what steps are needed, use tools or data, and keep working until it finishes or needs human help.",
+      "status": "active",
+      "aliases": [
+        "AI agent",
+        "AI agents",
+        "agentic AI",
+        "agentic workflows"
+      ],
+      "keywords": [
+        "agents",
+        "agentic",
+        "workflow",
+        "tools",
+        "autonomy",
+        "orchestration"
+      ],
+      "categories": [
+        "ai-agents",
+        "business-strategy"
+      ],
+      "categoryLabels": [
+        "AI Agents",
+        "Business & Strategy"
+      ],
+      "classificationType": "Concept / operating model",
+      "lastReviewed": "2026-07-24",
+      "reviewStatus": "reviewed",
+      "contentVersion": "1.2",
+      "freshnessStatus": "current",
+      "reviewAgeDays": 0,
+      "relatedConcepts": [
+        "ai-governance-risk-management-compliance"
+      ],
+      "relationships": [
+        {
+          "conceptId": "ai-governance-risk-management-compliance",
+          "type": "governed-by"
+        }
+      ],
+      "prerequisites": [],
+      "learnNext": [
+        "ai-governance-risk-management-compliance"
+      ],
+      "replacedBy": null,
+      "created": "2026-07-24",
+      "lastUpdated": "2026-07-24",
+      "thumbnail": "./data/concepts/ai-agents-agentic-workflows/derived/infographic-thumbnail.jpg",
+      "metadata": "./data/concepts/ai-agents-agentic-workflows/concept.json"
+    },
+    {
+      "id": "ai-governance-risk-management-compliance",
+      "title": "AI Governance, Risk Management, and Compliance",
+      "shortTitle": "AI Governance",
+      "summary": "Policies, responsibilities, controls, risk assessment, documentation, and monitoring used to keep AI aligned with organizational, legal, security, and risk requirements.",
+      "definition": "AI governance is the system of policies, roles, decision rights, risk assessments, documentation, controls, and monitoring used to ensure that AI is developed and used consistently with organizational objectives, legal duties, security requirements, and acceptable risk.",
+      "simpleExplanation": "AI governance is the set of rules, responsibilities, approvals, controls, and monitoring an organization uses to make sure AI is used safely and responsibly.",
+      "status": "active",
+      "aliases": [
+        "AI GRC",
+        "AI risk management",
+        "AI compliance",
+        "AI governance and compliance"
+      ],
+      "keywords": [
+        "governance",
+        "risk",
+        "compliance",
+        "controls",
+        "policy",
+        "GRC"
+      ],
+      "categories": [
+        "ai-governance-risk",
+        "business-strategy"
+      ],
+      "categoryLabels": [
+        "AI Governance & Risk",
+        "Business & Strategy"
+      ],
+      "classificationType": "Governance / control system",
+      "lastReviewed": "2026-07-24",
+      "reviewStatus": "reviewed",
+      "contentVersion": "1.2",
+      "freshnessStatus": "current",
+      "reviewAgeDays": 0,
+      "relatedConcepts": [
+        "ai-agents-agentic-workflows"
+      ],
+      "relationships": [
+        {
+          "conceptId": "ai-agents-agentic-workflows",
+          "type": "governs"
+        }
+      ],
+      "prerequisites": [],
+      "learnNext": [],
+      "replacedBy": null,
+      "created": "2026-07-24",
+      "lastUpdated": "2026-07-24",
+      "thumbnail": "./data/concepts/ai-governance-risk-management-compliance/derived/infographic-thumbnail.jpg",
+      "metadata": "./data/concepts/ai-governance-risk-management-compliance/concept.json"
+    }
+  ]
+}

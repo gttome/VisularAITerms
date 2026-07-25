@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 4,
+  "id": "ai-agents-agentic-workflows",
+  "title": "AI Agents and Agentic Workflows",
+  "shortTitle": "AI Agents",
+  "summary": "AI systems that pursue goals through multiple steps, use tools or data, evaluate intermediate results, and continue until a task or stopping condition is reached.",
+  "status": "active",
+  "definition": "AI agents are systems that pursue a goal through multiple steps, select or call tools, interact with software or data, evaluate intermediate results, and continue until they complete a task or reach a stopping condition. Agentic workflows range from tightly scripted sequences to more autonomous systems.",
+  "audiences": {
+    "seniorLeaders": "Agents change investment decisions from buying a conversational tool to redesigning processes, permissions, controls, and accountability. Leaders must decide which workflows may be delegated, what approvals remain human, and how agent performance and cost will be measured.",
+    "knowledgeWorkers": "Knowledge workers increasingly supervise, brief, review, and correct AI systems that can perform longer tasks across documents, applications, and communication channels. The differentiating skill becomes task framing, judgment, exception handling, and quality assurance."
+  },
+  "example": "A finance agent gathers approved source data, updates a forecast workbook, prepares variance commentary, flags anomalies, and routes the package to a controller for approval rather than sending it automatically.",
+  "opportunities": [
+    "End-to-end cycle-time reduction",
+    "Scalable execution of repeatable work",
+    "Consistent process adherence",
+    "Broader access to specialized expertise",
+    "Faster research, analysis, coding, and operations"
+  ],
+  "risks": [
+    "Excessive permissions",
+    "Hidden compounding errors",
+    "Prompt injection",
+    "Weak auditability",
+    "Runaway cost",
+    "Inappropriate autonomous actions",
+    "Unclear responsibility when the system causes harm"
+  ],
+  "misconception": "An agent is not simply a chatbot with a new label. The defining difference is persistent goal-directed execution through tools, state, and multiple steps.",
+  "monitor": "Task-completion reliability, approval-gate design, agent activity logging, cost per successful task, standardized interoperability, and evidence that agents produce measurable business outcomes rather than impressive demonstrations.",
+  "classification": {
+    "type": "Concept / operating model",
+    "horizon": [
+      "current",
+      "emerging"
+    ],
+    "score": 96,
+    "confidence": "high"
+  },
+  "lastReviewed": "2026-07-24",
+  "keywords": [
+    "agents",
+    "agentic",
+    "workflow",
+    "tools",
+    "autonomy",
+    "orchestration"
+  ],
+  "accessibility": {
+    "status": "remediation-needed",
+    "notes": "The supplied MP4 has no embedded subtitle stream and the supplied PDF is untagged. Iteration 1 exposes accessible page text from the DOCX and records the media remediation requirement."
+  },
+  "media": [
+    {
+      "id": "infographic",
+      "type": "image",
+      "label": "Infographic",
+      "src": "./media/infographic.png",
+      "webSrc": "./derived/infographic-1600.jpg",
+      "thumbnail": "./derived/infographic-thumbnail.jpg",
+      "mime": "image/png",
+      "width": 2752,
+      "height": 1536,
+      "alt": "Visual overview of AI agents, goal-directed execution, process redesign, worker supervision, risks, and monitoring.",
+      "displayLabel": "Infographic",
+      "accessibility": {
+        "status": "complete",
+        "alt": "Visual overview of AI agents, goal-directed execution, process redesign, worker supervision, risks, and monitoring."
+      },
+      "sizeBytes": 5048623
+    },
+    {
+      "id": "video",
+      "type": "video",
+      "label": "Video",
+      "src": "./media/explainer-video.mp4",
+      "mime": "video/mp4",
+      "poster": "./derived/video-poster.jpg",
+      "durationSeconds": 77.02,
+      "width": 720,
+      "height": 1280,
+      "displayLabel": "Watch video",
+      "accessibility": {
+        "status": "needs-remediation",
+        "captions": null,
+        "transcript": null
+      },
+      "sizeBytes": 9900220
+    },
+    {
+      "id": "audio",
+      "type": "audio",
+      "label": "Audio",
+      "src": "./media/audio-overview.m4a",
+      "mime": "audio/mp4",
+      "durationSeconds": 107.86,
+      "displayLabel": "Listen",
+      "accessibility": {
+        "status": "needs-remediation",
+        "transcript": null
+      },
+      "sizeBytes": 3472041
+    },
+    {
+      "id": "slides",
+      "type": "pdf",
+      "label": "Slides / PDF",
+      "src": "./media/presentation.pdf",
+      "mime": "application/pdf",
+      "pages": 10,
+      "displayLabel": "Presentation",
+      "accessibility": {
+        "status": "alternative-provided",
+        "sourceTagged": false,
+        "accessibleAlternative": "./derived/briefing.html",
+        "alternativeLabel": "The source PDF is untagged. Use the accessible concept briefing for equivalent concept-level text."
+      },
+      "sizeBytes": 10518578
+    },
+    {
+      "id": "briefing",
+      "type": "docx",
+      "label": "Read",
+      "src": "./media/briefing.docx",
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "webVersion": "./derived/briefing.html",
+      "displayLabel": "Read",
+      "accessibility": {
+        "status": "complete",
+        "accessibleAlternative": "./derived/briefing.html"
+      },
+      "sizeBytes": 15405
+    }
+  ],
+  "contentVersion": "1.2",
+  "reviewStatus": "reviewed",
+  "aliases": [
+    "AI agent",
+    "AI agents",
+    "agentic AI",
+    "agentic workflows"
+  ],
+  "categories": [
+    "ai-agents",
+    "business-strategy"
+  ],
+  "relatedConcepts": [
+    "ai-governance-risk-management-compliance"
+  ],
+  "created": "2026-07-24",
+  "lastUpdated": "2026-07-24",
+  "review": {
+    "status": "reviewed",
+    "reviewedDate": "2026-07-24",
+    "nextReviewDate": "2026-10-22"
+  },
+  "simpleExplanation": "An AI agent is software that can take a goal, decide what steps are needed, use tools or data, and keep working until it finishes or needs human help.",
+  "executiveTakeaway": "AI agents can automate multi-step work, but leaders must redesign permissions, approval points, controls, accountability, and performance measures around that autonomy.",
+  "knowledgeWorkerTakeaway": "Work can shift from completing every step yourself to defining the task, supervising the agent, handling exceptions, and reviewing the result.",
+  "keyTakeaway": "Agents are different from ordinary chatbots because they can persist across multiple steps and use tools to take actions toward a goal.",
+  "primaryRisk": "Excessive permissions or weak oversight can allow a small error, bad instruction, or malicious input to compound into consequential actions.",
+  "examples": [
+    {
+      "title": "Finance forecasting agent",
+      "audience": "all",
+      "summary": "A finance agent gathers approved source data, updates a forecast workbook, prepares variance commentary, flags anomalies, and routes the package to a controller for approval rather than sending it automatically."
+    }
+  ],
+  "businessImpact": {
+    "potentialValue": "Reduce cycle time and scale repeatable multi-step work while extending access to specialized capabilities.",
+    "operationalImpact": "Workflows must define tool permissions, approval gates, exception handling, logging, and measures of successful task completion.",
+    "primaryRisk": "Excessive permissions or weak oversight can allow a small error, bad instruction, or malicious input to compound into consequential actions.",
+    "leadershipQuestion": "Which decisions and actions may the agent perform independently, and which must still require human approval?"
+  },
+  "questionsToAsk": [
+    {
+      "audience": "senior-leader",
+      "question": "What actions can this agent take without human approval?"
+    },
+    {
+      "audience": "senior-leader",
+      "question": "What data, systems, and permissions can the agent access?"
+    },
+    {
+      "audience": "all",
+      "question": "How will failures, unexpected actions, and escalating costs be detected?"
+    },
+    {
+      "audience": "knowledge-worker",
+      "question": "Which parts of the task should I delegate, and which results still require my judgment?"
+    }
+  ],
+  "relationships": [
+    {
+      "conceptId": "ai-governance-risk-management-compliance",
+      "type": "governed-by"
+    }
+  ],
+  "prerequisites": [],
+  "learnNext": [
+    "ai-governance-risk-management-compliance"
+  ],
+  "commonlyConfusedWith": [],
+  "comparisons": [],
+  "sources": []
+}

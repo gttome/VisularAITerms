@@ -1,0 +1,18 @@
+Visular AI Terms / Concepts — GitHub Repository Upload Package
+Version: v0.4.0 (Iteration 4 planned, not yet implemented)
+
+This package contains the actual repository source files in their correct
+folders. The generated dist/ directory is intentionally NOT included.
+
+Why dist/ is omitted:
+- GitHub Actions builds dist/ from the repository source.
+- Keeping dist/ out of Git avoids duplicating the multimedia assets in Git history.
+- The complete Windows handoff/release ZIPs still include prebuilt dist/ for
+  one-click local use with start-server.bat.
+
+Upload the CONTENTS of this folder to the root of the VisularAITerms repository.
+The separate RepoStructure ZIP can be used first if you prefer to create the
+folder hierarchy in smaller steps.
+
+Iteration 4 is documented in:
+docs/iterations/ITERATION-4.md

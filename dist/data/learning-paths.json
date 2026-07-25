@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-24T19:01:15.846Z",
+  "learningPaths": [
+    {
+      "schemaVersion": 1,
+      "id": "ai-agents-and-governance",
+      "title": "AI Agents and Governance",
+      "description": "Understand how goal-directed AI agents work, then learn the governance controls needed to use them responsibly at organizational scale.",
+      "audience": "all",
+      "concepts": [
+        "ai-agents-agentic-workflows",
+        "ai-governance-risk-management-compliance"
+      ]
+    }
+  ]
+}

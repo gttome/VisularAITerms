@@ -1,0 +1,37 @@
+{
+  "application": {
+    "name": "Visular AI Terms / Concepts",
+    "shortName": "VisularAITerms",
+    "version": "0.4.0"
+  },
+  "contentFreshness": {
+    "reviewRecommendedAfterDays": 90,
+    "staleAfterDays": 180
+  },
+  "catalog": {
+    "browseStatuses": [
+      "active",
+      "emerging",
+      "updated"
+    ],
+    "defaultSort": "title"
+  },
+  "mediaStorage": {
+    "baseUrl": "",
+    "pagesWarningThresholdBytes": 786432000
+  },
+  "learning": {
+    "defaultConceptView": "quick",
+    "relationshipTypes": [
+      "foundation",
+      "prerequisite",
+      "related",
+      "enables",
+      "uses",
+      "governs",
+      "governed-by",
+      "contrasts-with",
+      "next-concept"
+    ]
+  }
+}

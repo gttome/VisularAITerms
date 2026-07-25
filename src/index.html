@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Visular AI Terms / Concepts - multimedia AI reference for senior leaders and knowledge workers.">
+  <title>Visular AI Terms / Concepts</title>
+  <link rel="icon" href="./assets/visular-ai-terms-logo.webp" type="image/webp">
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <script type="module" src="./js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="app-shell">
+    <header class="app-header">
+      <a class="brand brand--logo" href="./" aria-label="Visular AI Terms / Concepts home"><img src="./assets/visular-ai-terms-logo.webp" width="1400" height="466" alt="Visular AI Terms / Concepts"></a>
+      <span class="version-badge" aria-label="Application version 0.4.0">v0.4.0</span>
+    </header>
+
+    <div class="app-layout">
+      <aside class="catalog-panel" aria-label="AI concepts">
+        <div class="catalog-panel__top">
+          <nav class="explore-nav" aria-label="Explore Visular AI Terms">
+            <button id="show-concepts" class="explore-nav__button" type="button" aria-pressed="true">Concepts</button>
+            <button id="show-learning-paths" class="explore-nav__button" type="button" aria-pressed="false">Learning Paths</button>
+            <button id="show-glossary" class="explore-nav__button" type="button" aria-pressed="false">Glossary</button>
+          </nav>
+          <label for="concept-search">Find a concept</label>
+          <div class="search-row"><input id="concept-search" type="search" placeholder="Search AI terms, acronyms, or topics" autocomplete="off" aria-describedby="catalog-count"><button id="clear-search" class="clear-search" type="button" hidden>Clear</button></div>
+          <p id="catalog-count" class="muted" aria-live="polite"></p>
+          <div class="catalog-filter-block"><p class="filter-label">Browse by topic</p><nav id="category-list" class="category-list" aria-label="Concept categories"></nav></div>
+          <div class="catalog-filter-block"><p class="filter-label">Browse A–Z</p><nav id="alpha-nav" class="alpha-nav" aria-label="Alphabetical concept navigation"></nav></div>
+          <div id="active-filters" class="active-filters" aria-label="Active catalog filters" hidden></div>
+        </div>
+        <nav id="concept-list" class="concept-list" aria-label="Concept catalog"></nav>
+      </aside>
+
+      <main id="main-content" class="main-content" tabindex="-1">
+        <section id="welcome-view" class="welcome-view">
+          <img class="welcome-logo" src="./assets/visular-ai-terms-logo.webp" width="1400" height="466" alt="" aria-hidden="true">
+          <p class="eyebrow">Executive multimedia reference</p>
+          <h1>Understand important AI concepts quickly.</h1>
+          <p class="lede">Search or browse a concept, read a concise explanation, then choose the depth and learning format that works best for you.</p>
+          <div id="welcome-cards" class="welcome-cards"></div>
+          <p id="welcome-card-note" class="muted welcome-card-note" hidden></p>
+        </section>
+
+        <section id="learning-paths-view" class="collection-view" hidden>
+          <p class="eyebrow">Guided learning</p>
+          <h1>Learning Paths</h1>
+          <p class="lede">Follow a short curated sequence when the order of concepts matters.</p>
+          <div id="learning-paths-list" class="learning-paths-list"></div>
+          <div id="learning-path-detail" class="learning-path-detail" hidden></div>
+        </section>
+
+        <section id="glossary-view" class="collection-view" hidden>
+          <p class="eyebrow">Fast reference</p>
+          <h1>Glossary</h1>
+          <p class="lede">Scan concise plain-language meanings, acronyms, and alternate names.</p>
+          <div id="glossary-list" class="glossary-list"></div>
+        </section>
+
+        <article id="concept-view" class="concept-view" hidden>
+          <button id="back-to-catalog" class="text-button mobile-only" type="button">← All concepts</button>
+          <aside id="concept-status-banner" class="concept-status" hidden></aside>
+          <header class="concept-header">
+            <p class="eyebrow" id="concept-classification"></p>
+            <div class="concept-title-row"><h1 id="concept-title"></h1><div class="concept-actions"><button id="copy-link" class="small-button" type="button">Copy link</button><button id="copy-definition" class="small-button" type="button">Copy definition</button><button id="print-concept" class="small-button" type="button">Print</button></div></div>
+            <div id="concept-meta" class="meta-row"></div>
+            <div class="view-mode" role="tablist" aria-label="Concept detail level"><button id="quick-view-button" class="view-mode__button" type="button" role="tab" aria-selected="true" aria-controls="quick-view-panel">Quick View</button><button id="deep-view-button" class="view-mode__button" type="button" role="tab" aria-selected="false" aria-controls="deep-view-panel">Deep Dive</button></div>
+          </header>
+
+          <section id="quick-view-panel" class="quick-view-panel" role="tabpanel" aria-labelledby="quick-view-button">
+            <div class="quick-explanation"><p class="eyebrow">Explain it simply</p><p id="simple-explanation" class="quick-explanation__text"></p></div>
+            <div class="takeaway-grid"><div class="takeaway-card"><p class="audience-label">Senior leaders</p><p id="executive-takeaway"></p></div><div class="takeaway-card"><p class="audience-label">Knowledge workers</p><p id="worker-takeaway"></p></div></div>
+            <div class="quick-facts"><div class="quick-fact"><span>Key takeaway</span><p id="key-takeaway"></p></div><div class="quick-fact quick-fact--risk"><span>Primary risk</span><p id="primary-risk"></p></div></div>
+            <section class="learn-choice" aria-labelledby="learn-choice-title"><div class="section-heading section-heading--compact"><div><p class="eyebrow">Choose by available time</p><h2 id="learn-choice-title">How do you want to learn?</h2></div></div><div id="learning-choices" class="learning-choices"></div></section>
+          </section>
+
+          <div id="deep-view-panel" role="tabpanel" aria-labelledby="deep-view-button" hidden>
+            <div class="definition-block"><h2>What it means</h2><p id="concept-definition" class="lede"></p></div>
+
+            <section class="audience-section" aria-labelledby="why-it-matters-title">
+              <div class="section-heading section-heading--compact"><div><p class="eyebrow">Audience perspective</p><h2 id="why-it-matters-title">Why it matters</h2></div></div>
+              <div class="audience-grid"><div class="info-card audience-card audience-card--leader"><p class="audience-label">Senior leaders</p><p id="leaders-text"></p></div><div class="info-card audience-card audience-card--worker"><p class="audience-label">Knowledge workers</p><p id="workers-text"></p></div></div>
+            </section>
+
+            <section id="business-impact-section" class="business-impact-section" aria-labelledby="business-impact-title" hidden><div class="section-heading section-heading--compact"><div><p class="eyebrow">Decision context</p><h2 id="business-impact-title">Business impact</h2></div></div><div id="business-impact" class="business-impact-grid"></div></section>
+
+            <section class="learning-section">
+              <div class="section-heading"><div><p class="eyebrow">Learning resources</p><h2>Choose a format</h2></div><a id="open-original" class="secondary-link" target="_blank" rel="noopener" hidden>Open original</a></div>
+              <div id="media-selector" class="media-selector" role="tablist" aria-label="Available learning formats"></div>
+              <div id="media-status" class="status-message" aria-live="polite"></div>
+              <div id="media-viewer" class="media-viewer" role="tabpanel" tabindex="0" aria-label="Selected learning resource"></div>
+            </section>
+
+            <section id="examples-section" class="detail-section" aria-labelledby="examples-title"><div class="section-heading section-heading--compact"><div><p class="eyebrow">In practice</p><h2 id="examples-title">Examples</h2></div></div><div id="examples-list" class="example-list"></div></section>
+
+            <section class="detail-grid" aria-label="Concept details">
+              <div class="info-card"><h2>Common misconception</h2><p id="misconception-text"></p></div>
+              <div class="info-card"><h2>Opportunities</h2><ul id="opportunities-list"></ul></div>
+              <div class="info-card"><h2>Risks and limitations</h2><ul id="risks-list"></ul></div>
+              <div id="questions-card" class="info-card"><h2>Questions to ask</h2><div id="questions-list"></div></div>
+            </section>
+            <section class="monitor-card"><p class="eyebrow">What to monitor next</p><p id="monitor-text"></p></section>
+
+            <section id="connections-section" class="connections-section" aria-labelledby="connections-title" hidden><div class="section-heading section-heading--compact"><div><p class="eyebrow">Concept map</p><h2 id="connections-title">How this connects</h2></div></div><div id="connections-list" class="connections-list"></div></section>
+            <section id="prerequisites-section" class="related-section" aria-labelledby="prerequisites-title" hidden><div class="section-heading section-heading--compact"><div><p class="eyebrow">Learn this first</p><h2 id="prerequisites-title">Helpful foundations</h2></div></div><div id="prerequisites-list" class="related-concepts"></div></section>
+            <section id="learn-next-section" class="related-section" aria-labelledby="learn-next-title" hidden><div class="section-heading section-heading--compact"><div><p class="eyebrow">Continue learning</p><h2 id="learn-next-title">Learn next</h2></div></div><div id="learn-next-list" class="related-concepts"></div></section>
+            <section id="confused-section" class="detail-section" aria-labelledby="confused-title" hidden><div class="section-heading section-heading--compact"><div><p class="eyebrow">Clarify the terminology</p><h2 id="confused-title">Commonly confused with</h2></div></div><div id="confused-list" class="related-concepts"></div></section>
+            <section id="comparisons-section" class="detail-section" aria-labelledby="comparisons-title" hidden><div class="section-heading section-heading--compact"><div><p class="eyebrow">Compare</p><h2 id="comparisons-title">Concept comparison</h2></div></div><div id="comparisons-list"></div></section>
+            <section id="related-section" class="related-section" aria-labelledby="related-title" hidden><div class="section-heading section-heading--compact"><div><p class="eyebrow">Related</p><h2 id="related-title">Related concepts</h2></div></div><div id="related-concepts" class="related-concepts"></div></section>
+            <section id="sources-section" class="sources-section" aria-labelledby="sources-title" hidden><div class="section-heading section-heading--compact"><div><p class="eyebrow">Evidence</p><h2 id="sources-title">Sources</h2></div></div><ol id="sources-list" class="sources-list"></ol></section>
+          </div>
+        </article>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

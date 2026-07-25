@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "categories": [
+    {"id": "generative-ai", "label": "Generative AI", "order": 10},
+    {"id": "ai-agents", "label": "AI Agents", "order": 20},
+    {"id": "models-architecture", "label": "Models & Architecture", "order": 30},
+    {"id": "data-rag", "label": "Data & RAG", "order": 40},
+    {"id": "ai-governance-risk", "label": "AI Governance & Risk", "order": 50},
+    {"id": "responsible-ai", "label": "Responsible AI", "order": 60},
+    {"id": "security", "label": "Security", "order": 70},
+    {"id": "ai-infrastructure", "label": "AI Infrastructure", "order": 80},
+    {"id": "prompt-engineering", "label": "Prompt Engineering", "order": 90},
+    {"id": "business-strategy", "label": "Business & Strategy", "order": 100}
+  ]
+}

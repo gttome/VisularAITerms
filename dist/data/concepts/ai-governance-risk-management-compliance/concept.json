@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 4,
+  "id": "ai-governance-risk-management-compliance",
+  "title": "AI Governance, Risk Management, and Compliance",
+  "shortTitle": "AI Governance",
+  "summary": "Policies, responsibilities, controls, risk assessment, documentation, and monitoring used to keep AI aligned with organizational, legal, security, and risk requirements.",
+  "status": "active",
+  "definition": "AI governance is the system of policies, roles, decision rights, risk assessments, documentation, controls, and monitoring used to ensure that AI is developed and used consistently with organizational objectives, legal duties, security requirements, and acceptable risk.",
+  "audiences": {
+    "seniorLeaders": "Governance determines who may approve AI use cases, how risk tiers are assigned, what evidence is required before deployment, and who remains accountable. It is necessary for scaling AI beyond isolated experiments without creating uncontrolled legal, operational, or reputational exposure.",
+    "knowledgeWorkers": "Employees need clear rules for approved tools, confidential data, human review, disclosure, recordkeeping, and escalation. Good governance should enable safe use rather than reduce the policy to a blanket prohibition."
+  },
+  "example": "An organization classifies use cases as low, medium, or high risk. A low-risk drafting assistant receives streamlined approval, while a customer-credit recommendation requires validation, bias testing, legal review, monitoring, and documented human decision authority.",
+  "opportunities": [
+    "Faster repeatable approvals",
+    "Clearer accountability",
+    "Better vendor management",
+    "Reduced duplication",
+    "Stronger audit readiness",
+    "Greater confidence among customers, regulators, and employees"
+  ],
+  "risks": [
+    "Governance theater",
+    "Excessive bureaucracy",
+    "Policies disconnected from technical reality",
+    "Unclear ownership",
+    "Incomplete inventories",
+    "Controls that exist on paper but are not tested in production"
+  ],
+  "misconception": "Governance is not the same as slowing innovation. A mature control system can accelerate lower-risk deployments by making requirements predictable.",
+  "monitor": "Revisions to NIST guidance, adoption of ISO/IEC 42001, sector-specific rules, model and use-case inventories, AI incident reporting, and whether governance metrics measure outcomes rather than policy completion.",
+  "classification": {
+    "type": "Governance / control system",
+    "horizon": [
+      "current"
+    ],
+    "score": 94,
+    "confidence": "high"
+  },
+  "lastReviewed": "2026-07-24",
+  "keywords": [
+    "governance",
+    "risk",
+    "compliance",
+    "controls",
+    "policy",
+    "GRC"
+  ],
+  "accessibility": {
+    "status": "remediation-needed",
+    "notes": "The supplied MP4 has no embedded subtitle stream and the supplied PDF is untagged. Iteration 1 exposes accessible page text from the DOCX and records the media remediation requirement."
+  },
+  "media": [
+    {
+      "id": "infographic",
+      "type": "image",
+      "label": "Infographic",
+      "src": "./media/infographic.png",
+      "webSrc": "./derived/infographic-1600.jpg",
+      "thumbnail": "./derived/infographic-thumbnail.jpg",
+      "mime": "image/png",
+      "width": 2752,
+      "height": 1536,
+      "alt": "Visual overview of AI governance, risk management, compliance, organizational controls, opportunities, risks, and monitoring.",
+      "displayLabel": "Infographic",
+      "accessibility": {
+        "status": "complete",
+        "alt": "Visual overview of AI governance, risk management, compliance, organizational controls, opportunities, risks, and monitoring."
+      },
+      "sizeBytes": 4994172
+    },
+    {
+      "id": "video",
+      "type": "video",
+      "label": "Video",
+      "src": "./media/explainer-video.mp4",
+      "mime": "video/mp4",
+      "poster": "./derived/video-poster.jpg",
+      "durationSeconds": 349.62,
+      "width": 1280,
+      "height": 720,
+      "displayLabel": "Watch video",
+      "accessibility": {
+        "status": "needs-remediation",
+        "captions": null,
+        "transcript": null
+      },
+      "sizeBytes": 25829539
+    },
+    {
+      "id": "audio",
+      "type": "audio",
+      "label": "Audio",
+      "src": "./media/audio-overview.m4a",
+      "mime": "audio/mp4",
+      "durationSeconds": 118.61,
+      "displayLabel": "Listen",
+      "accessibility": {
+        "status": "needs-remediation",
+        "transcript": null
+      },
+      "sizeBytes": 3818035
+    },
+    {
+      "id": "slides",
+      "type": "pdf",
+      "label": "Slides / PDF",
+      "src": "./media/presentation.pdf",
+      "mime": "application/pdf",
+      "pages": 9,
+      "displayLabel": "Presentation",
+      "accessibility": {
+        "status": "alternative-provided",
+        "sourceTagged": false,
+        "accessibleAlternative": "./derived/briefing.html",
+        "alternativeLabel": "The source PDF is untagged. Use the accessible concept briefing for equivalent concept-level text."
+      },
+      "sizeBytes": 8929018
+    },
+    {
+      "id": "briefing",
+      "type": "docx",
+      "label": "Read",
+      "src": "./media/briefing.docx",
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "webVersion": "./derived/briefing.html",
+      "displayLabel": "Read",
+      "accessibility": {
+        "status": "complete",
+        "accessibleAlternative": "./derived/briefing.html"
+      },
+      "sizeBytes": 16374
+    }
+  ],
+  "contentVersion": "1.2",
+  "reviewStatus": "reviewed",
+  "aliases": [
+    "AI GRC",
+    "AI risk management",
+    "AI compliance",
+    "AI governance and compliance"
+  ],
+  "categories": [
+    "ai-governance-risk",
+    "business-strategy"
+  ],
+  "relatedConcepts": [
+    "ai-agents-agentic-workflows"
+  ],
+  "created": "2026-07-24",
+  "lastUpdated": "2026-07-24",
+  "review": {
+    "status": "reviewed",
+    "reviewedDate": "2026-07-24",
+    "nextReviewDate": "2026-10-22"
+  },
+  "simpleExplanation": "AI governance is the set of rules, responsibilities, approvals, controls, and monitoring an organization uses to make sure AI is used safely and responsibly.",
+  "executiveTakeaway": "Good AI governance makes accountability and risk requirements predictable, allowing lower-risk uses to move faster while applying stronger controls where consequences are higher.",
+  "knowledgeWorkerTakeaway": "Governance should tell you which AI tools and data uses are allowed, what needs human review, what must be documented, and when to escalate a concern.",
+  "keyTakeaway": "AI governance is an operating system for responsible AI decisions, not simply a collection of policies or a mechanism for slowing adoption.",
+  "primaryRisk": "Governance can fail when controls exist only on paper, responsibilities are unclear, or policies do not match how AI systems actually operate.",
+  "examples": [
+    {
+      "title": "Risk-tiered AI approval",
+      "audience": "all",
+      "summary": "An organization classifies use cases as low, medium, or high risk. A low-risk drafting assistant receives streamlined approval, while a customer-credit recommendation requires validation, bias testing, legal review, monitoring, and documented human decision authority."
+    }
+  ],
+  "businessImpact": {
+    "potentialValue": "Create repeatable approvals, clearer accountability, stronger vendor oversight, and better audit readiness while enabling safer AI scaling.",
+    "operationalImpact": "Organizations need inventories, risk tiers, decision rights, evidence requirements, monitoring, escalation paths, and ownership for AI use cases.",
+    "primaryRisk": "Governance can fail when controls exist only on paper, responsibilities are unclear, or policies do not match how AI systems actually operate.",
+    "leadershipQuestion": "Are our AI controls proportionate to actual risk and tested in practice, or do they exist primarily as policy documents?"
+  },
+  "questionsToAsk": [
+    {
+      "audience": "senior-leader",
+      "question": "Who has authority to approve, restrict, or stop an AI use case?"
+    },
+    {
+      "audience": "senior-leader",
+      "question": "How are low-, medium-, and high-risk AI uses distinguished?"
+    },
+    {
+      "audience": "knowledge-worker",
+      "question": "Which tools and data are approved for my work, and what still requires human review?"
+    },
+    {
+      "audience": "all",
+      "question": "How do we know the controls are working in production rather than only existing on paper?"
+    }
+  ],
+  "relationships": [
+    {
+      "conceptId": "ai-agents-agentic-workflows",
+      "type": "governs"
+    }
+  ],
+  "prerequisites": [],
+  "learnNext": [],
+  "commonlyConfusedWith": [],
+  "comparisons": [],
+  "sources": []
+}

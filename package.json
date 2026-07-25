@@ -1,0 +1,26 @@
+{
+  "name": "visular-ai-terms",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "description": "Visular AI Terms / Concepts - Iteration 3",
+  "scripts": {
+    "concept:new": "node scripts/new-concept.mjs",
+    "concept:import": "node scripts/import-concept.mjs",
+    "content:prepare": "node scripts/prepare-content.mjs",
+    "content:publish": "node scripts/publish-content.mjs",
+    "validate": "node scripts/validate-content.mjs",
+    "catalog": "node scripts/generate-catalog.mjs",
+    "report": "node scripts/report-content.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/unit/*.test.mjs",
+    "check": "npm run validate && npm run a11y && npm run ui && npm run test && npm run build && npm run smoke",
+    "a11y": "node scripts/a11y-static.mjs",
+    "smoke": "node scripts/smoke-test.mjs",
+    "ui": "node scripts/ui-static.mjs",
+    "paths": "node scripts/generate-learning-paths.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,1299 @@
+```text
+You are a senior software architect, product designer, front-end engineer, information architect, and AI-assisted development strategist.
+
+Your task is to produce a professional, implementation-ready software development plan for a web application called:
+
+Visual AI Terms and Concepts
+
+The plan must be complete enough that Iteration 0 can begin immediately after the plan is approved.
+
+## Objective
+
+Design a simple, maintainable, mobile-first multimedia reference application that helps:
+
+- senior leaders; and
+- knowledge workers
+
+quickly understand a frequently changing collection of artificial-intelligence terms and concepts.
+
+The application will be hosted on GitHub Pages and should use an appropriate modern static-web architecture based primarily on HTML5, CSS, JavaScript, JSON, and carefully justified client-side libraries where they materially improve the application.
+
+This is a planning and architecture task, not merely a brainstorming exercise. Make the important design decisions needed to move into development.
+
+---
+
+# Source Material
+
+An attached file named `example data.zip` contains the initial content for the application.
+
+Treat the uploaded ZIP as a primary design input.
+
+Inspect its actual directory structure, filenames, file types, and representative content before designing the architecture.
+
+The current sample contains two AI concepts:
+
+- AI agents and agentic workflows
+- AI governance risk management and compliance
+
+Each sample concept currently contains five multimedia assets:
+
+- DOCX
+- M4A audio
+- MP4 video
+- PDF
+- PNG image
+
+Do not assume that filenames, folder names, or media combinations will always remain identical in the future.
+
+The system must be extensible enough to support a changing number of terms and concepts and reasonable changes in available media without requiring application-code changes for normal content updates.
+
+Do not invent contents of supplied files that you have not actually inspected.
+
+---
+
+# Use My Existing ChatGPT Work as Design Context
+
+Use the information already available about me in ChatGPT as an additional source of design, planning, and workflow context.
+
+When the environment provides access, review relevant:
+
+- previous ChatGPT conversations;
+- conversation history and remembered preferences;
+- prior software-development and AI projects;
+- documents, spreadsheets, presentations, PDFs, images, infographics, prompts, research reports, and other artifacts I have created or uploaded;
+- previous planning documents, specifications, development workflows, rubrics, templates, and project structures;
+- examples of outputs I accepted, rejected, refined, or repeatedly asked to change.
+
+Use this material for two purposes.
+
+## 1. Understand My Preferences
+
+Infer useful patterns about how I prefer information, applications, documentation, and projects to be designed.
+
+Examples may include preferences concerning:
+
+- simplicity versus complexity;
+- visual design;
+- information density;
+- navigation;
+- executive versus technical presentation;
+- document structure;
+- tables, diagrams, infographics, and other visual explanations;
+- level of technical detail;
+- maintainability;
+- modularity;
+- iterative development;
+- research depth;
+- evidence and citations;
+- how I work with ChatGPT and coding agents;
+- what I have previously considered useful or unnecessarily complicated.
+
+Do not blindly reproduce previous designs.
+
+Treat prior work as evidence of preferences and working style. Apply those preferences only when they improve this application and remain consistent with current usability, accessibility, engineering, and architectural best practices.
+
+When a previous preference conflicts with a stronger requirement for this project, explain the tradeoff and recommend the better solution.
+
+## 2. Improve the Planning and Development Process
+
+Use relevant prior projects and artifacts as research inputs when determining the best planning methodology and documentation package for Visual AI Terms and Concepts.
+
+Look for evidence about:
+
+- planning approaches that have worked well for me;
+- documentation formats I find useful;
+- specifications that helped ChatGPT or coding agents perform reliably;
+- previous architecture or design documents that could be adapted;
+- effective ways I have organized complex research or development projects;
+- recurring problems caused by insufficient specifications or excessive documentation;
+- useful templates, checklists, rubrics, acceptance criteria, or iteration structures;
+- approaches that make it easier for me to review, understand, and approve development work.
+
+Combine these observations with current external research on:
+
+- software engineering;
+- AI-assisted development;
+- GPT-5.6 Sol and Codex workflows;
+- GitHub-based development;
+- front-end application architecture;
+- static-site development;
+- relevant industry practices.
+
+The goal is not to impose a generic software-development methodology.
+
+Determine the planning process and documentation set that are best suited to:
+
+1. this application;
+2. its expected rate of content change;
+3. GPT-5.6 Sol/Codex-assisted development;
+4. GitHub Pages deployment;
+5. long-term maintainability; and
+6. the way I prefer to understand, review, and manage projects.
+
+## Evidence Discipline for Personal Context
+
+Do not claim to have reviewed conversations, files, memories, or artifacts that are not actually accessible.
+
+Use all relevant context that the current ChatGPT environment makes available, but recognize that access to prior conversations or artifacts may be incomplete.
+
+Distinguish between:
+
+- preferences clearly demonstrated by prior work;
+- patterns reasonably inferred from multiple examples;
+- assumptions made specifically for this project.
+
+Do not expose private chain-of-thought or unnecessary personal information in the final plan.
+
+Summarize only the user preferences and prior-project lessons that materially affect the application's design, planning process, development workflow, or documentation.
+
+---
+
+# Product Goal
+
+Create an application in which a user can:
+
+1. Find or browse an AI term or concept.
+2. Quickly understand what the term means.
+3. Access all available educational media associated with that concept.
+4. Move easily between concepts and media types.
+5. Use the application comfortably on a phone, tablet, laptop, or large desktop display.
+
+The experience should prioritize comprehension and low cognitive load over feature quantity.
+
+This is primarily a multimedia learning/reference viewer, not a general-purpose content-management system.
+
+---
+
+# Core Design Principle: Simple Made Easy
+
+Use the architectural principles associated with Rich Hickey's "Simple Made Easy" as a major design lens.
+
+Apply the principle technically rather than merely quoting it.
+
+Favor:
+
+- simple over merely easy;
+- separation of concerns;
+- data separated from presentation;
+- explicit rather than hidden state;
+- composable components;
+- minimal coupling;
+- minimal accidental complexity;
+- independent content, application logic, presentation, and configuration;
+- predictable data flow;
+- few dependencies;
+- dependencies that have a clear purpose;
+- structures that make future changes local rather than cascading.
+
+Do not interpret "simple" as visually crude or technically primitive.
+
+The application should look polished and modern while keeping the underlying architecture understandable and maintainable.
+
+Explicitly identify places where a seemingly convenient implementation would create unnecessary complexity and recommend the simpler alternative.
+
+---
+
+# Content Architecture Requirement
+
+Frequent content change is a first-class requirement.
+
+Adding, removing, renaming, or updating a normal AI term should ideally involve content files and metadata rather than editing application source code.
+
+Determine the best content model for this application.
+
+Evaluate and define an approach such as:
+
+- a central JSON catalog;
+- one metadata file per concept;
+- convention-based concept directories;
+- or another static-data architecture that better satisfies the requirements.
+
+Define the chosen approach precisely.
+
+Provide:
+
+- the content directory convention;
+- concept identifiers/slugs;
+- metadata fields;
+- media-asset representation;
+- ordering;
+- categories/tags if useful;
+- short descriptions or summaries where appropriate;
+- optional versus required fields;
+- missing-media behavior;
+- validation rules;
+- example JSON using the supplied concepts;
+- a strategy for schema evolution.
+
+Avoid embedding the list of concepts directly into JavaScript or HTML.
+
+The architecture should support dozens or hundreds of concepts without becoming difficult to maintain.
+
+---
+
+# Multimedia Requirement
+
+All five media types in the supplied concept folders must be usable from the application:
+
+- PNG
+- PDF
+- MP4
+- M4A
+- DOCX
+
+For each format, determine the best browser-compatible presentation method for a static GitHub Pages application.
+
+Consider:
+
+- native browser capabilities;
+- inline viewing;
+- responsive sizing;
+- playback controls;
+- accessibility;
+- full-screen viewing where useful;
+- browser compatibility;
+- fallback behavior;
+- download/open-original options where appropriate;
+- performance;
+- lazy loading.
+
+Pay particular attention to formats such as DOCX that browsers do not natively render as normal web content.
+
+Research and recommend a practical static-client solution rather than pretending native support exists.
+
+Do not require a backend merely to display a media format unless there is a compelling reason.
+
+Design the media layer so additional formats could be supported later without restructuring the entire application.
+
+Where appropriate, evaluate whether certain source formats should be transformed during the content-publishing workflow into more web-native derivatives while preserving access to the original files.
+
+---
+
+# User Experience
+
+Design specifically for senior leaders and general knowledge workers, not software developers.
+
+The interface should make it immediately obvious:
+
+- what concept is selected;
+- what it means;
+- what learning resources are available;
+- which media type is currently being viewed;
+- how to select another concept;
+- how to return to the broader catalog.
+
+Determine the most appropriate navigation pattern.
+
+Evaluate capabilities such as:
+
+- browse/search;
+- alphabetical navigation;
+- category/tag filtering;
+- concept cards or lists;
+- persistent concept navigation;
+- media tabs or media selector;
+- URL-addressable concepts;
+- browser back/forward behavior;
+- recently viewed concepts if justified.
+
+Only include capabilities that materially improve the product.
+
+Do not turn the application into a feature-heavy portal.
+
+Provide responsive behavior for:
+
+- phones;
+- tablets;
+- laptops;
+- large monitors.
+
+Use progressive enhancement where appropriate.
+
+The larger-screen experience should take advantage of available space rather than merely stretching the mobile interface.
+
+---
+
+# Visual and Interaction Design
+
+Recommend a clear visual design direction suitable for senior leaders and knowledge workers.
+
+The design should communicate:
+
+- clarity;
+- professionalism;
+- modernity;
+- credibility;
+- ease of learning.
+
+Avoid unnecessary visual complexity.
+
+Use prior accessible ChatGPT artifacts and design work as evidence of my preferences when useful.
+
+Define practical guidance for:
+
+- typography;
+- hierarchy;
+- spacing;
+- card/list behavior;
+- media presentation;
+- icons;
+- navigation states;
+- selected states;
+- empty states;
+- loading states;
+- error states;
+- desktop versus mobile layout;
+- visual consistency.
+
+Do not create a heavy design system when a small set of reusable tokens and components is sufficient.
+
+---
+
+# Accessibility and Usability
+
+Treat accessibility as an architectural requirement.
+
+Use current authoritative guidance and target WCAG 2.2 AA where applicable.
+
+Address at minimum:
+
+- semantic HTML;
+- keyboard navigation;
+- visible focus states;
+- screen-reader labeling;
+- adequate contrast;
+- scalable typography;
+- responsive touch targets;
+- media controls;
+- captions/transcripts when supplied or when they should be added to the content workflow;
+- reduced-motion preferences where applicable;
+- accessible PDFs/documents as a content-quality concern.
+
+Do not claim that media is accessible merely because the browser can display it.
+
+Identify accessibility requirements that should become part of the content publishing checklist.
+
+---
+
+# GitHub Pages Constraints
+
+The production application will be hosted on GitHub Pages.
+
+Design within the realities of static hosting.
+
+Research current GitHub Pages capabilities and limitations rather than relying on stale assumptions.
+
+Address:
+
+- static asset hosting;
+- relative versus absolute URLs;
+- repository/project-site paths where relevant;
+- routing;
+- client-side navigation;
+- MIME/media handling;
+- caching;
+- deployment;
+- GitHub Actions where useful;
+- custom domains if relevant;
+- HTTPS;
+- preview workflow if useful.
+
+Do not propose server-side features that GitHub Pages cannot provide unless they are explicitly identified as optional external services.
+
+The preferred solution should remain inexpensive and operationally simple.
+
+---
+
+# Performance
+
+The supplied multimedia assets can be significantly larger than the application itself.
+
+Design for excellent perceived performance.
+
+Address:
+
+- initial page weight;
+- lazy loading;
+- loading media only when needed;
+- image optimization;
+- responsive images where appropriate;
+- video/audio preload behavior;
+- caching;
+- thumbnails/poster images;
+- document loading;
+- avoiding unnecessary JavaScript;
+- dependency size;
+- performance on mobile connections.
+
+Set practical performance objectives where appropriate rather than making generic statements such as "make it fast."
+
+Separate application-shell performance from multimedia download performance.
+
+---
+
+# Architecture
+
+Recommend a concrete architecture for the first production version.
+
+Determine whether a lightweight vanilla JavaScript application, Web Components, a small framework, or another approach best satisfies the requirements.
+
+Do not select a framework simply because it is popular.
+
+Evaluate choices against:
+
+- simplicity;
+- maintainability;
+- GitHub Pages compatibility;
+- content-update frequency;
+- browser support;
+- development speed;
+- testing;
+- dependency burden;
+- long-term ownership;
+- suitability for GPT-5.6 Sol/Codex-assisted development.
+
+Make a recommendation and explain the decisive tradeoff succinctly.
+
+Define:
+
+- major application modules/components;
+- responsibilities;
+- data flow;
+- content-loading approach;
+- URL/routing strategy;
+- media-rendering layer;
+- state management, if any;
+- error/fallback behavior;
+- dependency strategy.
+
+Avoid unnecessary:
+
+- build systems;
+- frameworks;
+- state-management libraries;
+- abstraction layers;
+- dependency chains.
+
+If a build step materially improves content processing, validation, optimization, or deployment, distinguish that clearly from requiring a complex runtime framework.
+
+---
+
+# Repository Design
+
+Provide a recommended repository and directory structure showing where the following belong:
+
+- application source;
+- styles;
+- JavaScript modules;
+- configuration;
+- JSON/content metadata;
+- multimedia content;
+- reusable components;
+- tests;
+- documentation;
+- scripts/utilities;
+- GitHub workflows;
+- generated files, if any.
+
+Show the proposed tree in enough detail that the repository can be initialized directly from the recommendation.
+
+Use naming conventions that make the repository easy for both humans and coding agents to navigate.
+
+---
+
+# Content Update Workflow
+
+Design a workflow that makes frequent AI terminology updates safe and straightforward.
+
+Document exactly how a maintainer should:
+
+1. Add a new term.
+2. Add its media files.
+3. Supply or update metadata.
+4. Validate the entry.
+5. Preview it.
+6. Publish it.
+7. Update an existing term.
+8. Remove, deprecate, or archive a term.
+
+Look for opportunities to automate validation without adding unnecessary operational complexity.
+
+Consider automated checks for:
+
+- required metadata;
+- duplicate IDs/slugs;
+- broken file references;
+- unsupported extensions;
+- missing assets;
+- malformed JSON;
+- schema violations;
+- inaccessible media;
+- unusually large media;
+- invalid naming conventions;
+- missing accessibility metadata.
+
+The goal is to make content updates routine and difficult to break.
+
+A normal new term should ideally be publishable without modifying HTML, CSS, or application JavaScript.
+
+---
+
+# GPT-5.6 Sol Vibe-Coding Research
+
+Conduct current research into effective AI-assisted software-development and "vibe coding" practices for GPT-5.6 Sol and the current ChatGPT/Codex development environment.
+
+Use current sources because model capabilities and recommended workflows change rapidly.
+
+Prioritize:
+
+1. official OpenAI documentation and guidance;
+2. authoritative documentation for the technologies being recommended;
+3. credible engineering sources and practitioner evidence when they add useful information not covered by primary sources.
+
+Distinguish:
+
+- documented GPT-5.6 Sol/Codex capabilities;
+- OpenAI recommendations;
+- broadly accepted software-engineering practices;
+- community or practitioner recommendations;
+- your own project-specific architectural recommendations.
+
+Do not present community practices as official OpenAI requirements.
+
+Research how GPT-5.6 Sol and Codex are best used for a project of this type, including where relevant:
+
+- planning before implementation;
+- repository-level context;
+- specification-driven development;
+- task decomposition;
+- context files and project instructions;
+- coding-agent workflows;
+- iterative implementation;
+- validation after changes;
+- automated testing;
+- browser and visual verification;
+- preventing scope drift;
+- maintaining architectural consistency across sessions;
+- using acceptance criteria;
+- handling large tasks without overloading a single prompt;
+- handoffs between planning and implementation;
+- documenting decisions;
+- when humans should review or make architectural decisions.
+
+The goal is not a generic article about vibe coding.
+
+Translate the research into a practical development process specifically for Visual AI Terms and Concepts.
+
+---
+
+# Determine the Best Planning Process
+
+Do not assume that a traditional heavyweight software-development lifecycle is the best approach.
+
+Research and recommend a planning and development process appropriate to:
+
+- a relatively focused application;
+- frequent content changes;
+- GitHub-based version control;
+- GitHub Pages deployment;
+- AI-assisted coding;
+- incremental implementation;
+- rapid feedback;
+- long-term maintainability.
+
+Use relevant accessible prior ChatGPT projects and artifacts to understand which planning methods have worked well for me.
+
+Compare only the planning alternatives that are materially relevant.
+
+Recommend one primary process.
+
+The recommended process should define how work moves through stages such as:
+
+- idea or requirement;
+- specification;
+- implementation task;
+- AI coding session;
+- code review;
+- automated validation;
+- visual/manual verification;
+- acceptance;
+- deployment;
+- documentation update.
+
+Prefer a process that provides strong control and traceability without unnecessary ceremony.
+
+---
+
+# AI-Assisted Development Documentation
+
+Define the documentation GPT-5.6 Sol and Codex should use throughout development so future coding sessions do not need to rediscover the architecture or reinterpret major requirements.
+
+Determine the most effective documentation set.
+
+It should cover the functional equivalent of:
+
+- product purpose and audience;
+- product requirements;
+- architecture;
+- content/data model;
+- UI/UX rules;
+- accessibility requirements;
+- coding conventions;
+- repository structure;
+- media-handling rules;
+- testing strategy;
+- definition of done;
+- architectural decisions;
+- current backlog/iteration;
+- AI coding instructions/context.
+
+For every proposed document specify:
+
+- filename;
+- purpose;
+- what it contains;
+- primary audience;
+- when humans should consult it;
+- when GPT-5.6 Sol/Codex should consult it;
+- when it should be updated;
+- whether it is authoritative or supporting documentation.
+
+Avoid creating documentation that duplicates information without a clear reason.
+
+Where several concerns can live cleanly in one document, prefer consolidation.
+
+Research current OpenAI/Codex project-instruction mechanisms and recommend the appropriate files or repository-level instructions based on what is actually supported.
+
+---
+
+# Documentation as a System
+
+Treat the project documentation as a coherent system rather than a collection of independent files.
+
+Define a hierarchy of authority so that conflicting instructions can be resolved.
+
+For example, determine which artifact governs:
+
+- product behavior;
+- architecture;
+- UI rules;
+- content schema;
+- active iteration requirements;
+- coding-agent instructions.
+
+The documentation system should prevent architectural drift across long-running AI-assisted development.
+
+Recommend a lightweight change-control method for decisions that materially affect architecture or product behavior.
+
+---
+
+# Iteration Planning
+
+Design the development approach around small, verifiable iterations.
+
+Each iteration should:
+
+- have a clear objective;
+- produce a usable increment;
+- have explicit acceptance criteria;
+- avoid unrelated scope;
+- update required documentation;
+- leave the application in a working state.
+
+Do not make iterations artificially small.
+
+Choose boundaries that allow GPT-5.6 Sol/Codex to understand and verify each body of work reliably.
+
+---
+
+# Iteration 0
+
+Define Iteration 0 in enough detail that implementation can begin immediately.
+
+Iteration 0 should establish the foundation rather than attempt to build every future feature.
+
+Specify:
+
+- objectives;
+- deliverables;
+- repository initialization;
+- documentation initialization;
+- initial content structure;
+- architectural skeleton;
+- first responsive UI;
+- navigation foundation;
+- media-viewer foundation;
+- use of the two supplied concepts;
+- validation/tooling;
+- deployment to GitHub Pages;
+- initial tests;
+- accessibility baseline;
+- performance baseline;
+- acceptance criteria;
+- definition of done.
+
+Break the work into coherent development tasks that can be given individually to GPT-5.6 Sol/Codex.
+
+Each task should be small enough to:
+
+- understand independently;
+- implement safely;
+- test;
+- visually inspect where applicable;
+- accept or reject objectively.
+
+Identify dependencies between tasks where they matter.
+
+For each task provide enough information for a future coding prompt to be derived directly from the plan.
+
+The end of Iteration 0 must produce a deployed application demonstrating the complete:
+
+content → metadata → application → multimedia-viewer → GitHub Pages
+
+workflow using the supplied example data.
+
+Do not define Iteration 0 as a collection of disconnected prototypes.
+
+---
+
+# Testing and Quality
+
+Define a proportionate testing strategy for this application.
+
+Cover where appropriate:
+
+- content/schema validation;
+- unit tests;
+- UI/component behavior;
+- navigation;
+- responsive behavior;
+- accessibility;
+- broken links/assets;
+- media loading;
+- browser compatibility;
+- deployment verification;
+- performance;
+- regression checks.
+
+Favor automated checks for deterministic requirements and targeted human review for visual and usability judgments.
+
+Determine which checks should run:
+
+- locally;
+- during AI-assisted development;
+- before commit;
+- in GitHub Actions;
+- after deployment.
+
+Do not create an enterprise-scale QA process for a lightweight static application.
+
+---
+
+# Visual Verification
+
+Because this application is strongly visual and multimedia-oriented, define a practical visual-validation workflow.
+
+Where current ChatGPT/Codex tools support it, consider:
+
+- browser rendering;
+- screenshots;
+- responsive viewport testing;
+- comparison against design requirements;
+- visual inspection after UI changes.
+
+GPT-5.6 Sol/Codex should not assume that code producing no errors means the interface is correct.
+
+Include human review at the points where subjective design judgment is materially important.
+
+---
+
+# Security and Privacy
+
+Identify security and privacy considerations relevant to a static multimedia site.
+
+Focus on realistic risks rather than generic security boilerplate.
+
+Address where relevant:
+
+- third-party dependencies;
+- external embeds;
+- document-rendering libraries;
+- unsafe content rendering;
+- dependency supply-chain risk;
+- content sanitization;
+- cross-origin resources;
+- GitHub Pages deployment practices;
+- external analytics;
+- cookies;
+- tracking.
+
+If the application can meet its goals without:
+
+- user accounts;
+- authentication;
+- cookies;
+- analytics;
+- external tracking;
+
+prefer the simpler privacy-preserving design.
+
+---
+
+# Maintainability
+
+Optimize for a project that may be maintained over years while AI terminology and multimedia content continue changing.
+
+Address:
+
+- how dependencies are controlled;
+- how obsolete concepts are handled;
+- how metadata evolves;
+- how schema versions are managed;
+- how broken media is detected;
+- how future developers understand architectural decisions;
+- how coding agents receive reliable project context;
+- how documentation stays synchronized with implementation.
+
+Distinguish between:
+
+- things expected to change frequently;
+- things expected to change occasionally;
+- architectural elements that should remain stable.
+
+Structure the system so frequent changes occur in the least risky layer.
+
+---
+
+# Future Extensibility
+
+The initial application should remain intentionally focused.
+
+However, identify architectural choices that preserve reasonable future options such as:
+
+- more media types;
+- additional concept metadata;
+- categories;
+- cross-references between concepts;
+- related concepts;
+- glossary-style search;
+- generated transcripts;
+- translations;
+- alternate content sets;
+- richer learning pathways.
+
+Do not implement speculative features now.
+
+Only make foundational choices that avoid unnecessarily blocking valuable future capabilities.
+
+Separate:
+
+- current requirements;
+- recommended near-term enhancements;
+- possible future capabilities.
+
+---
+
+# Research and Evidence Standards
+
+Browse the web where current information is required.
+
+Prefer primary and authoritative sources, including where relevant:
+
+- OpenAI;
+- GitHub;
+- MDN;
+- W3C/WAI;
+- official documentation for any recommended libraries;
+- official browser/platform documentation.
+
+Use recent sources for fast-changing technologies.
+
+Cite material factual claims, current platform capabilities, and research-based recommendations.
+
+Clearly separate:
+
+- verified facts;
+- architectural recommendations;
+- assumptions;
+- inference from previous user work;
+- optional future enhancements.
+
+Do not fabricate:
+
+- capabilities;
+- compatibility;
+- browser behavior;
+- GPT-5.6 Sol/Codex features;
+- GitHub Pages features;
+- benchmarks;
+- citations;
+- file contents;
+- prior conversations;
+- previous artifacts;
+- user preferences.
+
+When credible sources conflict, explain the relevant difference and make a reasoned recommendation.
+
+---
+
+# Required Final Deliverable
+
+Produce one cohesive professional Software Development Plan.
+
+It must contain enough concrete decisions and artifacts to serve as the handoff into development.
+
+Include, at minimum:
+
+## Executive Overview
+
+Explain:
+
+- what is being built;
+- who it serves;
+- why it is useful;
+- the recommended technical direction;
+- the recommended planning/development direction.
+
+## Findings From `example data.zip`
+
+Summarize:
+
+- actual folder structure;
+- actual file types;
+- relevant naming patterns;
+- representative content findings;
+- implications for application design.
+
+Do not merely repeat assumptions from the prompt if inspection reveals more precise information.
+
+## Planning Approach and User-Context Findings
+
+Identify:
+
+- the most relevant patterns learned from accessible prior ChatGPT work;
+- preferences that materially affect this project;
+- prior approaches worth adapting;
+- prior problems or friction worth avoiding;
+- how these findings influenced the planning methodology;
+- how external research confirms, modifies, or overrides those observations.
+
+Do not turn this into a personal profile.
+
+Include only findings that materially improve project execution.
+
+## Product and UX Specification
+
+Define:
+
+- core user journeys;
+- information architecture;
+- navigation;
+- concept discovery;
+- media selection;
+- responsive behavior;
+- visual hierarchy;
+- accessibility;
+- important empty/loading/error states.
+
+## Recommended Technical Architecture
+
+Make a specific technology recommendation.
+
+Explain:
+
+- why it is recommended;
+- reasonable alternatives considered;
+- decisive tradeoffs;
+- modules/components;
+- data flow;
+- routing;
+- state;
+- dependency strategy;
+- build/deployment requirements.
+
+## Content and JSON Architecture
+
+Provide:
+
+- actual proposed schema/model;
+- required fields;
+- optional fields;
+- media representation;
+- naming conventions;
+- directory rules;
+- representative data using the supplied concepts;
+- validation rules;
+- schema evolution approach.
+
+## Multimedia Architecture
+
+Specify exactly how:
+
+- PNG;
+- PDF;
+- MP4;
+- M4A;
+- DOCX
+
+will be presented.
+
+Include:
+
+- primary rendering approach;
+- responsive behavior;
+- fallback;
+- accessibility considerations;
+- performance implications;
+- whether preprocessing is recommended.
+
+## Repository Structure
+
+Provide a concrete proposed project tree.
+
+Make it detailed enough to initialize the repository directly.
+
+## Content Maintenance and Publishing Workflow
+
+Show exactly how a concept moves from:
+
+new content → validation → preview → publication → maintenance/archive.
+
+The normal process should avoid source-code edits.
+
+## Recommended Planning and Development Process
+
+Define the project lifecycle specifically for this application.
+
+Explain how humans, GPT-5.6 Sol, Codex, GitHub, automated tests, visual verification, and documentation interact.
+
+## GPT-5.6 Sol/Codex Development Workflow
+
+Turn current research into a practical AI-assisted development workflow for this project.
+
+Include:
+
+- how development tasks should be prepared;
+- what context the coding agent receives;
+- how task scope is controlled;
+- how implementation is validated;
+- how documentation is updated;
+- when a human reviews the result.
+
+## Project Documentation Package
+
+Provide the recommended documentation system.
+
+For each document include:
+
+- filename;
+- purpose;
+- contents;
+- audience;
+- authority;
+- when consulted;
+- when updated.
+
+Avoid redundant documentation.
+
+## Documentation Authority Model
+
+State which documents are authoritative when requirements conflict.
+
+## Testing Strategy
+
+Define:
+
+- automated checks;
+- manual checks;
+- visual verification;
+- accessibility testing;
+- deployment verification;
+- regression testing.
+
+## Performance Strategy
+
+Define practical targets and techniques.
+
+## Security and Privacy
+
+Cover only risks relevant to this application.
+
+## GitHub and Deployment Strategy
+
+Specify:
+
+- repository workflow;
+- branches if needed;
+- GitHub Actions if needed;
+- GitHub Pages deployment;
+- validation gates;
+- preview approach;
+- release process.
+
+## Iteration 0 Development Plan
+
+Provide:
+
+- objective;
+- scope;
+- prioritized tasks;
+- dependencies;
+- expected output of each task;
+- task-level acceptance criteria;
+- overall Iteration 0 acceptance criteria;
+- definition of done.
+
+Tasks should be suitable for individual GPT-5.6 Sol/Codex development sessions.
+
+## Near-Term Iteration Roadmap
+
+After Iteration 0, identify a concise logical sequence for the next few major increments.
+
+Do not create an unnecessarily detailed long-term roadmap.
+
+## Risks and Open Decisions
+
+Include only material unresolved issues.
+
+For each important open issue:
+
+- explain why it matters;
+- recommend a default;
+- identify what evidence would justify changing that default.
+
+Do not defer routine engineering decisions unnecessarily.
+
+## Sources
+
+Provide cited authoritative sources supporting research-dependent recommendations.
+
+---
+
+# Decision Authority
+
+Determine the most effective implementation approach within these constraints.
+
+Do not ask the user to choose among technical alternatives that can reasonably be resolved through research and engineering judgment.
+
+When alternatives materially affect:
+
+- cost;
+- maintainability;
+- usability;
+- accessibility;
+- development speed;
+- long-term flexibility;
+
+briefly compare them, recommend one, explain the decisive tradeoff, and proceed using that recommendation.
+
+Before asking the user for information or inventing a new planning structure, use relevant accessible:
+
+- conversation history;
+- ChatGPT memory;
+- prior artifacts;
+- supplied files;
+- previous project work;
+
+to determine whether the answer or a proven pattern already exists.
+
+Do not ask the user to repeat information already available.
+
+Ask a clarification question only when a missing fact would materially change the architecture and cannot safely be handled with a stated assumption.
+
+---
+
+# Scope Discipline
+
+The primary objective is to create the development blueprint required to build Visual AI Terms and Concepts.
+
+Do not:
+
+- build an unnecessarily complex CMS;
+- assume a backend is required;
+- introduce authentication without a demonstrated requirement;
+- choose technologies merely because they are fashionable;
+- produce generic web-development advice;
+- produce generic vibe-coding advice disconnected from this application;
+- bury recommendations beneath long lists of alternatives;
+- reproduce previous designs merely because they exist;
+- create unnecessary documentation;
+- over-engineer the application;
+- expose private chain-of-thought;
+- begin implementing the complete production application unless implementation is explicitly requested.
+
+Make concrete recommendations.
+
+Use:
+
+- tables;
+- diagrams;
+- architecture diagrams;
+- example schemas;
+- directory trees;
+- workflows;
+- concise pseudocode;
+
+when they materially improve implementation clarity.
+
+---
+
+# Implementation Readiness Standard
+
+The plan should enable a developer or GPT-5.6 Sol/Codex coding agent to begin Iteration 0 without having to reinterpret the project's fundamental architecture.
+
+A strong plan should answer questions such as:
+
+- What are we building?
+- Who is it for?
+- What is explicitly in scope?
+- How should it look and behave?
+- How is content organized?
+- How is media rendered?
+- What technologies are used?
+- Why were they selected?
+- How is the repository organized?
+- How do I add another concept?
+- How do I test a change?
+- What documentation governs a coding task?
+- How should GPT-5.6 Sol/Codex receive development instructions?
+- What constitutes completion?
+- How is the application deployed?
+- What should remain simple and deliberately not be built?
+
+If the plan leaves these questions unresolved without a compelling reason, it is not complete.
+
+---
+
+# Completion Standard
+
+Before producing the final response, silently verify that:
+
+1. `example data.zip` was actually inspected.
+2. Relevant accessible prior ChatGPT work and artifacts were considered where available.
+3. The design supports every multimedia format present in the sample.
+4. Ordinary content additions do not require application-code changes.
+5. The proposed architecture is compatible with GitHub Pages.
+6. Mobile-first and large-screen behavior are both specified.
+7. Rich Hickey's simplicity principles materially influence the architecture.
+8. Current GPT-5.6 Sol/Codex development practices were researched rather than assumed.
+9. Recommended libraries and platform capabilities are supported by current evidence.
+10. The content model and repository structure are concrete enough to implement.
+11. The documentation package is sufficient for future GPT-5.6 Sol/Codex coding sessions.
+12. The documentation hierarchy prevents obvious instruction conflicts.
+13. Iteration 0 ends with a working deployed vertical slice using the supplied content.
+14. Major recommendations have acceptance criteria or another objective way to verify them.
+15. Unsupported assumptions are clearly identified.
+16. Personal-context findings are based only on accessible evidence.
+17. The planning methodology is tailored to this project rather than generic.
+18. The result is implementation-ready rather than merely conceptual.
+19. The proposed system remains appropriately simple.
+20. No unnecessary features, documents, dependencies, or process overhead were added.
+
+Correct any deficiency before answering.
+
+Provide only the finished Software Development Plan and supporting evidence useful to the project.
+
+Do not output the internal quality check.
+
+Do not expose private chain-of-thought.
+```
