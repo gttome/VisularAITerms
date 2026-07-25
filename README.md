@@ -1,15 +1,19 @@
-# Visular AI Terms / Concepts — Iteration 4 (v0.5.0)
+# Visular AI Terms / Concepts — Iteration 4 (v0.5.1)
 
 A mobile-first multimedia AI reference for senior leaders and knowledge workers.
 
 ## Run on Windows 11
 
-1. Extract the complete `VisularAITerms_v0.5.0.zip` to a normal local folder.
+1. Extract the complete `VisularAITerms_v0.5.1.zip` to a normal local folder.
 2. Double-click `start-server.bat`.
 3. Your default browser opens to `http://localhost:4173/`.
 4. Keep the PowerShell window open while using the site. Press `Ctrl+C` to stop it.
 
 The runnable build is already included in `dist/`. **No Node.js, Python, npm, framework, or separate web-server installation is required simply to run the application.**
+
+## v0.5.1 GitHub Pages fix
+
+v0.5.1 gives each production release a version-specific JavaScript/CSS path (for example `static/0.5.1/`). This prevents GitHub Pages/browser caches from combining the new Iteration 4 HTML with older Iteration 3 frontend files, which could make Save and Compare appear but not respond.
 
 ## Iteration 4 highlights
 

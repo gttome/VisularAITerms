@@ -46,6 +46,15 @@ Configured in `config/app.config.json`:
 ## Scale testing
 Synthetic deterministic tests continue to exercise 50, 100, and 250 concept catalogs. Saved/recent/compare behavior must remain ID-based and must not require changes to ordinary concept metadata.
 
+## GitHub Pages deployment integrity
+The production smoke test must verify:
+- release-versioned JavaScript and CSS URLs in the built `index.html`;
+- the complete ES-module import graph resolves from the versioned JavaScript namespace;
+- catalog, learning-path, concept, and media URLs resolve when hosted at `/`;
+- the same paths resolve when hosted below a GitHub Pages project prefix such as `/VisularAITerms/`.
+
+This specifically guards against mixed-version deployments where new HTML is paired with cached older JavaScript/CSS.
+
 ## Visual checks
 Review at 390×844, 768×1024, 1440×900, and for material changes at 1920×1080. Verify:
 - Quick View / Deep Dive switching;

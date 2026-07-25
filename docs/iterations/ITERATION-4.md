@@ -1,4 +1,4 @@
-# Iteration 4 — Local Workspace and Concept Comparison (v0.5.0)
+# Iteration 4 — Local Workspace and Concept Comparison (v0.5.0; maintenance fix v0.5.1)
 
 ## Objective
 Make Visular AI Terms / Concepts more useful for repeated reference and decision support without introducing accounts, a backend, analytics, an LMS, or runtime AI.
@@ -49,5 +49,13 @@ Make Visular AI Terms / Concepts more useful for repeated reference and decision
 12. 50/100/250 concept catalog scale tests remain passing.
 13. Deterministic validation, accessibility structure, UI integrity, unit tests, build, and HTTP smoke tests pass.
 14. Translation functionality remains absent.
-15. Complete v0.5.0 ZIP contains prebuilt `dist/`, root `start-server.bat`, and runs independently from earlier ZIPs.
-16. Handoff documentation is updated for continuation from v0.5.0.
+15. Complete release ZIP contains prebuilt `dist/`, root `start-server.bat`, and runs independently from earlier ZIPs.
+16. Handoff documentation is updated for the current release.
+17. Production JavaScript/CSS use release-versioned URLs so GitHub Pages cannot mix the Iteration 4 HTML shell with stale Iteration 3 frontend files.
+18. Smoke validation covers both root hosting and a GitHub Pages project subdirectory.
+
+
+## v0.5.1 maintenance fix — GitHub Pages frontend cache safety
+The v0.5.0 production build kept the same JavaScript and CSS URLs used by v0.4.0. Because the Iteration 4 HTML added Save/Compare controls but the v0.4.0 JavaScript and CSS did not contain their handlers or pressed-state styling, a cached mixed-version deployment could display the controls without making them functional.
+
+v0.5.1 publishes the complete frontend under a version-specific `static/<version>/` path and extends smoke coverage to a GitHub Pages project-path deployment. No Iteration 4 product behavior or local-storage model changed.

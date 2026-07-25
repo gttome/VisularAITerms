@@ -77,7 +77,11 @@ Root-level `start-server.bat` invokes `scripts/serve.ps1` with HTTP byte-range s
 ## Build
 The Node build:
 1. copies `src/` into `dist/`;
-2. stages concept metadata/derivatives/media or rewrites original-media URLs for an external origin;
-3. generates `dist/data/catalog.json`;
-4. generates `dist/data/learning-paths.json`;
-5. prints content, accessibility, freshness, relationship, learning-path, and storage summaries.
+2. moves JavaScript and CSS into a release-versioned frontend namespace such as `dist/static/0.5.1/js/` and `dist/static/0.5.1/css/`, then rewrites `dist/index.html` to those URLs;
+3. stages concept metadata/derivatives/media or rewrites original-media URLs for an external origin;
+4. generates `dist/data/catalog.json`;
+5. generates `dist/data/learning-paths.json`;
+6. prints content, accessibility, freshness, relationship, learning-path, and storage summaries.
+
+### GitHub Pages cache safety
+Release-versioned frontend paths are required because GitHub Pages and browsers may legitimately reuse same-URL JavaScript/CSS across deployments. A new application version must therefore produce new frontend URLs. This prevents a new HTML shell from running stale JavaScript or stale component styling. Relative ES-module imports remain valid because the complete `js/` tree moves together under the versioned namespace.

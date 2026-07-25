@@ -2,7 +2,7 @@
 
 This directory carries historical/context material that may be useful when the project is uploaded into a new ChatGPT conversation.
 
-Authority note: the current v0.5.0 repository files (`HANDOFF.md`, `docs/*.md`, schemas, code, and current explicit user requests) override older planning text when they conflict.
+Authority note: the current v0.5.1 repository files (`HANDOFF.md`, `docs/*.md`, schemas, code, and current explicit user requests) override older planning text when they conflict.
 
 Included:
 - `NEW_CHAT_START_HERE.md` — suggested continuation prompt.

@@ -11,6 +11,22 @@ const dist=path.join(root,'dist');
 const config=JSON.parse(await fs.readFile(path.join(root,'config','app.config.json'),'utf8'));
 const conceptsDir=path.join(root,'content','concepts');
 
+function safeVersionSegment(value){
+  return String(value||'dev').trim().replace(/[^A-Za-z0-9._-]+/g,'-')||'dev';
+}
+async function versionFrontendAssets(){
+  const version=safeVersionSegment(config.application.version);
+  const staticRoot=path.join(dist,'static',version);
+  await fs.mkdir(staticRoot,{recursive:true});
+  await fs.rename(path.join(dist,'js'),path.join(staticRoot,'js'));
+  await fs.rename(path.join(dist,'css'),path.join(staticRoot,'css'));
+  const indexPath=path.join(dist,'index.html');
+  let html=await fs.readFile(indexPath,'utf8');
+  html=html.replaceAll('./css/','./static/'+version+'/css/').replace('./js/app.js','./static/'+version+'/js/app.js');
+  await fs.writeFile(indexPath,html);
+  return version;
+}
+
 function joinExternal(base,id,relative){
   const cleanBase=base.replace(/\/$/,'');const clean=String(relative).replace(/^\.\//,'');
   return `${cleanBase}/${encodeURIComponent(id)}/${clean.split('/').map(encodeURIComponent).join('/')}`;
@@ -32,13 +48,14 @@ async function stageConcepts(){
 
 await fs.rm(dist,{recursive:true,force:true});await fs.mkdir(dist,{recursive:true});
 await fs.cp(path.join(root,'src'),dist,{recursive:true});
+const frontendVersion=await versionFrontendAssets();
 await stageConcepts();
 const {concepts}=await generateCatalog(path.join(dist,'data','catalog.json'));
 const learningPathsPayload=await generateLearningPaths(path.join(dist,'data','learning-paths.json'));
 let mediaCount=0;const types={image:0,video:0,audio:0,pdf:0,docx:0};const accessibility={complete:0,'needs-review':0,'needs-remediation':0,'alternative-provided':0,unknown:0};
 for(const c of concepts){const data=JSON.parse(await fs.readFile(path.join(root,'content','concepts',c.id,'concept.json'),'utf8'));for(const m of data.media||[]){mediaCount++;if(types[m.type]!==undefined)types[m.type]++;const s=m.accessibility?.status||'unknown';accessibility[s]=(accessibility[s]||0)+1;}}
 console.log('\nVisular AI Terms / Concepts — Build summary');
-console.log(`Version: ${config.application.version}`);console.log(`Published concepts: ${concepts.length}`);console.log(`Learning paths: ${learningPathsPayload.learningPaths.length}`);console.log(`Media assets: ${mediaCount}`);
+console.log(`Version: ${config.application.version}`);console.log(`Frontend cache key: ${frontendVersion}`);console.log(`Published concepts: ${concepts.length}`);console.log(`Learning paths: ${learningPathsPayload.learningPaths.length}`);console.log(`Media assets: ${mediaCount}`);
 console.log(`Images: ${types.image} | Videos: ${types.video} | Audio: ${types.audio} | PDFs: ${types.pdf} | Documents: ${types.docx}`);
 console.log(`Accessibility metadata — complete: ${accessibility.complete||0}, alternative-provided: ${accessibility['alternative-provided']||0}, needs-remediation: ${accessibility['needs-remediation']||0}, needs-review: ${accessibility['needs-review']||0}`);
 console.log(`Media base URL: ${config.mediaStorage.baseUrl||'(local GitHub Pages media)'}`);console.log('Build: PASS');

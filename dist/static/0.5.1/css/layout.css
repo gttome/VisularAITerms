@@ -1,0 +1,47 @@
+.app-shell { min-height: 100vh; }
+.app-header {
+  min-height: 78px; display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: .55rem clamp(1rem, 3vw, 2.5rem); border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,.97); position: sticky; top: 0; z-index: 20;
+}
+.brand--logo { display: block; width: min(330px, calc(100vw - 7rem)); text-decoration: none; }
+.brand--logo img { display: block; width: 100%; height: auto; max-height: 62px; object-fit: contain; object-position: left center; }
+.version-badge { border: 1px solid var(--line); border-radius: 999px; padding: .3rem .65rem; color: var(--muted); font-size: .78rem; white-space: nowrap; }
+.app-layout { max-width: var(--content-max); margin: 0 auto; }
+.catalog-panel { background: var(--surface); border-bottom: 1px solid var(--line); }
+.catalog-panel__top { padding: 1rem; border-bottom: 1px solid var(--line); }
+.catalog-panel label { display: block; font-weight: 750; margin-bottom: .45rem; }
+.search-row { display: flex; gap: .45rem; align-items: stretch; }
+.catalog-panel input { width: 100%; min-height: 46px; border: 1px solid #aeb9c7; border-radius: 10px; padding: .72rem .85rem; background: #fff; color: var(--text); min-width: 0; }
+.catalog-panel input:focus { border-color: var(--accent); }
+.clear-search { border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: .5rem .7rem; cursor: pointer; color: var(--accent-strong); font-weight: 700; }
+.catalog-filter-block { margin-top: .9rem; }
+.filter-label { margin: 0 0 .4rem; font-size: .78rem; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.main-content { min-width: 0; }
+.welcome-view, .concept-view { padding: clamp(1.25rem, 4vw, 3.25rem); }
+.welcome-view { max-width: 1050px; }
+.welcome-logo { display: block; width: min(680px, 100%); height: auto; margin: 0 0 1.25rem; }
+.welcome-cards { display: grid; gap: 1rem; margin-top: 2rem; }
+.welcome-card-note { margin-top: 1rem; }
+.audience-section { margin-top: 1.8rem; }
+.audience-grid, .detail-grid { display: grid; gap: 1rem; }
+.detail-grid { margin-top: 1.5rem; }
+.learning-section, .related-section { margin-top: 2rem; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.section-heading--compact { margin-bottom: .65rem; }
+.definition-block { margin-top: .8rem; }
+.definition-block h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .06em; color: var(--accent-strong); margin-bottom: .45rem; }
+.mobile-only { display: inline-flex; }
+@media (min-width: 800px) {
+  .app-layout { display: grid; grid-template-columns: minmax(275px, 330px) minmax(0, 1fr); min-height: calc(100vh - 79px); }
+  .catalog-panel { border-right: 1px solid var(--line); border-bottom: 0; position: sticky; top: 79px; height: calc(100vh - 79px); overflow: auto; }
+  .welcome-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .audience-grid, .detail-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mobile-only { display: none; }
+}
+@media (min-width: 1200px) {
+  .app-layout { grid-template-columns: 350px minmax(0, 1fr); }
+  .concept-view { padding: 3rem 4.25rem 4.5rem; }
+}
+.collection-view { min-width: 0; }
+#compare-view { max-width: 1280px; }

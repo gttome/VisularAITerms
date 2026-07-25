@@ -31,7 +31,7 @@ Build and maintain a simple, data-driven multimedia AI reference for senior lead
 ## Product identity
 - Application name: `Visular AI Terms / Concepts`
 - Short package name: `VisularAITerms`
-- Current version: `0.5.0`
+- Current version: `0.5.1`
 - User-supplied logo: `src/assets/visular-ai-terms-logo-original.png`
 - Optimized runtime logo: `src/assets/visular-ai-terms-logo.webp`
 

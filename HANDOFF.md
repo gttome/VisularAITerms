@@ -6,7 +6,7 @@ This file is designed so development can continue even when the prior chat is un
 ## Current release
 - Application: **Visular AI Terms / Concepts**
 - Short package name: **VisularAITerms**
-- Current version: **0.5.0**
+- Current version: **0.5.1**
 - Completed development milestone: **Iteration 4 — Local Workspace and Concept Comparison**
 - Runtime: static HTML5 + CSS + vanilla JavaScript ES modules
 - Hosting target: GitHub Pages
@@ -41,7 +41,13 @@ Do not fabricate missing accessibility content to make warnings disappear.
 Iteration 3 intentionally removed redundant visible warnings such as concept-level remediation banners and missing-transcript placeholder blocks. The underlying metadata/validation remains.
 
 ## Windows local-server reliability fix retained
-The v0.4.0 server fix remains in v0.5.0: `scripts/serve.ps1` suppresses expected client reset/abort/disposed-stream cases while retaining real warnings. HTTP byte-range support remains for MP4/M4A seeking.
+The v0.4.0 server fix remains in v0.5.1: `scripts/serve.ps1` suppresses expected client reset/abort/disposed-stream cases while retaining real warnings. HTTP byte-range support remains for MP4/M4A seeking.
+
+
+## v0.5.1 GitHub Pages cache-fix maintenance release
+A deployed Iteration 4 site could show the new Save/Compare HTML while a browser/CDN reused v0.4.0 frontend files with the same URLs (`js/app.js`, `js/concept/concept-view.js`, and `css/components.css`). That mixed-version state leaves the new buttons visible but unbound and without their pressed-state styling.
+
+v0.5.1 fixes this by publishing the JavaScript and CSS under a release-specific path such as `static/0.5.1/js/` and `static/0.5.1/css/`. Every release therefore gets a new frontend URL namespace while source development remains unchanged. The production smoke test now verifies both root hosting and a GitHub Pages project subdirectory (`/VisularAITerms/`), including the complete ES-module graph and versioned stylesheets.
 
 ## Architecture authority
 Read in this order when implementing:
@@ -53,7 +59,7 @@ Read in this order when implementing:
 6. current iteration specification under `docs/iterations/`;
 7. `AGENTS.md` for coding-agent workflow and repository rules.
 
-## Current v0.5.0 product capabilities
+## Current v0.5.1 product capabilities
 ### Catalog/discovery
 - ranked search;
 - metadata/config-driven categories;
@@ -114,7 +120,7 @@ Read in this order when implementing:
 ## Translation decision remains binding
 The user explicitly instructed during Iteration 3: **Leave Translation-Ready, But Limited (18, 19, 20) out of the iteration.**
 
-v0.5.0 still does NOT include:
+v0.5.1 still does NOT include:
 - translation schema/locales;
 - language-aware routing/search;
 - language selector;
@@ -173,22 +179,22 @@ npm run check
 
 `npm run check` is the main deterministic gate.
 
-## v0.5.0 environment-verified state before packaging
+## v0.5.1 environment-verified state before packaging
 Required/verified deterministic state:
 - content validation passes with the 6 expected source-media warnings and 2 PDF information messages only;
 - deterministic accessibility structure checks include Iteration 4 controls;
 - UI static-integrity checks pass;
 - 29 unit tests pass, including 50/100/250 concept scale tests and Iteration 4 local-state tests;
-- production build passes;
-- HTTP application/data/media smoke test passes (23 requests);
+- production build passes with release-versioned JavaScript/CSS paths;
+- HTTP/GitHub Pages smoke test passes with 98 requests at both site root and `/VisularAITerms/`, including the complete ES-module graph and media paths;
 - clean ZIP extraction is revalidated before final delivery.
 
-Automated headless Chromium visual capture against localhost timed out in the ChatGPT execution environment during the v0.5.0 handoff. Deterministic HTTP smoke testing succeeded; perform the documented Windows visual review after extraction.
+Automated headless Chromium navigation to the v0.5.1 localhost GitHub-Pages-style path was attempted but blocked by the ChatGPT execution environment with `ERR_BLOCKED_BY_ADMINISTRATOR`. Deterministic HTTP/module/path smoke testing succeeded; perform the documented Windows/GitHub Pages visual review after deployment.
 
 ## Recommended next-development workflow
 When the user asks for Iteration 5 or another change:
 1. inspect `HANDOFF.md`, `AGENTS.md`, the authoritative docs, and the actual current project;
-2. start from this complete v0.5.0 project rather than reconstructing earlier versions;
+2. start from this complete v0.5.1 project rather than reconstructing earlier versions;
 3. define the requested scope and update the iteration spec;
 4. make changes incrementally;
 5. run deterministic validation/tests/build/smoke checks;

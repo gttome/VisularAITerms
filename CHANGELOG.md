@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.5.1 — Iteration 4 maintenance fix
+
+- Fixed a GitHub Pages/browser cache compatibility issue that could display the new Iteration 4 Save/Compare controls while reusing stale v0.4.0 JavaScript/CSS, leaving the buttons inactive and without pressed-state styling.
+- Production builds now publish JavaScript and CSS beneath a release-versioned `static/<version>/` namespace so each release receives distinct frontend URLs.
+- Extended HTTP smoke validation to verify the complete ES-module graph, versioned stylesheets, application data, and media paths at both `/` and a GitHub Pages project prefix (`/VisularAITerms/`).
+- Preserved all Iteration 4 localStorage behavior, static architecture, existing content/media, and known accessibility reporting.
+
 ## v0.5.0 — Iteration 4
 
 - Added browser-local Save/unsave concept behavior and a Saved & Recent workspace.

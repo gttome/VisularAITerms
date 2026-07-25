@@ -58,5 +58,5 @@ Iteration 4 adds a lightweight local workspace:
 ## Accessibility presentation
 Known source-media remediation issues remain in metadata/validation. Redundant user-facing warning banners are intentionally removed. Useful alternatives, such as readable text for untagged PDFs, remain available.
 
-## Deliberately out of scope in v0.5.0
+## Deliberately out of scope in v0.5.1
 Accounts, authentication, cross-device synchronization, analytics/telemetry, progress scoring/tracking, quizzes, certificates, runtime AI answers, algorithmic/personalized recommendations, CMS/database/backend, complex knowledge graph, framework migration, and translation/localization functionality.
