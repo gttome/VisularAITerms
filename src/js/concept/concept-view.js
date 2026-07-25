@@ -34,7 +34,7 @@ async function copyText(value){
   }
 }
 
-export function createConceptView({onMediaChange,onConceptNavigate,getConceptEntry}){
+export function createConceptView({onMediaChange,onConceptNavigate,getConceptEntry,isSaved,isCompared,onToggleSaved,onToggleCompare}){
   const refs={
     title:document.querySelector('#concept-title'),definition:document.querySelector('#concept-definition'),classification:document.querySelector('#concept-classification'),meta:document.querySelector('#concept-meta'),
     simple:document.querySelector('#simple-explanation'),executiveTakeaway:document.querySelector('#executive-takeaway'),workerTakeaway:document.querySelector('#worker-takeaway'),keyTakeaway:document.querySelector('#key-takeaway'),primaryRisk:document.querySelector('#primary-risk'),learningChoices:document.querySelector('#learning-choices'),
@@ -42,7 +42,7 @@ export function createConceptView({onMediaChange,onConceptNavigate,getConceptEnt
     selector:document.querySelector('#media-selector'),viewer:document.querySelector('#media-viewer'),status:document.querySelector('#media-status'),original:document.querySelector('#open-original'),
     statusBanner:document.querySelector('#concept-status-banner'),relatedSection:document.querySelector('#related-section'),related:document.querySelector('#related-concepts'),
     quickButton:document.querySelector('#quick-view-button'),deepButton:document.querySelector('#deep-view-button'),quickPanel:document.querySelector('#quick-view-panel'),deepPanel:document.querySelector('#deep-view-panel'),
-    copyLink:document.querySelector('#copy-link'),copyDefinition:document.querySelector('#copy-definition'),print:document.querySelector('#print-concept'),
+    save:document.querySelector('#save-concept'),compare:document.querySelector('#compare-concept'),copyLink:document.querySelector('#copy-link'),copyDefinition:document.querySelector('#copy-definition'),print:document.querySelector('#print-concept'),
     businessSection:document.querySelector('#business-impact-section'),business:document.querySelector('#business-impact'),examplesSection:document.querySelector('#examples-section'),examples:document.querySelector('#examples-list'),questionsCard:document.querySelector('#questions-card'),questions:document.querySelector('#questions-list'),
     connectionsSection:document.querySelector('#connections-section'),connections:document.querySelector('#connections-list'),prerequisitesSection:document.querySelector('#prerequisites-section'),prerequisites:document.querySelector('#prerequisites-list'),learnNextSection:document.querySelector('#learn-next-section'),learnNext:document.querySelector('#learn-next-list'),confusedSection:document.querySelector('#confused-section'),confused:document.querySelector('#confused-list'),comparisonsSection:document.querySelector('#comparisons-section'),comparisons:document.querySelector('#comparisons-list'),sourcesSection:document.querySelector('#sources-section'),sources:document.querySelector('#sources-list')
   };
@@ -50,14 +50,21 @@ export function createConceptView({onMediaChange,onConceptNavigate,getConceptEnt
 
   refs.quickButton.addEventListener('click',()=>setMode('quick',{clearMediaRoute:true}));
   refs.deepButton.addEventListener('click',()=>setMode('deep'));
+  refs.save.addEventListener('click',()=>{if(!current)return;onToggleSaved?.(current.id);updatePersonalActions();});
+  refs.compare.addEventListener('click',()=>{if(!current)return;const result=onToggleCompare?.(current.id);if(result?.reason==='limit'){refs.compare.textContent='Compare full (3)';setTimeout(updatePersonalActions,1400);return;}updatePersonalActions();});
   refs.copyLink.addEventListener('click',async()=>flashButton(refs.copyLink,await copyText(location.href)?'Copied':'Copy failed'));
   refs.copyDefinition.addEventListener('click',async()=>{if(!current)return;const text=`${current.title}\n\n${current.simpleExplanation||current.definition||current.summary}`;flashButton(refs.copyDefinition,await copyText(text)?'Copied':'Copy failed');});
   refs.print.addEventListener('click',()=>window.print());
 
   function flashButton(button,text){const original=button.dataset.originalText||button.textContent;button.dataset.originalText=original;button.textContent=text;setTimeout(()=>{button.textContent=original;},1400);}
+  function updatePersonalActions(){
+    if(!current)return;const saved=Boolean(isSaved?.(current.id));const compared=Boolean(isCompared?.(current.id));
+    refs.save.setAttribute('aria-pressed',String(saved));refs.save.textContent=saved?'Saved':'Save concept';
+    refs.compare.setAttribute('aria-pressed',String(compared));refs.compare.textContent=compared?'Remove from compare':'Add to compare';
+  }
 
   async function show(concept,requestedMediaId){
-    current=concept;mediaRendered=false;
+    current=concept;mediaRendered=false;updatePersonalActions();
     refs.title.textContent=concept.title;refs.definition.textContent=concept.definition||concept.summary;refs.classification.textContent=concept.classification?.type||'AI concept';
     refs.simple.textContent=concept.simpleExplanation||concept.summary||concept.definition||'';
     refs.executiveTakeaway.textContent=concept.executiveTakeaway||concept.audiences?.seniorLeaders||'';

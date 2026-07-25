@@ -6,21 +6,26 @@ Semantic HTML5 + CSS + vanilla JavaScript ES modules. No runtime framework and n
 ## Data flow
 `generated catalog.json -> selected concept metadata -> concept view -> explicit media renderer`
 
-Additional Iteration 3 data flow:
+Learning data flow:
 `content/learning-paths/*.json -> generated learning-paths.json -> Learning Paths view`
 
-The generated catalog contains discovery/search/filter/glossary information. Full concept metadata loads only when a concept is selected.
+Iteration 4 local utility flow:
+`catalog/concept IDs <-> browser localStorage -> Saved & Recent / Compare views`
+
+The generated catalog contains discovery/search/filter/glossary information. Full concept metadata loads only when a concept is selected or when the user opens a comparison containing that concept. Large media is not loaded for comparison.
 
 ## Routing
 Backward-compatible query-string routes:
 - `?concept=<stable-id>`
 - `?concept=<stable-id>&media=<media-id>`
 - `?category=<category-id>`
-
-Iteration 3 additive routes:
 - `?view=glossary`
 - `?view=paths`
 - `?view=paths&path=<learning-path-id>`
+
+Iteration 4 additive routes:
+- `?view=saved` — local Saved & Recent workspace.
+- `?view=compare&compare=<id1>,<id2>,<id3>` — shareable concept comparison.
 
 No synthetic path routing or GitHub Pages rewrite rules are required.
 
@@ -34,6 +39,20 @@ No synthetic path routing or GitHub Pages rewrite rules are required.
 
 ## Concept relationships
 Schema version 4 supports stable-ID relationships, prerequisites, Learn Next, commonly-confused references, and optional comparison data. Relationships are metadata; the runtime renders them without embedding concept IDs in application code.
+
+## Local workspace state
+`src/js/workspace/personal-store.js` owns three versioned browser-local ID lists:
+- `visular.savedConcepts.v1`
+- `visular.recentConcepts.v1`
+- `visular.compareConcepts.v1`
+
+Rules:
+- storage failures degrade to in-memory state for the current page session;
+- recent entries are de-duplicated and limited to 12;
+- comparison is limited to 3;
+- comparison IDs from the URL are validated against the published catalog;
+- no content bodies, notes, credentials, or sensitive information are stored;
+- no local workspace state is transmitted to a service.
 
 ## Quick View / Deep Dive
 The concept renderer owns presentation depth. Quick View is default for a direct concept URL without a media parameter. A direct URL containing `media=` opens Deep Dive to preserve existing shareable media behavior.
@@ -50,7 +69,7 @@ Safe content path:
 The five established types remain independent renderers: image, video, audio, PDF, and DOCX-derived HTML. Video/audio use native browser controls. PDF uses the browser viewer plus a readable alternative when supplied. Transcript search is activated only when a transcript exists.
 
 ## Windows local server
-Root-level `start-server.bat` invokes `scripts/serve.ps1` with HTTP byte-range support. Iteration 3 adds expected-disconnect detection so normal browser-cancelled media/network writes do not generate repeated warnings. Unexpected server errors still warn.
+Root-level `start-server.bat` invokes `scripts/serve.ps1` with HTTP byte-range support and expected-disconnect detection so normal browser-cancelled media/network writes do not generate repeated warnings. Unexpected server errors still warn.
 
 ## External media readiness
 `config/app.config.json -> mediaStorage.baseUrl` remains blank by default. Original media may move to an external static origin later without changing runtime renderers.

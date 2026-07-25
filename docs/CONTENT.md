@@ -29,7 +29,9 @@ Iteration 3 adds optional structured learning fields:
 - `comparisons[]`
 - `sources[]`
 
-Translation/locale fields are intentionally not part of Iteration 3.
+Translation/locale fields remain intentionally absent.
+
+Iteration 4 does not change the concept schema. Saved/recent/comparison state stores only stable concept IDs in the browser and derives all display content from the existing catalog/concept metadata.
 
 ## Relationship types
 Configured/validated types include:

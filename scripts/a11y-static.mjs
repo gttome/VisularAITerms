@@ -21,7 +21,11 @@ const checks=[
   ['explore navigation label',/class="explore-nav"[^>]+aria-label="Explore Visular AI Terms"/],
   ['quick/deep tablist',/class="view-mode"[^>]+role="tablist"/],
   ['quick view tabpanel',/id="quick-view-panel"[^>]+role="tabpanel"/],
-  ['deep view tabpanel',/id="deep-view-panel"[^>]+role="tabpanel"/]
+  ['deep view tabpanel',/id="deep-view-panel"[^>]+role="tabpanel"/],
+  ['saved workspace navigation',/id="show-saved"[^>]+aria-pressed=/],
+  ['comparison navigation',/id="show-compare"[^>]+aria-pressed=/],
+  ['save concept state',/id="save-concept"[^>]+aria-pressed=/],
+  ['compare concept state',/id="compare-concept"[^>]+aria-pressed=/]
 ];
 const failures=checks.filter(([,pattern])=>!pattern.test(html)).map(([name])=>name);
 if(failures.length){for(const failure of failures)console.error(`ERROR: accessibility baseline missing ${failure}`);process.exit(1);}

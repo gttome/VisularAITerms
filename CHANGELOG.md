@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.5.0 — Iteration 4
+
+- Added browser-local Save/unsave concept behavior and a Saved & Recent workspace.
+- Added de-duplicated recent history limited to 12 concepts with Clear recent.
+- Added local comparison selection limited to three concepts.
+- Added a side-by-side comparison view using existing concept learning and business-impact metadata without loading large media.
+- Added shareable comparison routing with validated concept IDs plus copy-link/remove/clear controls.
+- Added comparison count navigation and accessible pressed state for Save/Compare controls.
+- Added deterministic Iteration 4 workspace/comparison tests and additive routing/accessibility checks.
+- Preserved the static vanilla-JavaScript architecture, existing media/content schema, GitHub Pages target, Windows server behavior, known accessibility warnings, and explicit translation exclusion.
+
 ## v0.4.0 — Iteration 3
 
 - Hardened the Windows PowerShell static server to ignore expected browser-cancelled/reset connections while preserving real warnings and byte-range media support.

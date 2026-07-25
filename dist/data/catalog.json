@@ -3,14 +3,14 @@
   "application": {
     "name": "Visular AI Terms / Concepts",
     "shortName": "VisularAITerms",
-    "version": "0.4.0"
+    "version": "0.5.0"
   },
   "browseStatuses": [
     "active",
     "emerging",
     "updated"
   ],
-  "generatedAt": "2026-07-24T19:01:15.845Z",
+  "generatedAt": "2026-07-25T00:43:23.733Z",
   "categories": [
     {
       "id": "generative-ai",
@@ -109,7 +109,7 @@
       "reviewStatus": "reviewed",
       "contentVersion": "1.2",
       "freshnessStatus": "current",
-      "reviewAgeDays": 0,
+      "reviewAgeDays": 1,
       "relatedConcepts": [
         "ai-governance-risk-management-compliance"
       ],
@@ -164,7 +164,7 @@
       "reviewStatus": "reviewed",
       "contentVersion": "1.2",
       "freshnessStatus": "current",
-      "reviewAgeDays": 0,
+      "reviewAgeDays": 1,
       "relatedConcepts": [
         "ai-agents-agentic-workflows"
       ],

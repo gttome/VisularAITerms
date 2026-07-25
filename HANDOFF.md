@@ -6,9 +6,8 @@ This file is designed so development can continue even when the prior chat is un
 ## Current release
 - Application: **Visular AI Terms / Concepts**
 - Short package name: **VisularAITerms**
-- Current version: **0.4.0**
-- Completed development milestone: **Iteration 3 — Learning Effectiveness**
-- Next approved development milestone: **Iteration 4 — Content Operations, Editorial Control, Release Reliability, and Handoff Automation** (planned for v0.5.0; not yet implemented)
+- Current version: **0.5.0**
+- Completed development milestone: **Iteration 4 — Local Workspace and Concept Comparison**
 - Runtime: static HTML5 + CSS + vanilla JavaScript ES modules
 - Hosting target: GitHub Pages
 - Windows 11 local launch: double-click root `start-server.bat`
@@ -37,20 +36,12 @@ Do not fabricate missing accessibility content to make warnings disappear.
 - 2 supplied videos: no source-accurate captions and no source-accurate transcripts.
 - 2 supplied audio files: no source-accurate transcripts.
 - 2 supplied PDFs: untagged; readable concept-level alternatives are provided.
-- Therefore validation currently reports **6 expected warnings** plus PDF information messages.
+- Therefore validation currently reports **6 expected warnings** plus **2 PDF information messages**.
 
-Iteration 3 intentionally removed redundant visible warnings such as:
-- concept-level banner saying the MP4 has no subtitle stream / PDF is untagged;
-- "Transcript not yet available for the supplied source audio/video" blocks;
-- normal media-status accessibility warning text.
+Iteration 3 intentionally removed redundant visible warnings such as concept-level remediation banners and missing-transcript placeholder blocks. The underlying metadata/validation remains.
 
-The underlying metadata/validation remains.
-
-## Windows local-server reliability fix in v0.4.0
-The v0.3.0 PowerShell server could print repeated warnings such as:
-`Unable to write data to the transport connection` / `connection was forcibly closed` when browsers cancelled media/network requests.
-
-v0.4.0 adds `Test-ExpectedClientDisconnect` in `scripts/serve.ps1` to suppress expected connection reset/abort/disposed-stream cases while retaining real warnings. HTTP byte-range support remains.
+## Windows local-server reliability fix retained
+The v0.4.0 server fix remains in v0.5.0: `scripts/serve.ps1` suppresses expected client reset/abort/disposed-stream cases while retaining real warnings. HTTP byte-range support remains for MP4/M4A seeking.
 
 ## Architecture authority
 Read in this order when implementing:
@@ -62,7 +53,7 @@ Read in this order when implementing:
 6. current iteration specification under `docs/iterations/`;
 7. `AGENTS.md` for coding-agent workflow and repository rules.
 
-## Current v0.4.0 product capabilities
+## Current v0.5.0 product capabilities
 ### Catalog/discovery
 - ranked search;
 - metadata/config-driven categories;
@@ -86,6 +77,23 @@ Read in this order when implementing:
 - optional comparisons/common-confusion/source metadata;
 - Copy Link, Copy Definition, and print-friendly brief.
 
+### Iteration 4 local workspace
+- Save/unsave concept control.
+- Saved & Recent view.
+- Saved concept IDs persist in browser localStorage.
+- Recent concept IDs persist in browser localStorage, de-duplicated and limited to 12.
+- Clear recent control.
+- No accounts, synchronization, analytics, cookies, telemetry, or remote user-state service.
+
+### Iteration 4 concept comparison
+- Add/remove concept from comparison from concept page.
+- Maximum 3 comparison concepts.
+- Compare view uses existing concept metadata and avoids loading large media.
+- Comparison selection persists in browser localStorage.
+- Shareable route `?view=compare&compare=<id1>,<id2>,<id3>`.
+- Routed comparison IDs are validated against the published catalog before use.
+- Copy comparison link, remove individual concept, and clear comparison controls.
+
 ### Multimedia
 - PNG/image;
 - MP4/video;
@@ -103,10 +111,10 @@ Read in this order when implementing:
 - `build` generates the complete static site;
 - `content:publish` runs preparation -> validation -> build.
 
-## Iteration 3 translation decision
-The user explicitly instructed: **Leave Translation-Ready, But Limited (18, 19, 20) out of the iteration.**
+## Translation decision remains binding
+The user explicitly instructed during Iteration 3: **Leave Translation-Ready, But Limited (18, 19, 20) out of the iteration.**
 
-Therefore v0.4.0 does NOT include:
+v0.5.0 still does NOT include:
 - translation schema/locales;
 - language-aware routing/search;
 - language selector;
@@ -121,11 +129,23 @@ Do not add these in a future iteration unless the user requests them again.
 - `?view=glossary` — glossary.
 - `?view=paths` — learning paths.
 - `?view=paths&path=<path-id>` — individual learning path.
+- `?view=saved` — local Saved & Recent workspace.
+- `?view=compare&compare=<id1>,<id2>,<id3>` — shareable comparison.
 
-## Key files
+## Iteration 4 state files
+- `src/js/workspace/personal-store.js` — versioned localStorage ID lists and limits.
+- `src/js/workspace/workspace-view.js` — Saved & Recent presentation.
+- `src/js/compare/compare-view.js` — comparison table/presentation.
+
+Browser-local keys:
+- `visular.savedConcepts.v1`
+- `visular.recentConcepts.v1`
+- `visular.compareConcepts.v1`
+
+## Key existing files
 - `src/index.html` — application shell/views.
 - `src/js/app.js` — top-level navigation/state/data orchestration.
-- `src/js/concept/concept-view.js` — Quick/Deep concept renderer.
+- `src/js/concept/concept-view.js` — Quick/Deep concept renderer and Save/Compare controls.
 - `src/js/media/*` — format-specific media rendering.
 - `src/js/learning/*` — learning paths.
 - `src/js/glossary/*` — glossary.
@@ -153,51 +173,22 @@ npm run check
 
 `npm run check` is the main deterministic gate.
 
-## Current environment-verified state before packaging
-The v0.4.0 working tree was required to pass:
-- content validation with the 6 expected source-media warnings only;
-- deterministic accessibility structure checks;
-- UI static-integrity checks;
-- unit tests including 50/100/250 concept scale tests and Iteration 3 data tests;
-- production build;
-- HTTP application/data/media smoke test;
-- clean ZIP extraction and revalidation before final delivery.
+## v0.5.0 environment-verified state before packaging
+Required/verified deterministic state:
+- content validation passes with the 6 expected source-media warnings and 2 PDF information messages only;
+- deterministic accessibility structure checks include Iteration 4 controls;
+- UI static-integrity checks pass;
+- 29 unit tests pass, including 50/100/250 concept scale tests and Iteration 4 local-state tests;
+- production build passes;
+- HTTP application/data/media smoke test passes (23 requests);
+- clean ZIP extraction is revalidated before final delivery.
 
-Automated Chromium/Playwright navigation to localhost may be blocked by the ChatGPT execution environment with `ERR_BLOCKED_BY_ADMINISTRATOR`; this is an environment limitation rather than an application HTTP failure. Record it honestly when it occurs.
-
-## Approved Iteration 4 planning state
-The user has approved moving into Iteration 4 in a new ChatGPT conversation. The full approved planning scope is authoritative in:
-
-`docs/iterations/ITERATION-4.md`
-
-Iteration 4 is **planned, not implemented** in this v0.4.0 baseline. The new chat should begin from the current known-good v0.4.0 application, implement Iteration 4 incrementally, and target **VisularAITerms v0.5.0**.
-
-The iteration emphasizes:
-- publishing inbox + batch import;
-- dry-run/import preview;
-- safe existing-concept update detection and content diff reporting;
-- content/source/freshness/media health reporting;
-- unified `release:check`;
-- automated complete application ZIP packaging;
-- automated complete handoff ZIP packaging;
-- Windows server regression + port-conflict handling;
-- version consistency/release manifest/project-doctor support;
-- storage planning and external-media export preparation where it fits safely.
-
-Translation functionality remains explicitly excluded unless the user later requests it.
-
-## GitHub repository and Pages deployment
-The user also wants to place the project and assets in a GitHub repository and share a public test link. The current repository already includes GitHub Actions validation and Pages deployment workflows. Detailed current setup instructions are included in:
-
-- `handoff/GITHUB_SETUP_AND_DEPLOYMENT.md`
-- `handoff/VisularAITerms_GitHub_Setup_and_Deployment_Guide_v1.0.docx`
-
-Recommended repository name: `VisularAITerms`. The existing workflow expects GitHub Pages to use **GitHub Actions** as the publishing source and deploys generated `dist/`.
+Automated headless Chromium visual capture against localhost timed out in the ChatGPT execution environment during the v0.5.0 handoff. Deterministic HTTP smoke testing succeeded; perform the documented Windows visual review after extraction.
 
 ## Recommended next-development workflow
-When the user begins the approved Iteration 4 development:
+When the user asks for Iteration 5 or another change:
 1. inspect `HANDOFF.md`, `AGENTS.md`, the authoritative docs, and the actual current project;
-2. start from this complete v0.4.0 project rather than reconstructing earlier versions;
+2. start from this complete v0.5.0 project rather than reconstructing earlier versions;
 3. define the requested scope and update the iteration spec;
 4. make changes incrementally;
 5. run deterministic validation/tests/build/smoke checks;

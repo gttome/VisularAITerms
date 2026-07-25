@@ -17,7 +17,7 @@
   <div class="app-shell">
     <header class="app-header">
       <a class="brand brand--logo" href="./" aria-label="Visular AI Terms / Concepts home"><img src="./assets/visular-ai-terms-logo.webp" width="1400" height="466" alt="Visular AI Terms / Concepts"></a>
-      <span class="version-badge" aria-label="Application version 0.4.0">v0.4.0</span>
+      <span class="version-badge" aria-label="Application version 0.5.0">v0.5.0</span>
     </header>
 
     <div class="app-layout">
@@ -27,6 +27,8 @@
             <button id="show-concepts" class="explore-nav__button" type="button" aria-pressed="true">Concepts</button>
             <button id="show-learning-paths" class="explore-nav__button" type="button" aria-pressed="false">Learning Paths</button>
             <button id="show-glossary" class="explore-nav__button" type="button" aria-pressed="false">Glossary</button>
+            <button id="show-saved" class="explore-nav__button" type="button" aria-pressed="false">Saved</button>
+            <button id="show-compare" class="explore-nav__button" type="button" aria-pressed="false">Compare <span id="compare-count" class="nav-count" aria-label="0 concepts selected">0</span></button>
           </nav>
           <label for="concept-search">Find a concept</label>
           <div class="search-row"><input id="concept-search" type="search" placeholder="Search AI terms, acronyms, or topics" autocomplete="off" aria-describedby="catalog-count"><button id="clear-search" class="clear-search" type="button" hidden>Clear</button></div>
@@ -63,12 +65,26 @@
           <div id="glossary-list" class="glossary-list"></div>
         </section>
 
+        <section id="saved-view" class="collection-view" hidden>
+          <p class="eyebrow">Local workspace</p>
+          <h1>Saved & Recent</h1>
+          <p class="lede">Save concepts for quick return and revisit recent concepts. This workspace stays only in this browser.</p>
+          <div id="saved-workspace" class="saved-workspace"></div>
+        </section>
+
+        <section id="compare-view" class="collection-view" hidden>
+          <p class="eyebrow">Decision support</p>
+          <h1>Compare concepts</h1>
+          <p class="lede">Compare two or three concepts side by side without loading their large media files.</p>
+          <div id="comparison-workspace" class="comparison-workspace"></div>
+        </section>
+
         <article id="concept-view" class="concept-view" hidden>
           <button id="back-to-catalog" class="text-button mobile-only" type="button">← All concepts</button>
           <aside id="concept-status-banner" class="concept-status" hidden></aside>
           <header class="concept-header">
             <p class="eyebrow" id="concept-classification"></p>
-            <div class="concept-title-row"><h1 id="concept-title"></h1><div class="concept-actions"><button id="copy-link" class="small-button" type="button">Copy link</button><button id="copy-definition" class="small-button" type="button">Copy definition</button><button id="print-concept" class="small-button" type="button">Print</button></div></div>
+            <div class="concept-title-row"><h1 id="concept-title"></h1><div class="concept-actions"><button id="save-concept" class="small-button" type="button" aria-pressed="false">Save concept</button><button id="compare-concept" class="small-button" type="button" aria-pressed="false">Add to compare</button><button id="copy-link" class="small-button" type="button">Copy link</button><button id="copy-definition" class="small-button" type="button">Copy definition</button><button id="print-concept" class="small-button" type="button">Print</button></div></div>
             <div id="concept-meta" class="meta-row"></div>
             <div class="view-mode" role="tablist" aria-label="Concept detail level"><button id="quick-view-button" class="view-mode__button" type="button" role="tab" aria-selected="true" aria-controls="quick-view-panel">Quick View</button><button id="deep-view-button" class="view-mode__button" type="button" role="tab" aria-selected="false" aria-controls="deep-view-panel">Deep Dive</button></div>
           </header>

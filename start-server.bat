@@ -4,11 +4,11 @@ cd /d "%~dp0"
 set "PORT=4173"
 if not exist "dist\index.html" (
   echo ERROR: dist\index.html is missing.
-  echo This ZIP should contain a prebuilt runnable Visular AI Terms / Concepts v0.4.0 application.
+  echo This ZIP should contain a prebuilt runnable Visular AI Terms / Concepts v0.5.0 application.
   pause
   exit /b 1
 )
-echo Starting Visular AI Terms / Concepts v0.4.0 at http://localhost:%PORT%/
+echo Starting Visular AI Terms / Concepts v0.5.0 at http://localhost:%PORT%/
 start "" "http://localhost:%PORT%/"
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\serve.ps1" -Port %PORT% -Root "%~dp0dist"
 if errorlevel 1 (

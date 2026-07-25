@@ -44,3 +44,4 @@
   .concept-view { padding: 3rem 4.25rem 4.5rem; }
 }
 .collection-view { min-width: 0; }
+#compare-view { max-width: 1280px; }

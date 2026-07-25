@@ -9,27 +9,29 @@ Build and maintain a simple, data-driven multimedia AI reference for senior lead
 - Technical architecture: `docs/ARCHITECTURE.md`
 - Content and publishing: `docs/CONTENT.md`
 - Quality requirements: `docs/QUALITY.md`
-- Active completed iteration: `docs/iterations/ITERATION-3.md`
+- Active completed iteration: `docs/iterations/ITERATION-4.md`
 
 ## Architecture rules
 1. Runtime is semantic HTML, CSS, and vanilla JavaScript ES modules.
 2. Ordinary concept additions/updates must not require HTML/CSS/JS changes.
 3. Runtime concept/media discovery comes from metadata, never filename inference.
 4. The publishing importer may inspect file extensions only to create a safe draft; metadata becomes authoritative before runtime.
-5. Query-string routing is authoritative for shareable concept/media URLs. Iteration 3 adds additive `view` and `path` parameters for Glossary and Learning Paths.
+5. Query-string routing is authoritative for shareable concept/media/category/glossary/learning-path/comparison URLs.
 6. Categories come from `content/config/categories.json`, not hard-coded UI lists.
 7. Learning paths come from `content/learning-paths/*.json`, not hard-coded UI lists.
 8. Relationships use stable concept IDs and validated relationship types.
-9. No backend, authentication, analytics, cookies, or tracking without an approved requirement.
-10. Keep runtime dependencies at zero unless a demonstrated requirement justifies one.
-11. Large source media may move to external static hosting through configuration/absolute metadata URLs without changing media renderers.
-12. Do not fabricate captions, transcripts, accessibility status, source evidence, translations, or source-file content.
-13. Translation architecture/features 18–20 from the proposed Iteration 3 scope were explicitly excluded and must not be added unless the user later requests them.
+9. Iteration 4 local workspace state stores stable concept IDs only in browser localStorage; do not introduce accounts, remote persistence, analytics, cookies, or telemetry without an approved requirement.
+10. Comparison is limited to three concepts, and shareable comparison IDs must be validated against the published catalog.
+11. No backend, authentication, analytics, cookies, or tracking without an approved requirement.
+12. Keep runtime dependencies at zero unless a demonstrated requirement justifies one.
+13. Large source media may move to external static hosting through configuration/absolute metadata URLs without changing media renderers.
+14. Do not fabricate captions, transcripts, accessibility status, source evidence, translations, or source-file content.
+15. Translation architecture/features 18–20 from the proposed Iteration 3 scope were explicitly excluded and must not be added unless the user later requests them.
 
 ## Product identity
 - Application name: `Visular AI Terms / Concepts`
 - Short package name: `VisularAITerms`
-- Current version: `0.4.0`
+- Current version: `0.5.0`
 - User-supplied logo: `src/assets/visular-ai-terms-logo-original.png`
 - Optimized runtime logo: `src/assets/visular-ai-terms-logo.webp`
 

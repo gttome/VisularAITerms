@@ -1,32 +1,29 @@
-# Visular AI Terms / Concepts — Iteration 3 (v0.4.0)
+# Visular AI Terms / Concepts — Iteration 4 (v0.5.0)
 
 A mobile-first multimedia AI reference for senior leaders and knowledge workers.
 
 ## Run on Windows 11
 
-1. Extract the complete `VisularAITerms_v0.4.0.zip` to a normal local folder.
+1. Extract the complete `VisularAITerms_v0.5.0.zip` to a normal local folder.
 2. Double-click `start-server.bat`.
 3. Your default browser opens to `http://localhost:4173/`.
 4. Keep the PowerShell window open while using the site. Press `Ctrl+C` to stop it.
 
 The runnable build is already included in `dist/`. **No Node.js, Python, npm, framework, or separate web-server installation is required simply to run the application.**
 
-The v0.4.0 local server also suppresses expected browser-aborted connection messages (for example, when media requests are cancelled or replaced) while still surfacing real server failures.
+## Iteration 4 highlights
 
-## Iteration 3 highlights
-
-- Added Quick View and Deep Dive concept modes.
-- Added simple explanations, executive takeaways, knowledge-worker takeaways, key takeaways, and primary-risk summaries.
-- Added structured concept relationships, prerequisites, Learn Next, and optional comparison/confusion metadata.
-- Added metadata-driven Learning Paths and a compact Glossary view.
-- Added structured examples, business-impact fields, Questions to Ask, and optional source/evidence metadata.
-- Added media duration/page information to learning choices.
-- Added Copy Link, Copy Definition, and print-friendly concept briefs.
-- Added transcript-search behavior when source-accurate transcripts are supplied.
-- Expanded content validation for relationship targets, prerequisite cycles, learning-path references, source URLs, and Iteration 3 learning fields.
-- Expanded media preparation with best-effort technical metadata extraction and file-size capture.
-- Removed redundant user-facing accessibility/remediation banners while retaining accessibility metadata, validation warnings, and useful readable alternatives.
-- Translation work proposed previously for Iteration 3 was intentionally excluded at the user's request.
+- Added Save concept / Saved state on concept pages.
+- Added a browser-local Saved & Recent workspace.
+- Added de-duplicated recent concept history limited to 12 entries with Clear recent.
+- Added Add to compare / Remove from compare controls.
+- Added a side-by-side comparison view for up to three concepts.
+- Added shareable comparison URLs using `?view=compare&compare=<concept-ids>`.
+- Added Copy comparison link, remove, and clear comparison controls.
+- Comparison uses existing concept metadata and does not load large media merely to render the table.
+- Saved/recent/comparison state stays in the local browser; no account, backend, analytics, cookies, or telemetry were added.
+- Existing Quick View, Deep Dive, Learning Paths, Glossary, catalog/search, relationships, multimedia, publishing tools, and Windows server reliability behavior remain intact.
+- Translation/localization remains intentionally excluded unless explicitly requested.
 
 ## Adding a concept
 
@@ -77,7 +74,7 @@ npm run content:publish
 
 ## Known source-content accessibility items
 
-The original supplied videos do not include source-accurate captions/transcripts and the original supplied audio does not include transcripts. Validation continues to report those six gaps. The application no longer repeats those known remediation messages in prominent user-facing banners. The supplied untagged PDFs retain readable concept-level alternatives.
+The original supplied videos do not include source-accurate captions/transcripts and the original supplied audio does not include transcripts. Validation continues to report those six gaps. The supplied untagged PDFs retain readable concept-level alternatives.
 
 ## Handoff
 
