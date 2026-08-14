@@ -7,8 +7,8 @@ function formatReviewed(value){
   const d=new Date(`${value}T00:00:00`);
   return Number.isNaN(d.getTime())?value:new Intl.DateTimeFormat(undefined,{year:'numeric',month:'long',day:'numeric'}).format(d);
 }
-function mediaLabel(item){const defaults={image:'Infographic',video:'Watch video',audio:'Listen',pdf:'Presentation',docx:'Read'};return item.displayLabel||defaults[item.type]||item.label;}
-function mediaIcon(type){return({image:'▧',video:'▶',audio:'◉',pdf:'▤',docx:'▥'})[type]||'•';}
+function mediaLabel(item){const defaults={image:'Infographic',video:'Watch video',audio:'Listen',pdf:'Presentation',docx:'Read',text:'Read'};return item.displayLabel||defaults[item.type]||item.label;}
+function mediaIcon(type){return({image:'▧',video:'▶',audio:'◉',pdf:'▤',docx:'▥',text:'▥'})[type]||'•';}
 function statusText(status){return({emerging:'Emerging concept — terminology and practices may still be evolving.',updated:'Recently updated concept — review the latest definition and guidance below.',deprecated:'Deprecated terminology — this page is preserved for historical links.',archived:'Archived concept — this page is preserved for reference.'})[status]||'';}
 function statusLabel(status){return({emerging:'Emerging',updated:'Updated',deprecated:'Deprecated',archived:'Archived'})[status]||'';}
 function relationshipLabel(type){return({foundation:'Built on',prerequisite:'Requires',related:'Related to',enables:'Enables',uses:'Uses',governs:'Governs','governed-by':'Governed by','contrasts-with':'Contrasts with','next-concept':'Continue with'})[type]||type;}
@@ -23,7 +23,7 @@ function mediaMeta(item){
   if(item.type==='video'||item.type==='audio')return formatDuration(item.durationSeconds);
   if(item.type==='pdf'&&item.pages)return `${item.pages} page${item.pages===1?'':'s'}`;
   if(item.type==='image')return 'Visual overview';
-  if(item.type==='docx')return 'Full briefing';
+  if(item.type==='docx'||item.type==='text')return 'Full briefing';
   return '';
 }
 function readingTime(text=''){const words=String(text).trim().split(/\s+/).filter(Boolean).length;return Math.max(1,Math.ceil(words/220));}

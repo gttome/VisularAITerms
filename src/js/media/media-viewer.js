@@ -5,7 +5,7 @@ import {renderPdf} from './pdf-renderer.js';
 import {renderDocument} from './document-renderer.js';
 import {resolveUrl} from '../shared/urls.js';
 
-const renderers={image:renderImage,video:renderVideo,audio:renderAudio,pdf:renderPdf,docx:renderDocument};
+const renderers={image:renderImage,video:renderVideo,audio:renderAudio,pdf:renderPdf,docx:renderDocument,text:renderDocument};
 export async function renderMedia(container,item,baseUrl,status,originalLink){
   container.replaceChildren();container.className='media-viewer';status.textContent='Loading resource…';
   originalLink.hidden=false;originalLink.href=resolveUrl(item.src,baseUrl);originalLink.textContent=`Open original ${item.label}`;
