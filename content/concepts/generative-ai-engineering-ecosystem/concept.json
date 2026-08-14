@@ -1,0 +1,175 @@
+{
+    "schemaVersion":  4,
+    "id":  "generative-ai-engineering-ecosystem",
+    "title":  "Generative AI Engineering Ecosystem",
+    "shortTitle":  "Generative AI Engineering Ecosystem",
+    "summary":  "The five disciplines are complementary control layers. Prompt and Context Engineering shape the model-facing instruction and information; Harness Engineering shapes the executable runtime and control environment; Loop Engineering shapes repeated single-process behavior; and Graph Engineering shapes multi-process topology and information flow.",
+    "status":  "active",
+    "definition":  "The five disciplines are complementary control layers. Prompt and Context Engineering shape the model-facing instruction and information; Harness Engineering shapes the executable runtime and control environment; Loop Engineering shapes repeated single-process behavior; and Graph Engineering shapes multi-process topology and information flow. In practice, the harness often implements the loop and graph machinery, so these are distinct design responsibilities rather than mutually exclusive software layers.",
+    "audiences":  {
+                      "seniorLeaders":  "If the model misunderstands the task or priorities, inspect the prompt. If it lacks the right facts, state, memory, or permissions in its working information, inspect the context. If the model has the right intent and information but cannot safely execute tools, preserve state, enforce permissions, recover, or expose useful traces, inspect the harness. If one agent can do the work but needs repeated action, verification, recovery, or human checkpoints, inspect the loop. If the work requires specialized roles, explicit handoffs, branching, parallelism, joins, information boundaries, or failure isolation across multiple processes, inspect the graph.",
+                      "knowledgeWorkers":  "If the model misunderstands the task or priorities, inspect the prompt. If it lacks the right facts, state, memory, or permissions in its working information, inspect the context. If the model has the right intent and information but cannot safely execute tools, preserve state, enforce permissions, recover, or expose useful traces, inspect the harness. If one agent can do the work but needs repeated action, verification, recovery, or human checkpoints, inspect the loop. If the work requires specialized roles, explicit handoffs, branching, parallelism, joins, information boundaries, or failure isolation across multiple processes, inspect the graph."
+                  },
+    "example":  "",
+    "opportunities":  {
+
+                      },
+    "risks":  {
+
+              },
+    "misconception":  "",
+    "monitor":  "",
+    "classification":  {
+                           "type":  "Generative AI engineering framework",
+                           "horizon":  [
+                                           "current",
+                                           "emerging"
+                                       ]
+                       },
+    "lastReviewed":  "2026-08-13",
+    "keywords":  [
+                     "generative",
+                     "engineering",
+                     "ecosystem",
+                     "generative ai",
+                     "context",
+                     "prompt",
+                     "graph",
+                     "loop",
+                     "harness",
+                     "runtime"
+                 ],
+    "media":  [
+                  {
+                      "id":  "infographic",
+                      "type":  "image",
+                      "label":  "Infographic",
+                      "src":  "./media/infographic.png",
+                      "webSrc":  "./derived/infographic-1600.jpg",
+                      "thumbnail":  "./derived/infographic-thumbnail.jpg",
+                      "mime":  "image/png",
+                      "alt":  "Infographic comparing Prompt, Context, Harness, Loop, and Graph Engineering as complementary layers in the Generative AI Engineering Ecosystem.",
+                      "displayLabel":  "Infographic",
+                      "accessibility":  {
+                                            "status":  "complete",
+                                            "alt":  "Infographic comparing Prompt, Context, Harness, Loop, and Graph Engineering as complementary layers in the Generative AI Engineering Ecosystem."
+                                        },
+                      "sizeBytes":  5195012
+                  },
+                  {
+                      "id":  "video",
+                      "type":  "video",
+                      "label":  "Video",
+                      "src":  "./media/explainer-video.mp4",
+                      "mime":  "video/mp4",
+                      "poster":  "./derived/video-poster.svg",
+                      "displayLabel":  "Watch video",
+                      "accessibility":  {
+                                            "status":  "needs-remediation",
+                                            "captions":  null,
+                                            "transcript":  null
+                                        },
+                      "sizeBytes":  9845205,
+                      "durationSeconds":  70.43
+                  },
+                  {
+                      "id":  "audio",
+                      "type":  "audio",
+                      "label":  "Audio",
+                      "src":  "./media/audio-overview.m4a",
+                      "mime":  "audio/mp4",
+                      "displayLabel":  "Listen",
+                      "accessibility":  {
+                                            "status":  "needs-remediation",
+                                            "transcript":  null
+                                        },
+                      "sizeBytes":  3442159,
+                      "durationSeconds":  106.93
+                  },
+                  {
+                      "id":  "slides",
+                      "type":  "pdf",
+                      "label":  "Slides / PDF",
+                      "src":  "./media/presentation.pdf",
+                      "mime":  "application/pdf",
+                      "displayLabel":  "Presentation",
+                      "accessibility":  {
+                                            "status":  "alternative-provided",
+                                            "sourceTagged":  false,
+                                            "accessibleAlternative":  "./derived/briefing.html",
+                                            "alternativeLabel":  "The source PDF is treated as untagged unless separately verified. Use the readable concept briefing for equivalent concept-level text."
+                                        },
+                      "sizeBytes":  13673758,
+                      "pages":  10
+                  },
+                  {
+                      "id":  "briefing",
+                      "type":  "text",
+                      "label":  "Read",
+                      "src":  "./media/briefing.txt",
+                      "mime":  "text/plain",
+                      "webVersion":  "./derived/briefing.html",
+                      "displayLabel":  "Read",
+                      "accessibility":  {
+                                            "status":  "complete",
+                                            "accessibleAlternative":  "./derived/briefing.html"
+                                        },
+                      "sizeBytes":  2559
+                  }
+              ],
+    "contentVersion":  "1.0-imported",
+    "reviewStatus":  "needs-review",
+    "aliases":  [
+
+                ],
+    "categories":  [
+                       "ai-agents",
+                       "ai-infrastructure",
+                       "data-rag",
+                       "models-architecture",
+                       "ai-governance-risk",
+                       "generative-ai"
+                   ],
+    "relatedConcepts":  [
+
+                        ],
+    "created":  "2026-08-13",
+    "lastUpdated":  "2026-08-13",
+    "review":  {
+                   "status":  "needs-review",
+                   "reviewedDate":  "2026-08-13",
+                   "nextReviewDate":  "2026-11-11"
+               },
+    "simpleExplanation":  "The five disciplines are complementary control layers.",
+    "executiveTakeaway":  "If the model misunderstands the task or priorities, inspect the prompt. If it lacks the right facts, state, memory, or permissions in its working information, inspect the context. If the model has the right intent and information but cannot safely execute tools, preserve state, enforce permissions, recover, or expose useful traces, inspect the harness. If one agent can do the work but needs repeated action, verification, recovery, or human checkpoints, inspect the loop. If the work requires specialized roles, explicit handoffs, branching, parallelism, joins, information boundaries, or failure isolation across multiple processes, inspect the graph.",
+    "knowledgeWorkerTakeaway":  "If the model misunderstands the task or priorities, inspect the prompt. If it lacks the right facts, state, memory, or permissions in its working information, inspect the context. If the model has the right intent and information but cannot safely execute tools, preserve state, enforce permissions, recover, or expose useful traces, inspect the harness. If one agent can do the work but needs repeated action, verification, recovery, or human checkpoints, inspect the loop. If the work requires specialized roles, explicit handoffs, branching, parallelism, joins, information boundaries, or failure isolation across multiple processes, inspect the graph.",
+    "keyTakeaway":  "If the model misunderstands the task or priorities, inspect the prompt. If it lacks the right facts, state, memory, or permissions in its working information, inspect the context.",
+    "primaryRisk":  "",
+    "examples":  [
+
+                 ],
+    "businessImpact":  {
+
+                       },
+    "questionsToAsk":  [
+
+                       ],
+    "relationships":  [
+
+                      ],
+    "prerequisites":  [
+
+                      ],
+    "learnNext":  [
+
+                  ],
+    "commonlyConfusedWith":  [
+
+                             ],
+    "comparisons":  [
+
+                    ],
+    "sources":  [
+
+                ]
+}
