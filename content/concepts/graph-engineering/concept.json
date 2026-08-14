@@ -1,0 +1,197 @@
+{
+    "schemaVersion":  4,
+    "id":  "graph-engineering",
+    "title":  "Graph Engineering",
+    "shortTitle":  "Graph Engineering",
+    "summary":  "Graph Engineering is the design of the topology, information boundaries, and control rules of a multi-agent or multi-process AI system.",
+    "status":  "active",
+    "definition":  "Graph Engineering is the design of the topology, information boundaries, and control rules of a multi-agent or multi-process AI system. It defines nodes such as specialist agents, routers, tools, services, or human approval gates; execution edges that determine sequencing, branching, joins, parallelism, and cycles; and information edges that determine what messages, state, permissions, or summaries each node is allowed to receive. A production graph also specifies termination, retry, fallback, checkpointing, observability, and escalation so the system can coordinate complex work without turning multi-agent interaction into uncontrolled conversation.",
+    "audiences":  {
+                      "seniorLeaders":  "Graph Engineering makes organizational design and governance executable. The architecture can encode role ownership, segregation of duties, approval gates, information boundaries, and failure isolation while assigning different models or tools to different specialties. Multiple production frameworks now expose graph or orchestration primitives, which makes topology choices relevant to cost, resilience, security, and accountabilityâ€”not just to software implementation.",
+                      "knowledgeWorkers":  "Knowledge workers may increasingly supervise a team of specialist agents rather than one general assistant. Well-designed graphs can keep each specialist focused on a bounded role and expose only the context it needs, while humans resolve exceptions, approve consequential transitions, and remain clear about which node owns each stage of the work."
+                  },
+    "example":  "A publishing system uses separate Research, Analysis, Writing, Validation, and Publishing nodes. Research and fact-checking can fan out in parallel, the validator can route failed claims back for correction, and publication requires a human approval gate. The execution graph controls which node runs next, while a separate information policy forwards validated summaries and source evidence instead of broadcasting every prior message to every specialist.",
+    "opportunities":  [
+                          "Specialization",
+                          "parallel execution",
+                          "conditional routing",
+                          "explicit joins and dependencies",
+                          "model and tool selection by task",
+                          "message filtering that reduces irrelevant context",
+                          "durable state",
+                          "human approval gates",
+                          "fault isolation",
+                          "fallback paths",
+                          "and clearer accountability across complex agentic work"
+                      ],
+    "risks":  [
+                  "Coordination overhead",
+                  "graph complexity that exceeds task value",
+                  "execution paths that diverge from intended information boundaries",
+                  "accidental broadcast of sensitive context",
+                  "cycles without safe exits",
+                  "cascading failures",
+                  "duplicated work",
+                  "difficult debugging",
+                  "inconsistent state at joins",
+                  "higher latency and cost",
+                  "and unclear ownership when responsibility is spread across nodes"
+              ],
+    "misconception":  "Graph Engineering is not simply drawing a workflow diagram or adding more agents. The distinctive engineering problem is controlling both execution topology and information topology. If ad-hoc collaboration is sufficient, a simple agent or team is preferable; a graph becomes valuable when order, conditional branching, parallelism, state boundaries, handoffs, or recovery must be explicit.",
+    "monitor":  "Execution-graph and message-graph design; per-node context and permission boundaries; fan-out and join correctness; handoff schemas; graph persistence and checkpointing; human interrupts; traceability; fallback and recovery behavior; per-node cost and latency; interoperability; and whether Graph Engineering stabilizes as a durable discipline within broader agent orchestration. Evidence: [15], [16], [17], [18], [19].",
+    "classification":  {
+                           "type":  "Multi-agent architecture discipline",
+                           "horizon":  [
+                                           "current",
+                                           "emerging"
+                                       ],
+                           "score":  89,
+                           "confidence":  "medium-high"
+                       },
+    "lastReviewed":  "2026-08-13",
+    "keywords":  [
+                     "graph",
+                     "engineering",
+                     "generative ai",
+                     "agents",
+                     "tools",
+                     "permissions"
+                 ],
+    "media":  [
+                  {
+                      "id":  "infographic",
+                      "type":  "image",
+                      "label":  "Infographic",
+                      "src":  "./media/infographic.png",
+                      "webSrc":  "./derived/infographic-1600.jpg",
+                      "thumbnail":  "./derived/infographic-thumbnail.jpg",
+                      "mime":  "image/png",
+                      "alt":  "Infographic overview of Graph Engineering, including its definition, organizational relevance, opportunities, risks, and monitoring considerations.",
+                      "displayLabel":  "Infographic",
+                      "accessibility":  {
+                                            "status":  "complete",
+                                            "alt":  "Infographic overview of Graph Engineering, including its definition, organizational relevance, opportunities, risks, and monitoring considerations."
+                                        },
+                      "sizeBytes":  5446698
+                  },
+                  {
+                      "id":  "video",
+                      "type":  "video",
+                      "label":  "Video",
+                      "src":  "./media/explainer-video.mp4",
+                      "mime":  "video/mp4",
+                      "poster":  "./derived/video-poster.svg",
+                      "displayLabel":  "Watch video",
+                      "accessibility":  {
+                                            "status":  "needs-remediation",
+                                            "captions":  null,
+                                            "transcript":  null
+                                        },
+                      "sizeBytes":  7466703,
+                      "durationSeconds":  81.99
+                  },
+                  {
+                      "id":  "audio",
+                      "type":  "audio",
+                      "label":  "Audio",
+                      "src":  "./media/audio-overview.m4a",
+                      "mime":  "audio/mp4",
+                      "displayLabel":  "Listen",
+                      "accessibility":  {
+                                            "status":  "needs-remediation",
+                                            "transcript":  null
+                                        },
+                      "sizeBytes":  3702244,
+                      "durationSeconds":  115.01
+                  },
+                  {
+                      "id":  "slides",
+                      "type":  "pdf",
+                      "label":  "Slides / PDF",
+                      "src":  "./media/presentation.pdf",
+                      "mime":  "application/pdf",
+                      "displayLabel":  "Presentation",
+                      "accessibility":  {
+                                            "status":  "alternative-provided",
+                                            "sourceTagged":  false,
+                                            "accessibleAlternative":  "./derived/briefing.html",
+                                            "alternativeLabel":  "The source PDF is treated as untagged unless separately verified. Use the readable concept briefing for equivalent concept-level text."
+                                        },
+                      "sizeBytes":  9688674,
+                      "pages":  9
+                  },
+                  {
+                      "id":  "briefing",
+                      "type":  "text",
+                      "label":  "Read",
+                      "src":  "./media/briefing.txt",
+                      "mime":  "text/plain",
+                      "webVersion":  "./derived/briefing.html",
+                      "displayLabel":  "Read",
+                      "accessibility":  {
+                                            "status":  "complete",
+                                            "accessibleAlternative":  "./derived/briefing.html"
+                                        },
+                      "sizeBytes":  3922
+                  }
+              ],
+    "contentVersion":  "1.0-imported",
+    "reviewStatus":  "needs-review",
+    "aliases":  [
+
+                ],
+    "categories":  [
+                       "ai-agents",
+                       "data-rag",
+                       "models-architecture",
+                       "ai-governance-risk"
+                   ],
+    "relatedConcepts":  [
+
+                        ],
+    "created":  "2026-08-13",
+    "lastUpdated":  "2026-08-13",
+    "review":  {
+                   "status":  "needs-review",
+                   "reviewedDate":  "2026-08-13",
+                   "nextReviewDate":  "2026-11-11"
+               },
+    "simpleExplanation":  "Graph Engineering is the design of the topology, information boundaries, and control rules of a multi-agent or multi-process AI system.",
+    "executiveTakeaway":  "Graph Engineering makes organizational design and governance executable. The architecture can encode role ownership, segregation of duties, approval gates, information boundaries, and failure isolation while assigning different models or tools to different specialties. Multiple production frameworks now expose graph or orchestration primitives, which makes topology choices relevant to cost, resilience, security, and accountabilityâ€”not just to software implementation.",
+    "knowledgeWorkerTakeaway":  "Knowledge workers may increasingly supervise a team of specialist agents rather than one general assistant. Well-designed graphs can keep each specialist focused on a bounded role and expose only the context it needs, while humans resolve exceptions, approve consequential transitions, and remain clear about which node owns each stage of the work.",
+    "keyTakeaway":  "Graph Engineering is the design of the topology, information boundaries, and control rules of a multi-agent or multi-process AI system.",
+    "primaryRisk":  "Coordination overhead; graph complexity that exceeds task value; execution paths that diverge from intended information boundaries; accidental broadcast of sensitive context; cycles without safe exits; cascading failures; duplicated work; difficult debugging; inconsistent state at joins; higher latency and cost; and unclear ownership when responsibility is spread across nodes.",
+    "examples":  [
+                     {
+                         "title":  "Practical organizational example",
+                         "audience":  "all",
+                         "summary":  "A publishing system uses separate Research, Analysis, Writing, Validation, and Publishing nodes. Research and fact-checking can fan out in parallel, the validator can route failed claims back for correction, and publication requires a human approval gate. The execution graph controls which node runs next, while a separate information policy forwards validated summaries and source evidence instead of broadcasting every prior message to every specialist."
+                     }
+                 ],
+    "businessImpact":  {
+                           "potentialValue":  "Specialization; parallel execution; conditional routing; explicit joins and dependencies; model and tool selection by task; message filtering that reduces irrelevant context; durable state; human approval gates; fault isolation; fallback paths; and clearer accountability across complex agentic work.",
+                           "operationalImpact":  "A publishing system uses separate Research, Analysis, Writing, Validation, and Publishing nodes. Research and fact-checking can fan out in parallel, the validator can route failed claims back for correction, and publication requires a human approval gate. The execution graph controls which node runs next, while a separate information policy forwards validated summaries and source evidence instead of broadcasting every prior message to every specialist.",
+                           "primaryRisk":  "Coordination overhead; graph complexity that exceeds task value; execution paths that diverge from intended information boundaries; accidental broadcast of sensitive context; cycles without safe exits; cascading failures; duplicated work; difficult debugging; inconsistent state at joins; higher latency and cost; and unclear ownership when responsibility is spread across nodes."
+                       },
+    "questionsToAsk":  [
+
+                       ],
+    "relationships":  [
+
+                      ],
+    "prerequisites":  [
+
+                      ],
+    "learnNext":  [
+
+                  ],
+    "commonlyConfusedWith":  [
+
+                             ],
+    "comparisons":  [
+
+                    ],
+    "sources":  [
+
+                ]
+}
