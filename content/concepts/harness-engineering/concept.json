@@ -1,0 +1,196 @@
+{
+    "schemaVersion":  4,
+    "id":  "harness-engineering",
+    "title":  "Harness Engineering",
+    "shortTitle":  "Harness Engineering",
+    "summary":  "Harness Engineering is the design and continuous tuning of the runtime and control environment that surrounds an AI model and turns model capability into dependable agent behavior.",
+    "status":  "active",
+    "definition":  "Harness Engineering is the design and continuous tuning of the runtime and control environment that surrounds an AI model and turns model capability into dependable agent behavior. A production harness can govern the agent loop, tool execution, sandboxing, permissions and authentication, state persistence, context access, skills, validation, observability, recovery, escalation, and user or agent interfaces. The model supplies probabilistic intelligence; the harness determines what it may access and execute, what controls are enforced mechanically, and how work persists and recovers.",
+    "audiences":  {
+                      "seniorLeaders":  "Model choice does not govern an agent by itself. The harness determines practical blast radius, auditability, portability, cost, reliability, and autonomy. OpenAI and Anthropic both treat the surrounding environment and controls as load-bearing for dependable agents. Two 2026 preprints add evidence: harness evolution raised Terminal-Bench 2 pass@1 from 69.7% to 77.0% with cross-model-family gains, while code-owned harness contracts held across 270 runs using three hosted models. Harness design is therefore a strategic architecture and risk decision, not developer plumbing.",
+                      "knowledgeWorkers":  "Users experience the harness through available tools, accessible files and systems, permissions, approval gates, retained state, and review evidence. A stronger harness enables longer delegation with clearer boundaries and fewer manual interventions while keeping consequential actions and failures visible for human judgment."
+                  },
+    "example":  "A legal-research agent uses only approved repositories, defaults to read-only access, isolates matter state, executes tools in a sandbox, validates cited claims against sources, requires human approval before external communication, and records actions for audit. The underlying model can change without removing these code-owned controls.",
+    "opportunities":  [
+                          "Reliable long-horizon autonomy",
+                          "reusable tool and permission policies",
+                          "safer model substitution",
+                          "centralized guardrails",
+                          "resumable state",
+                          "mechanical business rules",
+                          "observability and debugging",
+                          "recovery and escalation",
+                          "lower supervision",
+                          "and reusable infrastructure that compounds across future runs"
+                      ],
+    "risks":  [
+                  "Over-permissioned tools",
+                  "weak sandboxing or credential isolation",
+                  "corrupted state",
+                  "insufficient logging",
+                  "brittle scaffolding that becomes obsolete as models improve",
+                  "provider coupling",
+                  "complexity, latency, and token cost",
+                  "conflicting controls",
+                  "and assuming a harness can make an incapable model reliable"
+              ],
+    "misconception":  "Harness Engineering is not a prompt template, tool list, or agent framework. It is the executable control environment that makes model decisions operational. The boundary is still settling: some sources use â€œharnessâ€ narrowly for instructions and guardrails, while systems such as Codex use it broadly for the loop, persistence, configuration and authentication, tools, and extensions. This reference uses the broader systems definition.",
+    "monitor":  "Task success by model-plus-harness combination; tool-call safety; least-privilege permissions; sandbox and credential isolation; resume integrity; recovery and escalation; trace completeness; model-substitution evaluations; latency and cost; ablations as models improve; and portable harness interfaces. Evidence: [20], [21], [22], [23], [24], [25], [26].",
+    "classification":  {
+                           "type":  "Agent runtime / control-plane discipline",
+                           "horizon":  [
+                                           "current",
+                                           "emerging"
+                                       ],
+                           "score":  94,
+                           "confidence":  "high"
+                       },
+    "lastReviewed":  "2026-08-13",
+    "keywords":  [
+                     "harness",
+                     "engineering",
+                     "generative ai",
+                     "context",
+                     "loop",
+                     "runtime",
+                     "permissions"
+                 ],
+    "media":  [
+                  {
+                      "id":  "infographic",
+                      "type":  "image",
+                      "label":  "Infographic",
+                      "src":  "./media/infographic.png",
+                      "webSrc":  "./derived/infographic-1600.jpg",
+                      "thumbnail":  "./derived/infographic-thumbnail.jpg",
+                      "mime":  "image/png",
+                      "alt":  "Infographic overview of Harness Engineering, including its definition, organizational relevance, opportunities, risks, and monitoring considerations.",
+                      "displayLabel":  "Infographic",
+                      "accessibility":  {
+                                            "status":  "complete",
+                                            "alt":  "Infographic overview of Harness Engineering, including its definition, organizational relevance, opportunities, risks, and monitoring considerations."
+                                        },
+                      "sizeBytes":  5262322
+                  },
+                  {
+                      "id":  "video",
+                      "type":  "video",
+                      "label":  "Video",
+                      "src":  "./media/explainer-video.mp4",
+                      "mime":  "video/mp4",
+                      "poster":  "./derived/video-poster.svg",
+                      "displayLabel":  "Watch video",
+                      "accessibility":  {
+                                            "status":  "needs-remediation",
+                                            "captions":  null,
+                                            "transcript":  null
+                                        },
+                      "sizeBytes":  6896156,
+                      "durationSeconds":  75.26
+                  },
+                  {
+                      "id":  "audio",
+                      "type":  "audio",
+                      "label":  "Audio",
+                      "src":  "./media/audio-overview.m4a",
+                      "mime":  "audio/mp4",
+                      "displayLabel":  "Listen",
+                      "accessibility":  {
+                                            "status":  "needs-remediation",
+                                            "transcript":  null
+                                        },
+                      "sizeBytes":  3785913,
+                      "durationSeconds":  117.61
+                  },
+                  {
+                      "id":  "slides",
+                      "type":  "pdf",
+                      "label":  "Slides / PDF",
+                      "src":  "./media/presentation.pdf",
+                      "mime":  "application/pdf",
+                      "displayLabel":  "Presentation",
+                      "accessibility":  {
+                                            "status":  "alternative-provided",
+                                            "sourceTagged":  false,
+                                            "accessibleAlternative":  "./derived/briefing.html",
+                                            "alternativeLabel":  "The source PDF is treated as untagged unless separately verified. Use the readable concept briefing for equivalent concept-level text."
+                                        },
+                      "sizeBytes":  10718139,
+                      "pages":  10
+                  },
+                  {
+                      "id":  "briefing",
+                      "type":  "text",
+                      "label":  "Read",
+                      "src":  "./media/briefing.txt",
+                      "mime":  "text/plain",
+                      "webVersion":  "./derived/briefing.html",
+                      "displayLabel":  "Read",
+                      "accessibility":  {
+                                            "status":  "complete",
+                                            "accessibleAlternative":  "./derived/briefing.html"
+                                        },
+                      "sizeBytes":  3746
+                  }
+              ],
+    "contentVersion":  "1.0-imported",
+    "reviewStatus":  "needs-review",
+    "aliases":  [
+
+                ],
+    "categories":  [
+                       "ai-agents",
+                       "ai-infrastructure",
+                       "data-rag",
+                       "models-architecture",
+                       "ai-governance-risk"
+                   ],
+    "relatedConcepts":  [
+
+                        ],
+    "created":  "2026-08-13",
+    "lastUpdated":  "2026-08-13",
+    "review":  {
+                   "status":  "needs-review",
+                   "reviewedDate":  "2026-08-13",
+                   "nextReviewDate":  "2026-11-11"
+               },
+    "simpleExplanation":  "Harness Engineering is the design and continuous tuning of the runtime and control environment that surrounds an AI model and turns model capability into dependable agent behavior.",
+    "executiveTakeaway":  "Model choice does not govern an agent by itself. The harness determines practical blast radius, auditability, portability, cost, reliability, and autonomy. OpenAI and Anthropic both treat the surrounding environment and controls as load-bearing for dependable agents. Two 2026 preprints add evidence: harness evolution raised Terminal-Bench 2 pass@1 from 69.7% to 77.0% with cross-model-family gains, while code-owned harness contracts held across 270 runs using three hosted models. Harness design is therefore a strategic architecture and risk decision, not developer plumbing.",
+    "knowledgeWorkerTakeaway":  "Users experience the harness through available tools, accessible files and systems, permissions, approval gates, retained state, and review evidence. A stronger harness enables longer delegation with clearer boundaries and fewer manual interventions while keeping consequential actions and failures visible for human judgment.",
+    "keyTakeaway":  "Harness Engineering is the design and continuous tuning of the runtime and control environment that surrounds an AI model and turns model capability into dependable agent behavior.",
+    "primaryRisk":  "Over-permissioned tools; weak sandboxing or credential isolation; corrupted state; insufficient logging; brittle scaffolding that becomes obsolete as models improve; provider coupling; complexity, latency, and token cost; conflicting controls; and assuming a harness can make an incapable model reliable.",
+    "examples":  [
+                     {
+                         "title":  "Practical organizational example",
+                         "audience":  "all",
+                         "summary":  "A legal-research agent uses only approved repositories, defaults to read-only access, isolates matter state, executes tools in a sandbox, validates cited claims against sources, requires human approval before external communication, and records actions for audit. The underlying model can change without removing these code-owned controls."
+                     }
+                 ],
+    "businessImpact":  {
+                           "potentialValue":  "Reliable long-horizon autonomy; reusable tool and permission policies; safer model substitution; centralized guardrails; resumable state; mechanical business rules; observability and debugging; recovery and escalation; lower supervision; and reusable infrastructure that compounds across future runs.",
+                           "operationalImpact":  "A legal-research agent uses only approved repositories, defaults to read-only access, isolates matter state, executes tools in a sandbox, validates cited claims against sources, requires human approval before external communication, and records actions for audit. The underlying model can change without removing these code-owned controls.",
+                           "primaryRisk":  "Over-permissioned tools; weak sandboxing or credential isolation; corrupted state; insufficient logging; brittle scaffolding that becomes obsolete as models improve; provider coupling; complexity, latency, and token cost; conflicting controls; and assuming a harness can make an incapable model reliable."
+                       },
+    "questionsToAsk":  [
+
+                       ],
+    "relationships":  [
+
+                      ],
+    "prerequisites":  [
+
+                      ],
+    "learnNext":  [
+
+                  ],
+    "commonlyConfusedWith":  [
+
+                             ],
+    "comparisons":  [
+
+                    ],
+    "sources":  [
+
+                ]
+}
