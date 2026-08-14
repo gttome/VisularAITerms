@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "generative-ai-engineering-foundations",
+  "title": "Generative AI Engineering Foundations",
+  "description": "Understand the Generative AI engineering ecosystem, then learn how Prompt Engineering and Context Engineering shape model behavior and supply the information needed for reliable results.",
+  "audience": "all",
+  "concepts": [
+    "generative-ai-engineering-ecosystem",
+    "prompt-engineering",
+    "context-engineering"
+  ]
+}

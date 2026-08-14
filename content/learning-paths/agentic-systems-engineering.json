@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "agentic-systems-engineering",
+  "title": "Agentic Systems Engineering",
+  "description": "Learn the engineering layers that make agentic AI systems dependable: the runtime harness, iterative execution loops, and graph-based orchestration of multi-step or multi-agent work.",
+  "audience": "all",
+  "concepts": [
+    "harness-engineering",
+    "loop-engineering",
+    "graph-engineering"
+  ]
+}

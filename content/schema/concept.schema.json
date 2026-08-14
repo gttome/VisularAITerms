@@ -145,7 +145,7 @@
         "required": ["id", "type", "label", "src", "mime", "accessibility"],
         "properties": {
           "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-          "type": {"enum": ["image", "video", "audio", "pdf", "docx"]},
+          "type": {"enum": ["image", "video", "audio", "pdf", "docx", "text"]},
           "label": {"type": "string"},
           "displayLabel": {"type": "string"},
           "src": {"type": "string"},
