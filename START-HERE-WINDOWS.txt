@@ -1,0 +1,37 @@
+VISULAR AI TERMS / CONCEPTS v0.6.2 - WINDOWS 11 QUICK START
+
+RUN THE CURRENT APP
+Double-click: 2-TEST-APP.bat
+
+IMPORT 1-N NEW CONCEPTS
+1. Copy 1-n new concept ZIPs into concept-import.
+2. If the batch should create or change Learning Paths, also place learning-path-plan.json in concept-import.
+3. Double-click: 1-IMPORT-CONCEPTS.bat
+4. The importer validates the whole batch before changing the app.
+5. After success, it checks Learning Path coverage and opens the updated local app.
+6. Test Search, Categories, A-Z, Glossary, Learning Paths, Quick View, Deep Dive, media, Saved/Recent, and Compare.
+7. When accepted, double-click: 3-PREPARE-GITHUB-UPDATE.bat
+
+IMPORTANT LEARNING PATH RULE
+Every browsable concept must appear in at least one curated Learning Path before GitHub publishing. The importer reports missing assignments but still lets you test locally. 3-PREPARE-GITHUB-UPDATE.bat blocks publishing until coverage passes.
+
+CHECK LEARNING PATHS ANY TIME
+Double-click: 5-CHECK-LEARNING-PATHS.bat
+Report: learning-path-review\latest.txt
+
+PACKAGE CONTENT REQUIRED FOR EACH NEW CONCEPT
+- one image (PNG, JPG, JPEG, or WEBP)
+- one MP4 video
+- one audio file (M4A recommended; MP3 or WAV also supported)
+- one PDF
+- one TXT or DOCX briefing
+
+OPTIONAL BATCH FILE
+concept-import\learning-path-plan.json
+Use it when the batch creates a new Learning Path or changes an existing path/order. See concept-import\LEARNING-PATH-PLAN-EXAMPLE.json.
+
+IMPORTANT
+- The routine importer adds NEW concepts only; it does not overwrite an existing concept.
+- If any ZIP fails validation, the batch stops before commit.
+- Successfully imported ZIPs and any applied learning-path-plan.json are moved under concept-import\imported\<timestamp>.
+- The local app does not require Node.js or npm for the Windows import/test workflow.
