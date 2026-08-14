@@ -1,5 +1,25 @@
 # Changelog
 
+## v0.6.2 — Iteration 5 Learning Path maintenance
+- Added **Generative AI Engineering Foundations** and **Agentic Systems Engineering** Learning Paths while preserving **AI Agents and Governance**.
+- Established 3 curated paths covering all 8 browsable concepts.
+- Added post-import Learning Path coverage reporting and `5-CHECK-LEARNING-PATHS.bat`.
+- Added an optional `concept-import/learning-path-plan.json` for one-click curated path creation/update during a batch import.
+- Added a fail-closed GitHub packaging gate when any browsable concept is outside all Learning Paths.
+- GitHub update packages now always include the current small Learning Path definition set.
+
+## v0.6.1 — Iteration 5 media-metadata maintenance
+- Fixed blank Watch video, Listen, and Presentation secondary labels for imported concepts by deriving MP4/M4A duration and PDF page count.
+- Added in-place repair for concepts already imported under v0.6.0.
+- Preserved the existing concept ZIP contract and one-click workflow.
+
+## v0.6.0 — Iteration 5
+- Added Windows one-click batch import for 1-n concept ZIPs.
+- Added TXT briefing support and generated browser-readable HTML.
+- Added local validation-first import, archive, rollback-catalog snapshot, and latest-import state.
+- Added one-click local test and GitHub update preparation launchers.
+- Preserved all v0.5.1 product behavior and translation exclusion.
+
 ## v0.5.1 — Iteration 4 maintenance fix
 
 - Fixed a GitHub Pages/browser cache compatibility issue that could display the new Iteration 4 Save/Compare controls while reusing stale v0.4.0 JavaScript/CSS, leaving the buttons inactive and without pressed-state styling.

@@ -9,7 +9,7 @@ Build and maintain a simple, data-driven multimedia AI reference for senior lead
 - Technical architecture: `docs/ARCHITECTURE.md`
 - Content and publishing: `docs/CONTENT.md`
 - Quality requirements: `docs/QUALITY.md`
-- Active completed iteration: `docs/iterations/ITERATION-4.md`
+- Active completed iteration: `docs/iterations/ITERATION-5.md`
 
 ## Architecture rules
 1. Runtime is semantic HTML, CSS, and vanilla JavaScript ES modules.
@@ -31,12 +31,14 @@ Build and maintain a simple, data-driven multimedia AI reference for senior lead
 ## Product identity
 - Application name: `Visular AI Terms / Concepts`
 - Short package name: `VisularAITerms`
-- Current version: `0.5.1`
+- Current version: `0.6.2`
 - User-supplied logo: `src/assets/visular-ai-terms-logo-original.png`
 - Optimized runtime logo: `src/assets/visular-ai-terms-logo.webp`
 
 ## New-concept workflow
-Prefer the safe publishing tools rather than hand-building directories:
+For routine Windows 11 additions, prefer `1-IMPORT-CONCEPTS.bat` with 1-n ZIPs in `concept-import/`. The routine package contract is image + MP4 + audio + PDF + TXT or DOCX, and the batch importer must remain validation-first and non-overwriting.
+
+For development/manual publishing, prefer the safe publishing tools rather than hand-building directories:
 - `npm run concept:new -- "Concept Title"`
 - `npm run concept:import -- "path-to-source-folder"`
 - complete/review metadata;
