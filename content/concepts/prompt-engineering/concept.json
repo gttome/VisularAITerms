@@ -1,0 +1,192 @@
+{
+    "schemaVersion":  4,
+    "id":  "prompt-engineering",
+    "title":  "Prompt Engineering",
+    "shortTitle":  "Prompt Engineering",
+    "summary":  "Prompt Engineering is the deliberate design, testing, and maintenance of the instructions that steer a generative AI model or agent. It defines the task, priorities, constraints, role boundaries, output contract, and acceptance criteria.",
+    "status":  "active",
+    "definition":  "Prompt Engineering is the deliberate design, testing, and maintenance of the instructions that steer a generative AI model or agent. It defines the task, priorities, constraints, role boundaries, output contract, and acceptance criteria. In production, it also includes persistent system or developer instructions and their priority relative to user requests and untrusted tool content. It engineers the instruction layer; context, tools, loops, and multi-agent orchestration remain separate design problems.",
+    "audiences":  {
+                      "seniorLeaders":  "Production prompts can encode business rules, quality standards, and safety boundaries, making them part of the operating control surface. OpenAI reports that leaner system prompts improved internal coding-agent evaluation scores by roughly 10â€“15% while reducing tokens by 41â€“66% and cost by 33â€“67% in a workload-specific sample. Instruction hierarchy is also security-relevant because agents must prioritize trusted system and developer instructions over conflicting user or tool content.",
+                      "knowledgeWorkers":  "Strong prompts specify the objective, constraints, authoritative sources, expected output, and what must be checked before acceptance. The skill is increasingly to write a clear assignment and definition of done, not memorize prompt tricks."
+                  },
+    "example":  "A procurement team maintains a version-controlled vendor-analysis instruction defining the scoring framework, required evidence, prohibited assumptions, output schema, and escalation rules. Representative proposals are used to evaluate each revision before release.",
+    "opportunities":  [
+                          "Reusable task specifications",
+                          "stronger first passes",
+                          "lower rework",
+                          "consistent outputs",
+                          "evaluated prompt versions",
+                          "safer instruction precedence",
+                          "and lower token and cost overhead from leaner instructions"
+                      ],
+    "risks":  [
+                  "Conflicting instructions",
+                  "prompt injection",
+                  "brittle templates",
+                  "hidden assumptions",
+                  "version drift",
+                  "overlong prompts that dilute requirements and increase cost",
+                  "and treating prompt quality as a substitute for evidence or verification"
+              ],
+    "misconception":  "Prompt Engineering is neither magic wording nor obsolete. Its modern role is disciplined instruction design: make the contract clear, keep it lean, and test it; use Context, Loop, and Graph Engineering for the surrounding system.",
+    "monitor":  "Instruction-following reliability; prompt-injection resistance; hierarchy conflicts; performance and cost by prompt version; structured-output reliability; and eval-driven prompt changes. Evidence: [1], [2], [3], [4], [5].",
+    "classification":  {
+                           "type":  "Interaction-design discipline",
+                           "horizon":  [
+                                           "foundational",
+                                           "current"
+                                       ],
+                           "score":  83,
+                           "confidence":  "high"
+                       },
+    "lastReviewed":  "2026-08-13",
+    "keywords":  [
+                     "prompt",
+                     "engineering",
+                     "generative ai",
+                     "context",
+                     "loop",
+                     "orchestration",
+                     "tools"
+                 ],
+    "media":  [
+                  {
+                      "id":  "infographic",
+                      "type":  "image",
+                      "label":  "Infographic",
+                      "src":  "./media/infographic.png",
+                      "webSrc":  "./derived/infographic-1600.jpg",
+                      "thumbnail":  "./derived/infographic-thumbnail.jpg",
+                      "mime":  "image/png",
+                      "alt":  "Infographic overview of Prompt Engineering, including its definition, organizational relevance, opportunities, risks, and monitoring considerations.",
+                      "displayLabel":  "Infographic",
+                      "accessibility":  {
+                                            "status":  "complete",
+                                            "alt":  "Infographic overview of Prompt Engineering, including its definition, organizational relevance, opportunities, risks, and monitoring considerations."
+                                        },
+                      "sizeBytes":  4803543
+                  },
+                  {
+                      "id":  "video",
+                      "type":  "video",
+                      "label":  "Video",
+                      "src":  "./media/explainer-video.mp4",
+                      "mime":  "video/mp4",
+                      "poster":  "./derived/video-poster.svg",
+                      "displayLabel":  "Watch video",
+                      "accessibility":  {
+                                            "status":  "needs-remediation",
+                                            "captions":  null,
+                                            "transcript":  null
+                                        },
+                      "sizeBytes":  6727761,
+                      "durationSeconds":  80.02
+                  },
+                  {
+                      "id":  "audio",
+                      "type":  "audio",
+                      "label":  "Audio",
+                      "src":  "./media/audio-overview.m4a",
+                      "mime":  "audio/mp4",
+                      "displayLabel":  "Listen",
+                      "accessibility":  {
+                                            "status":  "needs-remediation",
+                                            "transcript":  null
+                                        },
+                      "sizeBytes":  3473535,
+                      "durationSeconds":  107.9
+                  },
+                  {
+                      "id":  "slides",
+                      "type":  "pdf",
+                      "label":  "Slides / PDF",
+                      "src":  "./media/presentation.pdf",
+                      "mime":  "application/pdf",
+                      "displayLabel":  "Presentation",
+                      "accessibility":  {
+                                            "status":  "alternative-provided",
+                                            "sourceTagged":  false,
+                                            "accessibleAlternative":  "./derived/briefing.html",
+                                            "alternativeLabel":  "The source PDF is treated as untagged unless separately verified. Use the readable concept briefing for equivalent concept-level text."
+                                        },
+                      "sizeBytes":  8997084,
+                      "pages":  8
+                  },
+                  {
+                      "id":  "briefing",
+                      "type":  "text",
+                      "label":  "Read",
+                      "src":  "./media/briefing.txt",
+                      "mime":  "text/plain",
+                      "webVersion":  "./derived/briefing.html",
+                      "displayLabel":  "Read",
+                      "accessibility":  {
+                                            "status":  "complete",
+                                            "accessibleAlternative":  "./derived/briefing.html"
+                                        },
+                      "sizeBytes":  2881
+                  }
+              ],
+    "contentVersion":  "1.0-imported",
+    "reviewStatus":  "needs-review",
+    "aliases":  [
+
+                ],
+    "categories":  [
+                       "prompt-engineering",
+                       "ai-agents",
+                       "data-rag",
+                       "models-architecture",
+                       "ai-governance-risk",
+                       "generative-ai"
+                   ],
+    "relatedConcepts":  [
+
+                        ],
+    "created":  "2026-08-13",
+    "lastUpdated":  "2026-08-13",
+    "review":  {
+                   "status":  "needs-review",
+                   "reviewedDate":  "2026-08-13",
+                   "nextReviewDate":  "2026-11-11"
+               },
+    "simpleExplanation":  "Prompt Engineering is the deliberate design, testing, and maintenance of the instructions that steer a generative AI model or agent. It defines the task, priorities, constraints, role boundaries, output contract, and acceptance criteria.",
+    "executiveTakeaway":  "Production prompts can encode business rules, quality standards, and safety boundaries, making them part of the operating control surface. OpenAI reports that leaner system prompts improved internal coding-agent evaluation scores by roughly 10â€“15% while reducing tokens by 41â€“66% and cost by 33â€“67% in a workload-specific sample. Instruction hierarchy is also security-relevant because agents must prioritize trusted system and developer instructions over conflicting user or tool content.",
+    "knowledgeWorkerTakeaway":  "Strong prompts specify the objective, constraints, authoritative sources, expected output, and what must be checked before acceptance. The skill is increasingly to write a clear assignment and definition of done, not memorize prompt tricks.",
+    "keyTakeaway":  "Prompt Engineering is the deliberate design, testing, and maintenance of the instructions that steer a generative AI model or agent. It defines the task, priorities, constraints, role boundaries, output contract, and acceptance criteria.",
+    "primaryRisk":  "Conflicting instructions; prompt injection; brittle templates; hidden assumptions; version drift; overlong prompts that dilute requirements and increase cost; and treating prompt quality as a substitute for evidence or verification.",
+    "examples":  [
+                     {
+                         "title":  "Practical organizational example",
+                         "audience":  "all",
+                         "summary":  "A procurement team maintains a version-controlled vendor-analysis instruction defining the scoring framework, required evidence, prohibited assumptions, output schema, and escalation rules. Representative proposals are used to evaluate each revision before release."
+                     }
+                 ],
+    "businessImpact":  {
+                           "potentialValue":  "Reusable task specifications; stronger first passes; lower rework; consistent outputs; evaluated prompt versions; safer instruction precedence; and lower token and cost overhead from leaner instructions.",
+                           "operationalImpact":  "A procurement team maintains a version-controlled vendor-analysis instruction defining the scoring framework, required evidence, prohibited assumptions, output schema, and escalation rules. Representative proposals are used to evaluate each revision before release.",
+                           "primaryRisk":  "Conflicting instructions; prompt injection; brittle templates; hidden assumptions; version drift; overlong prompts that dilute requirements and increase cost; and treating prompt quality as a substitute for evidence or verification."
+                       },
+    "questionsToAsk":  [
+
+                       ],
+    "relationships":  [
+
+                      ],
+    "prerequisites":  [
+
+                      ],
+    "learnNext":  [
+
+                  ],
+    "commonlyConfusedWith":  [
+
+                             ],
+    "comparisons":  [
+
+                    ],
+    "sources":  [
+
+                ]
+}
