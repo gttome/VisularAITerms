@@ -1,0 +1,195 @@
+{
+    "schemaVersion":  4,
+    "id":  "context-engineering",
+    "title":  "Context Engineering",
+    "shortTitle":  "Context Engineering",
+    "summary":  "Context Engineering is the deliberate selection, organization, delivery, filtering, and lifecycle management of the information and working state available to a generative AI model at runtime.",
+    "status":  "active",
+    "definition":  "Context Engineering is the deliberate selection, organization, delivery, filtering, and lifecycle management of the information and working state available to a generative AI model at runtime. It includes instructions, examples, retrieved evidence, tool descriptions and results, user or application state, conversation history, memory, permissions, and prior agent work. The engineering goal is not maximum context; it is the highest-value context for the current decision, delivered at the right time and within finite attention, token, security, and cost constraints.",
+    "audiences":  {
+                      "seniorLeaders":  "As models become more capable and interchangeable, enterprise differentiation increasingly depends on proprietary context, process knowledge, permissions, and integration design. Context architecture directly affects quality, cost, latency, privacy, and security. OpenAI notes that context bloat can increase cost, distract the model, and trigger unnecessary reasoning, while modern agent runtimes now expose explicit mechanisms for context compaction, session memory, retrieval, truncation, and prompt caching.",
+                      "knowledgeWorkers":  "Users improve results by supplying authoritative evidence and definitions while excluding irrelevant material. In long-running work, the important skill is increasingly deciding what should remain visible, what can be summarized, what should be retrieved only when needed, and what should never cross a permission boundary. More context is not automatically better context."
+                  },
+    "example":  "A sales-analysis agent starts with approved metric definitions and current pipeline data, retrieves regional policy or account history only when needed, stores a compact record of prior decisions, and removes obsolete tool output from active context. Sensitive customer records are exposed only when the requesting user and current task are authorized to use them.",
+    "opportunities":  [
+                          "Just-in-time retrieval",
+                          "durable but selective memory",
+                          "context compaction",
+                          "permission-aware context",
+                          "lower token and latency overhead",
+                          "prompt caching",
+                          "stronger grounding",
+                          "better long-horizon agent coherence",
+                          "and specialist agents that receive only the information required for their role"
+                      ],
+    "risks":  [
+                  "Context poisoning",
+                  "stale or contradictory memory",
+                  "permission leakage",
+                  "irrelevant or excessive context",
+                  "compaction that drops critical details",
+                  "retrieval failures",
+                  "cross-agent state leakage",
+                  "hidden personalization",
+                  "and tool outputs that consume attention or inject untrusted instructions"
+              ],
+    "misconception":  "Context Engineering is not simply writing a longer prompt or attaching more files. It is an ongoing allocation problem: decide which information deserves scarce model attention now, how it enters the context, how long it persists, and when it should be summarized, retrieved again, filtered, or removed.",
+    "monitor":  "Context relevance per token; retrieval precision and freshness; memory governance; compaction fidelity; context-window utilization; prompt-cache effectiveness; permission-aware retrieval; tool-result size; session persistence; and whether context-management changes improve task success rather than merely reducing token count. Evidence: [6], [7], [8], [9].",
+    "classification":  {
+                           "type":  "System-design discipline",
+                           "horizon":  [
+                                           "current",
+                                           "emerging"
+                                       ],
+                           "score":  93,
+                           "confidence":  "high"
+                       },
+    "lastReviewed":  "2026-08-13",
+    "keywords":  [
+                     "context",
+                     "engineering",
+                     "generative ai",
+                     "runtime",
+                     "memory",
+                     "permissions"
+                 ],
+    "media":  [
+                  {
+                      "id":  "infographic",
+                      "type":  "image",
+                      "label":  "Infographic",
+                      "src":  "./media/infographic.png",
+                      "webSrc":  "./derived/infographic-1600.jpg",
+                      "thumbnail":  "./derived/infographic-thumbnail.jpg",
+                      "mime":  "image/png",
+                      "alt":  "Infographic overview of Context Engineering, including its definition, organizational relevance, opportunities, risks, and monitoring considerations.",
+                      "displayLabel":  "Infographic",
+                      "accessibility":  {
+                                            "status":  "complete",
+                                            "alt":  "Infographic overview of Context Engineering, including its definition, organizational relevance, opportunities, risks, and monitoring considerations."
+                                        },
+                      "sizeBytes":  5195890
+                  },
+                  {
+                      "id":  "video",
+                      "type":  "video",
+                      "label":  "Video",
+                      "src":  "./media/explainer-video.mp4",
+                      "mime":  "video/mp4",
+                      "poster":  "./derived/video-poster.svg",
+                      "displayLabel":  "Watch video",
+                      "accessibility":  {
+                                            "status":  "needs-remediation",
+                                            "captions":  null,
+                                            "transcript":  null
+                                        },
+                      "sizeBytes":  11783559,
+                      "durationSeconds":  84.27
+                  },
+                  {
+                      "id":  "audio",
+                      "type":  "audio",
+                      "label":  "Audio",
+                      "src":  "./media/audio-overview.m4a",
+                      "mime":  "audio/mp4",
+                      "displayLabel":  "Listen",
+                      "accessibility":  {
+                                            "status":  "needs-remediation",
+                                            "transcript":  null
+                                        },
+                      "sizeBytes":  3525827,
+                      "durationSeconds":  109.53
+                  },
+                  {
+                      "id":  "slides",
+                      "type":  "pdf",
+                      "label":  "Slides / PDF",
+                      "src":  "./media/presentation.pdf",
+                      "mime":  "application/pdf",
+                      "displayLabel":  "Presentation",
+                      "accessibility":  {
+                                            "status":  "alternative-provided",
+                                            "sourceTagged":  false,
+                                            "accessibleAlternative":  "./derived/briefing.html",
+                                            "alternativeLabel":  "The source PDF is treated as untagged unless separately verified. Use the readable concept briefing for equivalent concept-level text."
+                                        },
+                      "sizeBytes":  12236880,
+                      "pages":  10
+                  },
+                  {
+                      "id":  "briefing",
+                      "type":  "text",
+                      "label":  "Read",
+                      "src":  "./media/briefing.txt",
+                      "mime":  "text/plain",
+                      "webVersion":  "./derived/briefing.html",
+                      "displayLabel":  "Read",
+                      "accessibility":  {
+                                            "status":  "complete",
+                                            "accessibleAlternative":  "./derived/briefing.html"
+                                        },
+                      "sizeBytes":  3526
+                  }
+              ],
+    "contentVersion":  "1.0-imported",
+    "reviewStatus":  "needs-review",
+    "aliases":  [
+
+                ],
+    "categories":  [
+                       "ai-agents",
+                       "ai-infrastructure",
+                       "data-rag",
+                       "models-architecture",
+                       "ai-governance-risk",
+                       "generative-ai"
+                   ],
+    "relatedConcepts":  [
+
+                        ],
+    "created":  "2026-08-13",
+    "lastUpdated":  "2026-08-13",
+    "review":  {
+                   "status":  "needs-review",
+                   "reviewedDate":  "2026-08-13",
+                   "nextReviewDate":  "2026-11-11"
+               },
+    "simpleExplanation":  "Context Engineering is the deliberate selection, organization, delivery, filtering, and lifecycle management of the information and working state available to a generative AI model at runtime.",
+    "executiveTakeaway":  "As models become more capable and interchangeable, enterprise differentiation increasingly depends on proprietary context, process knowledge, permissions, and integration design. Context architecture directly affects quality, cost, latency, privacy, and security. OpenAI notes that context bloat can increase cost, distract the model, and trigger unnecessary reasoning, while modern agent runtimes now expose explicit mechanisms for context compaction, session memory, retrieval, truncation, and prompt caching.",
+    "knowledgeWorkerTakeaway":  "Users improve results by supplying authoritative evidence and definitions while excluding irrelevant material. In long-running work, the important skill is increasingly deciding what should remain visible, what can be summarized, what should be retrieved only when needed, and what should never cross a permission boundary. More context is not automatically better context.",
+    "keyTakeaway":  "Context Engineering is the deliberate selection, organization, delivery, filtering, and lifecycle management of the information and working state available to a generative AI model at runtime.",
+    "primaryRisk":  "Context poisoning; stale or contradictory memory; permission leakage; irrelevant or excessive context; compaction that drops critical details; retrieval failures; cross-agent state leakage; hidden personalization; and tool outputs that consume attention or inject untrusted instructions.",
+    "examples":  [
+                     {
+                         "title":  "Practical organizational example",
+                         "audience":  "all",
+                         "summary":  "A sales-analysis agent starts with approved metric definitions and current pipeline data, retrieves regional policy or account history only when needed, stores a compact record of prior decisions, and removes obsolete tool output from active context. Sensitive customer records are exposed only when the requesting user and current task are authorized to use them."
+                     }
+                 ],
+    "businessImpact":  {
+                           "potentialValue":  "Just-in-time retrieval; durable but selective memory; context compaction; permission-aware context; lower token and latency overhead; prompt caching; stronger grounding; better long-horizon agent coherence; and specialist agents that receive only the information required for their role.",
+                           "operationalImpact":  "A sales-analysis agent starts with approved metric definitions and current pipeline data, retrieves regional policy or account history only when needed, stores a compact record of prior decisions, and removes obsolete tool output from active context. Sensitive customer records are exposed only when the requesting user and current task are authorized to use them.",
+                           "primaryRisk":  "Context poisoning; stale or contradictory memory; permission leakage; irrelevant or excessive context; compaction that drops critical details; retrieval failures; cross-agent state leakage; hidden personalization; and tool outputs that consume attention or inject untrusted instructions."
+                       },
+    "questionsToAsk":  [
+
+                       ],
+    "relationships":  [
+
+                      ],
+    "prerequisites":  [
+
+                      ],
+    "learnNext":  [
+
+                  ],
+    "commonlyConfusedWith":  [
+
+                             ],
+    "comparisons":  [
+
+                    ],
+    "sources":  [
+
+                ]
+}
