@@ -2,7 +2,7 @@
   "application": {
     "name": "Visular AI Terms / Concepts",
     "shortName": "VisularAITerms",
-    "version": "0.5.1"
+    "version": "0.6.2"
   },
   "contentFreshness": {
     "reviewRecommendedAfterDays": 90,
