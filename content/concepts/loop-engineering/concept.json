@@ -1,0 +1,194 @@
+{
+    "schemaVersion":  4,
+    "id":  "loop-engineering",
+    "title":  "Loop Engineering",
+    "shortTitle":  "Loop Engineering",
+    "summary":  "Loop Engineering is the design of a repeatable agentic control cycle that lets an AI agent continue working toward a goal across multiple turns. A production loop combines instructions and context with tool use, feedback or verification, state updates, retry policy, resource limits, human checkpoints, and explicit completion or escalation conditions.",
+    "status":  "active",
+    "definition":  "Loop Engineering is the design of a repeatable agentic control cycle that lets an AI agent continue working toward a goal across multiple turns. A production loop combines instructions and context with tool use, feedback or verification, state updates, retry policy, resource limits, human checkpoints, and explicit completion or escalation conditions. Mature loop design also accounts for resumability and observability so long-running work can pause, recover, and be inspected rather than behaving as an opaque sequence of repeated prompts.",
+    "audiences":  {
+                      "seniorLeaders":  "Loop Engineering converts autonomy into an operational control problem. Leaders must decide what the agent may do repeatedly, which actions require approval, what counts as success, how much time or money a run may consume, what evidence a verifier must check, and when the agent must stop or escalate. Production agent runtimes now implement loops, guardrails, sessions, human-in-the-loop controls, and tracing as first-class capabilities, making these decisions directly relevant to deployment governance.",
+                      "knowledgeWorkers":  "Knowledge workers increasingly define the objective and acceptance criteria, then supervise exceptions rather than directing every intermediate action. The critical skill is designing a trustworthy feedback signal: a loop that optimizes against a weak verifier can become faster at producing the wrong result."
+                  },
+    "example":  "A research agent retrieves approved sources, drafts findings, runs a claim-support check, and retries unsupported claims with targeted retrieval. It checkpoints its state before consequential steps, pauses for human review when evidence remains ambiguous, and terminates when coverage, source-quality, and budget criteria are satisfied.",
+    "opportunities":  [
+                          "Longer autonomous execution",
+                          "verification-driven quality",
+                          "lower supervision burden",
+                          "resumable work",
+                          "automated recovery from partial failure",
+                          "repeatable tool use",
+                          "human approval at defined checkpoints",
+                          "and measurable optimization of cost per successful task rather than cost per model response"
+                      ],
+    "risks":  [
+                  "Runaway iterations and cost",
+                  "vague or gameable stop conditions",
+                  "verifier error",
+                  "reward or metric gaming",
+                  "repeated actions without new information",
+                  "unsafe tool use",
+                  "nonrecoverable side effects",
+                  "compounding mistakes",
+                  "weak observability",
+                  "and failure to escalate when progress stalls"
+              ],
+    "misconception":  "A loop is not merely â€œrepeat the prompt.â€ A reliable loop is a controlled feedback system with changing state, tool actions, verification, budgets, recovery behavior, and a defined exit or escalation path. A correct final answer can still conceal an unsafe, wasteful, or unstable trajectory.",
+    "monitor":  "Successful-task rate; verifier precision and false approvals; average iterations; no-progress detection; guardrail trips; human-interrupt rate; checkpoint and resume success; cost per successful run; tool-path stability; trace-level evaluation; and whether increasing autonomy improves outcomes without weakening control. Evidence: [10], [11], [12], [13], [14].",
+    "classification":  {
+                           "type":  "Agent workflow discipline",
+                           "horizon":  [
+                                           "current",
+                                           "emerging"
+                                       ],
+                           "score":  91,
+                           "confidence":  "medium-high"
+                       },
+    "lastReviewed":  "2026-08-13",
+    "keywords":  [
+                     "loop",
+                     "engineering",
+                     "generative ai",
+                     "agentic",
+                     "context",
+                     "prompt"
+                 ],
+    "media":  [
+                  {
+                      "id":  "infographic",
+                      "type":  "image",
+                      "label":  "Infographic",
+                      "src":  "./media/infographic.png",
+                      "webSrc":  "./derived/infographic-1600.jpg",
+                      "thumbnail":  "./derived/infographic-thumbnail.jpg",
+                      "mime":  "image/png",
+                      "alt":  "Infographic overview of Loop Engineering, including its definition, organizational relevance, opportunities, risks, and monitoring considerations.",
+                      "displayLabel":  "Infographic",
+                      "accessibility":  {
+                                            "status":  "complete",
+                                            "alt":  "Infographic overview of Loop Engineering, including its definition, organizational relevance, opportunities, risks, and monitoring considerations."
+                                        },
+                      "sizeBytes":  5161025
+                  },
+                  {
+                      "id":  "video",
+                      "type":  "video",
+                      "label":  "Video",
+                      "src":  "./media/explainer-video.mp4",
+                      "mime":  "video/mp4",
+                      "poster":  "./derived/video-poster.svg",
+                      "displayLabel":  "Watch video",
+                      "accessibility":  {
+                                            "status":  "needs-remediation",
+                                            "captions":  null,
+                                            "transcript":  null
+                                        },
+                      "sizeBytes":  9436888,
+                      "durationSeconds":  73.35
+                  },
+                  {
+                      "id":  "audio",
+                      "type":  "audio",
+                      "label":  "Audio",
+                      "src":  "./media/audio-overview.m4a",
+                      "mime":  "audio/mp4",
+                      "displayLabel":  "Listen",
+                      "accessibility":  {
+                                            "status":  "needs-remediation",
+                                            "transcript":  null
+                                        },
+                      "sizeBytes":  3056571,
+                      "durationSeconds":  94.95
+                  },
+                  {
+                      "id":  "slides",
+                      "type":  "pdf",
+                      "label":  "Slides / PDF",
+                      "src":  "./media/presentation.pdf",
+                      "mime":  "application/pdf",
+                      "displayLabel":  "Presentation",
+                      "accessibility":  {
+                                            "status":  "alternative-provided",
+                                            "sourceTagged":  false,
+                                            "accessibleAlternative":  "./derived/briefing.html",
+                                            "alternativeLabel":  "The source PDF is treated as untagged unless separately verified. Use the readable concept briefing for equivalent concept-level text."
+                                        },
+                      "sizeBytes":  9271908,
+                      "pages":  9
+                  },
+                  {
+                      "id":  "briefing",
+                      "type":  "text",
+                      "label":  "Read",
+                      "src":  "./media/briefing.txt",
+                      "mime":  "text/plain",
+                      "webVersion":  "./derived/briefing.html",
+                      "displayLabel":  "Read",
+                      "accessibility":  {
+                                            "status":  "complete",
+                                            "accessibleAlternative":  "./derived/briefing.html"
+                                        },
+                      "sizeBytes":  3404
+                  }
+              ],
+    "contentVersion":  "1.0-imported",
+    "reviewStatus":  "needs-review",
+    "aliases":  [
+
+                ],
+    "categories":  [
+                       "ai-agents",
+                       "ai-infrastructure",
+                       "data-rag",
+                       "models-architecture",
+                       "ai-governance-risk"
+                   ],
+    "relatedConcepts":  [
+
+                        ],
+    "created":  "2026-08-13",
+    "lastUpdated":  "2026-08-13",
+    "review":  {
+                   "status":  "needs-review",
+                   "reviewedDate":  "2026-08-13",
+                   "nextReviewDate":  "2026-11-11"
+               },
+    "simpleExplanation":  "Loop Engineering is the design of a repeatable agentic control cycle that lets an AI agent continue working toward a goal across multiple turns.",
+    "executiveTakeaway":  "Loop Engineering converts autonomy into an operational control problem. Leaders must decide what the agent may do repeatedly, which actions require approval, what counts as success, how much time or money a run may consume, what evidence a verifier must check, and when the agent must stop or escalate. Production agent runtimes now implement loops, guardrails, sessions, human-in-the-loop controls, and tracing as first-class capabilities, making these decisions directly relevant to deployment governance.",
+    "knowledgeWorkerTakeaway":  "Knowledge workers increasingly define the objective and acceptance criteria, then supervise exceptions rather than directing every intermediate action. The critical skill is designing a trustworthy feedback signal: a loop that optimizes against a weak verifier can become faster at producing the wrong result.",
+    "keyTakeaway":  "Loop Engineering is the design of a repeatable agentic control cycle that lets an AI agent continue working toward a goal across multiple turns. A production loop combines instructions and context with tool use, feedback or verification, state updates, retry policy, resource limits, human checkpoints, and explicit completion or escalation conditions.",
+    "primaryRisk":  "Runaway iterations and cost; vague or gameable stop conditions; verifier error; reward or metric gaming; repeated actions without new information; unsafe tool use; nonrecoverable side effects; compounding mistakes; weak observability; and failure to escalate when progress stalls.",
+    "examples":  [
+                     {
+                         "title":  "Practical organizational example",
+                         "audience":  "all",
+                         "summary":  "A research agent retrieves approved sources, drafts findings, runs a claim-support check, and retries unsupported claims with targeted retrieval. It checkpoints its state before consequential steps, pauses for human review when evidence remains ambiguous, and terminates when coverage, source-quality, and budget criteria are satisfied."
+                     }
+                 ],
+    "businessImpact":  {
+                           "potentialValue":  "Longer autonomous execution; verification-driven quality; lower supervision burden; resumable work; automated recovery from partial failure; repeatable tool use; human approval at defined checkpoints; and measurable optimization of cost per successful task rather than cost per model response.",
+                           "operationalImpact":  "A research agent retrieves approved sources, drafts findings, runs a claim-support check, and retries unsupported claims with targeted retrieval. It checkpoints its state before consequential steps, pauses for human review when evidence remains ambiguous, and terminates when coverage, source-quality, and budget criteria are satisfied.",
+                           "primaryRisk":  "Runaway iterations and cost; vague or gameable stop conditions; verifier error; reward or metric gaming; repeated actions without new information; unsafe tool use; nonrecoverable side effects; compounding mistakes; weak observability; and failure to escalate when progress stalls."
+                       },
+    "questionsToAsk":  [
+
+                       ],
+    "relationships":  [
+
+                      ],
+    "prerequisites":  [
+
+                      ],
+    "learnNext":  [
+
+                  ],
+    "commonlyConfusedWith":  [
+
+                             ],
+    "comparisons":  [
+
+                    ],
+    "sources":  [
+
+                ]
+}
