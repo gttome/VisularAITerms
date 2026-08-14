@@ -84,15 +84,15 @@ export function mediaMimeFromExtension(ext){
   const map={
     '.png':['image','image/png'], '.jpg':['image','image/jpeg'], '.jpeg':['image','image/jpeg'], '.webp':['image','image/webp'],
     '.mp4':['video','video/mp4'], '.m4a':['audio','audio/mp4'], '.mp3':['audio','audio/mpeg'], '.wav':['audio','audio/wav'],
-    '.pdf':['pdf','application/pdf'], '.docx':['docx','application/vnd.openxmlformats-officedocument.wordprocessingml.document']
+    '.pdf':['pdf','application/pdf'], '.docx':['docx','application/vnd.openxmlformats-officedocument.wordprocessingml.document'], '.txt':['text','text/plain']
   };
   return map[String(ext).toLowerCase()]||null;
 }
 
 export function defaultMediaLabel(type){
-  return ({image:'Infographic',video:'Video',audio:'Audio',pdf:'Presentation',docx:'Read'})[type]||'Resource';
+  return ({image:'Infographic',video:'Video',audio:'Audio',pdf:'Presentation',docx:'Read',text:'Read'})[type]||'Resource';
 }
 
 export function defaultDisplayLabel(type){
-  return ({image:'Infographic',video:'Watch video',audio:'Listen',pdf:'Presentation',docx:'Read'})[type]||'Open';
+  return ({image:'Infographic',video:'Watch video',audio:'Listen',pdf:'Presentation',docx:'Read',text:'Read'})[type]||'Open';
 }

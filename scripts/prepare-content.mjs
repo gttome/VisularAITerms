@@ -46,8 +46,8 @@ export async function prepareConcept(id){
     if(item.type==='video'){
       const hadPoster=Boolean(item.poster);const posterRel=item.poster||`./derived/${item.id}-poster.svg`;const poster=localPath(file,posterRel);await ensureParent(poster);const mayGenerate=!hadPoster || (/\.svg$/i.test(posterRel) && await shouldGenerate(source,poster));if(mayGenerate){await fs.writeFile(poster,posterSvg(concept.title));outputs.push(`GENERATED ${id}/${path.basename(poster)} (branded poster)`);}if(!item.poster){item.poster=posterRel;changed=true;}
     }
-    if(item.type==='docx'){
-      const htmlRel=item.webVersion||`./derived/${item.id}.html`;const target=localPath(file,htmlRel);await ensureParent(target);if(await shouldGenerate(source,target)){await helper('docx',{Src:source,Out:target,Title:concept.title});outputs.push(`GENERATED ${id}/${path.basename(target)}`);}if(!item.webVersion){item.webVersion=htmlRel;changed=true;}if(!item.accessibility)item.accessibility={status:'needs-review'};if(!item.accessibility.accessibleAlternative){item.accessibility.accessibleAlternative=htmlRel;changed=true;}
+    if(item.type==='docx'||item.type==='text'){
+      const htmlRel=item.webVersion||`./derived/${item.id}.html`;const target=localPath(file,htmlRel);await ensureParent(target);const mode=item.type==='docx'?'docx':'text';if(await shouldGenerate(source,target)){await helper(mode,{Src:source,Out:target,Title:concept.title});outputs.push(`GENERATED ${id}/${path.basename(target)}`);}if(!item.webVersion){item.webVersion=htmlRel;changed=true;}if(!item.accessibility)item.accessibility={status:'needs-review'};if(!item.accessibility.accessibleAlternative){item.accessibility.accessibleAlternative=htmlRel;changed=true;}
     }
   }
   if(changed)await fs.writeFile(file,JSON.stringify(concept,null,2)+'\n');return outputs;

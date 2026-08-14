@@ -52,7 +52,7 @@ function Test-ExpectedClientDisconnect([System.Exception]$Exception) {
 
 $listener = [System.Net.Sockets.TcpListener]::new([System.Net.IPAddress]::Loopback, $Port)
 $listener.Start()
-Write-Host "Visular AI Terms / Concepts v0.5.1" -ForegroundColor Cyan
+Write-Host "Visular AI Terms / Concepts v0.6.1" -ForegroundColor Cyan
 Write-Host "Serving: $Root"
 Write-Host "Open:    http://localhost:$Port/" -ForegroundColor Green
 Write-Host "Press Ctrl+C to stop."

@@ -10,7 +10,7 @@ const version=config.application.version;
 const repoMount='/VisularAITerms/';
 
 function typeFor(file){
-  return ({'.html':'text/html','.css':'text/css','.js':'text/javascript','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml','.mp4':'video/mp4','.m4a':'audio/mp4','.pdf':'application/pdf','.docx':'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}[path.extname(file).toLowerCase()]||'application/octet-stream');
+  return ({'.html':'text/html','.css':'text/css','.js':'text/javascript','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml','.mp4':'video/mp4','.m4a':'audio/mp4','.pdf':'application/pdf','.docx':'application/vnd.openxmlformats-officedocument.wordprocessingml.document','.txt':'text/plain'}[path.extname(file).toLowerCase()]||'application/octet-stream');
 }
 function stripMount(pathname){
   if(pathname.startsWith(repoMount))return '/'+pathname.slice(repoMount.length);

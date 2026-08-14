@@ -1,5 +1,5 @@
 param(
-  [Parameter(Mandatory=$true)][ValidateSet('image','docx')][string]$Mode,
+  [Parameter(Mandatory=$true)][ValidateSet('image','docx','text')][string]$Mode,
   [Parameter(Mandatory=$true)][string]$Src,
   [string]$Web,
   [string]$Thumb,
@@ -17,7 +17,32 @@ if($Mode -eq 'image'){
   Add-Type -AssemblyName System.Drawing
   $img=[System.Drawing.Image]::FromFile($Src);try{Save-Jpeg $img $Web 1600 1600;Save-Jpeg $img $Thumb 480 320}finally{$img.Dispose()};exit 0
 }
-if(-not $Out){throw 'Out is required for docx mode.'}
+if(-not $Out){throw 'Out is required for document mode.'}
+if($Mode -eq 'text'){
+  function Enc([string]$Text){return [System.Net.WebUtility]::HtmlEncode($Text)}
+  $raw=[IO.File]::ReadAllText($Src)
+  $lines=$raw -split "`r?`n"
+  $chunks=New-Object System.Collections.Generic.List[string]
+  $prefixes=@('Plain-language definition:','Why it matters to senior leaders:','Why it matters to knowledge workers:','Practical organizational example:','Key opportunities:','Principal risks or limitations:','Common misconception:','What to monitor next:','Architecture test:')
+  $emittedTitle=$false
+  for($i=0;$i -lt $lines.Count;){
+    $line=$lines[$i].Trim(); if(-not $line){$i++;continue}
+    if(-not $emittedTitle -and $line.Equals($Title,[StringComparison]::OrdinalIgnoreCase)){$chunks.Add('<h2>'+ (Enc $Title) +'</h2>');$emittedTitle=$true;$i++;continue}
+    $matched=$false
+    foreach($prefix in $prefixes){if($line.StartsWith($prefix,[StringComparison]::OrdinalIgnoreCase)){$chunks.Add('<h3>'+ (Enc $prefix.TrimEnd(':')) +'</h3><p>'+ (Enc $line.Substring($prefix.Length).Trim()) +'</p>');$matched=$true;break}}
+    if($matched){$i++;continue}
+    if($lines[$i].Contains("`t")){
+      $rows=New-Object System.Collections.Generic.List[string]
+      while($i -lt $lines.Count -and $lines[$i].Contains("`t") -and $lines[$i].Trim()){$cells=($lines[$i] -split "`t" | ForEach-Object{'<td>'+ (Enc $_.Trim()) +'</td>'});$rows.Add('<tr>'+($cells -join '')+'</tr>');$i++}
+      $chunks.Add('<table><tbody>'+($rows -join '')+'</tbody></table>');continue
+    }
+    if($line.Equals('Comparative Framework',[StringComparison]::OrdinalIgnoreCase)){$chunks.Add('<h3>'+ (Enc $line) +'</h3>')}else{$chunks.Add('<p>'+ (Enc $line) +'</p>')}
+    $i++
+  }
+  if(-not $emittedTitle){$chunks.Insert(0,'<h2>'+ (Enc $Title) +'</h2>')}
+  Ensure-Parent $Out;$safeTitle=Enc $Title;$html='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+$safeTitle+' - Briefing</title></head><body><article class="briefing-document">'+($chunks -join '')+'</article></body></html>'
+  [IO.File]::WriteAllText($Out,$html,(New-Object Text.UTF8Encoding($false)));exit 0
+}
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $zip=[System.IO.Compression.ZipFile]::OpenRead($Src)
 try{$entry=$zip.GetEntry('word/document.xml');if(-not $entry){throw 'word/document.xml not found'};$reader=New-Object IO.StreamReader($entry.Open());try{[xml]$xml=$reader.ReadToEnd()}finally{$reader.Dispose()}}finally{$zip.Dispose()}

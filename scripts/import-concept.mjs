@@ -23,7 +23,7 @@ await fs.mkdir(path.join(dest,'media'),{recursive:true});
 await fs.mkdir(path.join(dest,'derived'),{recursive:true});
 const files=(await fs.readdir(source,{withFileTypes:true})).filter(x=>x.isFile());
 const supported=files.map(entry=>({entry,info:mediaMimeFromExtension(path.extname(entry.name))})).filter(x=>x.info);
-if(!supported.length){console.error('No supported files found. Supported: PNG/JPG/JPEG/WEBP, MP4, M4A/MP3/WAV, PDF, DOCX.');await fs.rm(dest,{recursive:true,force:true});process.exit(1);}
+if(!supported.length){console.error('No supported files found. Supported: PNG/JPG/JPEG/WEBP, MP4, M4A/MP3/WAV, PDF, DOCX, TXT.');await fs.rm(dest,{recursive:true,force:true});process.exit(1);}
 const typeCounts=new Map(); const media=[];
 for(const {entry,info:[type,mime]} of supported){
   const n=(typeCounts.get(type)||0)+1; typeCounts.set(type,n);
@@ -39,6 +39,7 @@ for(const {entry,info:[type,mime]} of supported){
   if(type==='video'){item.accessibility.captions=null;item.accessibility.transcript=null;}
   if(type==='audio'){item.accessibility.transcript=null;}
   if(type==='pdf'){item.accessibility.sourceTagged=null;item.accessibility.accessibleAlternative=null;}
+  if(type==='text'){item.accessibility.accessibleAlternative=null;}
   media.push(item);
 }
 const concept={

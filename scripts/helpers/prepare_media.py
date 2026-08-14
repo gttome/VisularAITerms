@@ -87,14 +87,62 @@ def docx_mode(src, output, title):
     doc=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{safe_title} - Briefing</title></head><body><article class="briefing-document">'+''.join(chunks)+'</article></body></html>'
     Path(output).parent.mkdir(parents=True,exist_ok=True);Path(output).write_text(doc,encoding='utf-8')
 
+
+def text_mode(src, output, title):
+    raw=Path(src).read_text(encoding='utf-8-sig',errors='replace')
+    lines=[line.rstrip() for line in raw.replace('\r\n','\n').replace('\r','\n').split('\n')]
+    prefixes=[
+        'Plain-language definition:',
+        'Why it matters to senior leaders:',
+        'Why it matters to knowledge workers:',
+        'Practical organizational example:',
+        'Key opportunities:',
+        'Principal risks or limitations:',
+        'Common misconception:',
+        'What to monitor next:',
+        'Architecture test:'
+    ]
+    chunks=[]; i=0; emitted_title=False
+    while i < len(lines):
+        line=lines[i].strip()
+        if not line:
+            i+=1; continue
+        if not emitted_title and (line.lower()==title.lower() or line.lower().endswith(('— '+title).lower())):
+            chunks.append(f'<h2>{html.escape(title)}</h2>'); emitted_title=True; i+=1; continue
+        matched=False
+        for prefix in prefixes:
+            if line.lower().startswith(prefix.lower()):
+                chunks.append(f'<h3>{html.escape(prefix[:-1])}</h3><p>{html.escape(line[len(prefix):].strip())}</p>')
+                matched=True; break
+        if matched:
+            i+=1; continue
+        # Consecutive tab-delimited lines become a simple readable table.
+        if '\t' in lines[i]:
+            rows=[]
+            while i < len(lines) and '\t' in lines[i] and lines[i].strip():
+                cells=[f'<td>{html.escape(cell.strip())}</td>' for cell in lines[i].split('\t')]
+                rows.append('<tr>'+''.join(cells)+'</tr>'); i+=1
+            chunks.append('<table><tbody>'+''.join(rows)+'</tbody></table>'); continue
+        if line.lower() in ('comparative framework','dimension'):
+            chunks.append(f'<h3>{html.escape(line)}</h3>')
+        else:
+            chunks.append(f'<p>{html.escape(line)}</p>')
+        i+=1
+    if not emitted_title:
+        chunks.insert(0,f'<h2>{html.escape(title)}</h2>')
+    safe_title=html.escape(title)
+    doc=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{safe_title} - Briefing</title></head><body><article class="briefing-document">'+''.join(chunks)+'</article></body></html>'
+    Path(output).parent.mkdir(parents=True,exist_ok=True);Path(output).write_text(doc,encoding='utf-8')
+
 def main():
-    p=argparse.ArgumentParser();p.add_argument('mode',choices=['image','docx']);p.add_argument('--src',required=True);p.add_argument('--web');p.add_argument('--thumb');p.add_argument('--out');p.add_argument('--title',default='Concept briefing');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('mode',choices=['image','docx','text']);p.add_argument('--src',required=True);p.add_argument('--web');p.add_argument('--thumb');p.add_argument('--out');p.add_argument('--title',default='Concept briefing');a=p.parse_args()
     if a.mode=='image':
         if not a.web or not a.thumb:p.error('--web and --thumb required')
         image_mode(a.src,a.web,a.thumb)
     else:
         if not a.out:p.error('--out required')
-        docx_mode(a.src,a.out,a.title)
+        if a.mode=='docx': docx_mode(a.src,a.out,a.title)
+        else: text_mode(a.src,a.out,a.title)
 if __name__=='__main__':
     try:main()
     except Exception as exc:print(f'ERROR: {exc}',file=sys.stderr);sys.exit(1)

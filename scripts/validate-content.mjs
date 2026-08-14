@@ -8,7 +8,7 @@ const conceptsDir=path.join(root,'content','concepts');const learningPathsDir=pa
 const config=JSON.parse(await fs.readFile(path.join(root,'config','app.config.json'),'utf8'));
 const categoriesConfig=JSON.parse(await fs.readFile(path.join(root,'content','config','categories.json'),'utf8'));
 const categoryIds=new Set((categoriesConfig.categories||[]).map(c=>c.id));
-const allowedMedia=new Set(['image','video','audio','pdf','docx']);
+const allowedMedia=new Set(['image','video','audio','pdf','docx','text']);
 const accessibilityStatuses=new Set(['complete','needs-review','needs-remediation','alternative-provided']);
 const reviewStatuses=new Set(['reviewed','draft','needs-review']);
 const statuses=new Set(['active','emerging','updated','deprecated','archived','draft']);
@@ -47,7 +47,7 @@ for(const dir of dirs){
     if(m.type==='video'){if(!a.captions)warnings.push(`${c.id}/${m.id}: captions not supplied`);if(!a.transcript)warnings.push(`${c.id}/${m.id}: transcript not supplied`);if(!m.poster)warnings.push(`${c.id}/${m.id}: video poster is not supplied; content:prepare can generate one`);}
     if(m.type==='audio'&&!a.transcript)warnings.push(`${c.id}/${m.id}: transcript not supplied`);
     if(m.type==='pdf'&&a.sourceTagged===false){if(a.accessibleAlternative)infos.push(`${c.id}/${m.id}: source PDF is untagged; readable alternative is provided`);else warnings.push(`${c.id}/${m.id}: supplied PDF is untagged and has no readable alternative`);}
-    if(m.type==='docx'&&!m.webVersion)warnings.push(`${c.id}/${m.id}: DOCX webVersion is not supplied; content:prepare can generate one`);
+    if((m.type==='docx'||m.type==='text')&&!m.webVersion)warnings.push(`${c.id}/${m.id}: readable webVersion is not supplied; content:prepare can generate one`);
   }
 }
 
@@ -60,16 +60,20 @@ for(const c of concepts){
 for(const cycle of findReplacementCycles(concepts))errors.push(`replacement cycle detected: ${cycle.join(' -> ')}`);
 const prerequisiteGraph=new Map(concepts.map(c=>[c.id,c.prerequisites||[]]));detectCycles(prerequisiteGraph,'prerequisite');
 
-const learningPathIds=new Set();let learningPathCount=0;
+const learningPathIds=new Set();const learningPathConceptIds=new Set();let learningPathCount=0;
 try{
   const files=(await fs.readdir(learningPathsDir,{withFileTypes:true})).filter(x=>x.isFile()&&x.name.endsWith('.json')).sort((a,b)=>a.name.localeCompare(b.name));
   for(const entry of files){
     const file=path.join(learningPathsDir,entry.name);let lp;try{lp=JSON.parse(await fs.readFile(file,'utf8'));}catch(e){errors.push(`learning path ${entry.name}: invalid JSON (${e.message})`);continue;}learningPathCount++;
     if(lp.schemaVersion!==1)errors.push(`${entry.name}: learning path schemaVersion must be 1`);if(!slugPattern.test(lp.id||''))errors.push(`${entry.name}: invalid learning path id ${lp.id}`);if(path.basename(entry.name,'.json')!==lp.id)errors.push(`${entry.name}: filename must equal learning path id ${lp.id}`);if(learningPathIds.has(lp.id))errors.push(`${entry.name}: duplicate learning path id ${lp.id}`);learningPathIds.add(lp.id);
     if(!['all','senior-leader','knowledge-worker'].includes(lp.audience))errors.push(`${lp.id}: invalid learning path audience ${lp.audience}`);if(!Array.isArray(lp.concepts)||lp.concepts.length<1)errors.push(`${lp.id}: learning path requires at least one concept`);if(new Set(lp.concepts||[]).size!==(lp.concepts||[]).length)errors.push(`${lp.id}: learning path contains duplicate concepts`);if((lp.concepts||[]).length<2)warnings.push(`${lp.id}: learning path contains fewer than two concepts`);
-    for(const id of lp.concepts||[]){if(!byId.has(id))errors.push(`${lp.id}: learning path references missing concept ${id}`);else if(['archived','deprecated','draft'].includes(byId.get(id).status))warnings.push(`${lp.id}: learning path references non-current concept ${id}`);}
+    for(const id of lp.concepts||[]){if(!byId.has(id))errors.push(`${lp.id}: learning path references missing concept ${id}`);else if(['archived','deprecated','draft'].includes(byId.get(id).status))warnings.push(`${lp.id}: learning path references non-current concept ${id}`);learningPathConceptIds.add(id);}
   }
 }catch(e){warnings.push(`learning paths directory could not be read: ${e.message}`);}
+
+for(const c of concepts){
+  if(config.catalog.browseStatuses.includes(c.status)&&!learningPathConceptIds.has(c.id))warnings.push(`${c.id}: browsable concept is not represented in any learning path`);
+}
 
 if(config.mediaStorage?.baseUrl&&!validHttpUrl(config.mediaStorage.baseUrl))errors.push('config.mediaStorage.baseUrl must be blank or a valid http(s) URL');
 for(const i of infos)console.log(`INFORMATION: ${i}`);for(const w of warnings)console.warn(`WARNING: ${w}`);
